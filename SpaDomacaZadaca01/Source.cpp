@@ -23,6 +23,9 @@ int main()
 		// set the shape color to green
 		shape.setFillColor(sf::Color(100, 250, 50));
 		window.draw(shape);
+		sf::CircleShape shape1(30.f);
+		shape1.setFillColor(sf::Color(100, 200, 50));
+		window.draw(shape1);
 		//cvijet.draw();
 		window.display();
 	}
