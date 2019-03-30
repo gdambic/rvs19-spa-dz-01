@@ -1,11 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
+#include "Sunce.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	//INICIJALIZIRAJ PROZOR
+	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML - Iscrtavanje cijeta!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	
+	//INICIJALIZIRAJ OBJEKTA
+	Cvijet cvijet(&window);
+	Sunce sunce(&window, 20.f);
 
+	//GLAVNA PETLJA
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -16,7 +23,11 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+
+		//NACRTAJ OBJEKTE
+		cvijet.draw();
+		sunce.draw();
+
 		window.display();
 	}
 
