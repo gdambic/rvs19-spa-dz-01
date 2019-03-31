@@ -1,34 +1,69 @@
 #include <SFML/Graphics.hpp>
-
+#include "Cvijet.h"
+#include "Cvijetovi.h"
+#include <iostream>
+#include <vector>
 int main()	
 {
+	srand((unsigned)time(0));
+	srand(rand());
+	const int FPS = 60;
+	const int WIDTH = 800;
+	const int HEIGHT = 600;
+
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Cvijet - by vanjavk", sf::Style::Default, settings);
-	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
-
+	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Cvijet - by vanjavk", sf::Style::Default, settings);
+	window.setFramerateLimit(FPS);
+	Cvijetovi cvijetovi = Cvijetovi(&window);
+	//cvijetovi.push_back(Cvijet(window));
 	while (window.isOpen())
 	{
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			// check the type of the event...
+			switch (event.type)
+			{
+				// window closed
+			case sf::Event::Closed:
 				window.close();
+				break;
+
+				// key pressed
+			case sf::Event::KeyPressed:
+				if (event.key.code == sf::Keyboard::Space) {
+
+
+				}
+				else if (event.key.code == sf::Keyboard::A) {
+					
+				}
+				break;
+
+				// we don't process other types of events
+			default:
+				break;
+			}
 		}
 
 		window.clear();
-		sf::CircleShape shape(50.f);
 
-		// set the shape color to green
-		shape.setFillColor(sf::Color(100, 250, 50));
-		window.draw(shape);
-		sf::CircleShape shape1(30.f);
-		shape1.setFillColor(sf::Color(100, 200, 50));
-		window.draw(shape1);
-		//cvijet.draw();
+
+
+		cvijetovi.draw();
 		window.display();
 	}
 
 	return 0;
 }
+
+
+
+//i = 0;
+//std::cout << FPS / 60.0 * 1000000;
+//while (clock.getElapsedTime().asMicroseconds() < 1.0 / FPS * 1000000) {
+//	i++;
+//}
+//std::cout << i << std::endl;
+//clock.restart();
