@@ -3,6 +3,20 @@
 #include "Cvijetovi.h"
 #include <iostream>
 #include <vector>
+void tutorial(sf::RenderWindow* window) {
+	// Declare and load a font
+	sf::Font font;
+	font.loadFromFile("consola.ttf");
+	// Create a text
+	sf::Text text("Press SPACE or BACKSPACE",font);
+	text.setCharacterSize(30);
+	text.setStyle(sf::Text::Bold);
+	text.setFillColor(sf::Color::White);
+
+	// Draw it
+	window->draw(text);
+}
+
 int main()	
 {
 	srand((unsigned)time(0));
@@ -16,7 +30,6 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Cvijet - by vanjavk", sf::Style::Default, settings);
 	window.setFramerateLimit(FPS);
 	Cvijetovi cvijetovi = Cvijetovi(&window);
-	//cvijetovi.push_back(Cvijet(window));
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -33,11 +46,12 @@ int main()
 				// key pressed
 			case sf::Event::KeyPressed:
 				if (event.key.code == sf::Keyboard::Space) {
-
+					cvijetovi.dodaj();
 
 				}
-				else if (event.key.code == sf::Keyboard::A) {
-					
+				else if (event.key.code == sf::Keyboard::BackSpace){
+
+					cvijetovi.makni();
 				}
 				break;
 
@@ -48,9 +62,7 @@ int main()
 		}
 
 		window.clear();
-
-
-
+		tutorial(&window);
 		cvijetovi.draw();
 		window.display();
 	}
