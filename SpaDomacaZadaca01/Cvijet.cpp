@@ -1,4 +1,5 @@
 #include "Cvijet.h"
+#include "EllipseShape.h"
 #include <iostream>
 
 
@@ -10,6 +11,8 @@ Cvijet::Cvijet(sf::RenderWindow* window)
 	this->window = window;
 	bojaLatica = sf::Color(100 + rand() % 156, 0, 0);
 	bojaStabljika= sf::Color(71, 170 + rand() % 60, 61);
+	bojaList = sf::Color(90, 170 + rand() % 60, 80);
+	visinaLisca = rand() % 200;
 
 }
 
@@ -23,6 +26,7 @@ void Cvijet::draw()
 		uvecanje -= 2 * uvecanje;
 
 	const double pi = acos(-1);
+
 	//int coloradd = rand() % 156;
 	//Stabljika.setFillColor(sf::Color(100 + coloradd, 0, 0));
 
@@ -39,6 +43,18 @@ void Cvijet::draw()
 
 	sf::CircleShape Latica(velicinalatice);
 	Latica.setFillColor(bojaLatica);
+
+
+	sf::CircleShape List(15.f);
+	List.setScale(4, 1);
+	List.setFillColor(bojaList);
+	List.setPosition(sf::Vector2f(x +10, y - 650 + 150 + visinaLisca));
+	List.rotate(abs(30-rotacija));
+	window->draw(List);
+
+
+
+
 
 	int n = 3;
 	for (int i = 0; i <= n; i++) {
