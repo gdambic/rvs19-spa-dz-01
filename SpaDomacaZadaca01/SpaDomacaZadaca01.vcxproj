@@ -163,6 +163,9 @@
     <ClInclude Include="Cvijet.h" />
     <ClInclude Include="Cvijetovi.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="consola.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
