@@ -3,3 +3,4 @@ Pritisnite SPACE da dodate cvijet
 
 Pritisnite BACKSPACE da izbrišete cvijet
 
+![Slika iz programa](https://i.imgur.com/PCP6EzM.png)
