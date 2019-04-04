@@ -1,10 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include "Cvijet.h"
+#include <iostream>
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!", sf::Style::Close, settings);
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+
+	Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
@@ -16,7 +22,8 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
+
 		window.display();
 	}
 
