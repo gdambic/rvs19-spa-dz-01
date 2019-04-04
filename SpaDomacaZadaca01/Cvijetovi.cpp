@@ -23,5 +23,9 @@ void Cvijetovi::dodaj()
 void Cvijetovi::makni()
 {
 	if (cvijetovi.size()>0)
+	{ 
+		delete cvijetovi[cvijetovi.size() - 1];
 		cvijetovi.pop_back();
+
+	}
 }
