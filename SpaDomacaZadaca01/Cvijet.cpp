@@ -1,5 +1,4 @@
 #include "Cvijet.h"
-#include "EllipseShape.h"
 #include <iostream>
 
 
