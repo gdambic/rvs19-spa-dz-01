@@ -13,6 +13,5 @@ private:
 
 	double animation;
 	double animation2;
-
 };
 
