@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpaDomacaZadaca01", "SpaDomacaZadaca01\SpaDomacaZadaca01.vcxproj", "{27E5E2CC-0412-4F77-917C-6285F9D6F224}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055} = {9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dragonBones", "dragonBones\dragonBones.vcxproj", "{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{27E5E2CC-0412-4F77-917C-6285F9D6F224}.Release|x64.Build.0 = Release|x64
 		{27E5E2CC-0412-4F77-917C-6285F9D6F224}.Release|x86.ActiveCfg = Release|Win32
 		{27E5E2CC-0412-4F77-917C-6285F9D6F224}.Release|x86.Build.0 = Release|Win32
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Debug|x64.ActiveCfg = Debug|x64
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Debug|x64.Build.0 = Debug|x64
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Debug|x86.ActiveCfg = Debug|Win32
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Debug|x86.Build.0 = Debug|Win32
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Release|x64.ActiveCfg = Release|x64
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Release|x64.Build.0 = Release|x64
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Release|x86.ActiveCfg = Release|Win32
+		{9E9347A4-41BF-49F9-A5DE-48ADA9EB3055}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

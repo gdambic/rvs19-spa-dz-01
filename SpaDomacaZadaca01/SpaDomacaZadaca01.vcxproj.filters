@@ -13,18 +13,130 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\DragonBonesSFML">
+      <UniqueIdentifier>{01b8f7d0-0b93-4b12-a643-1637ffeb17b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameComponents">
+      <UniqueIdentifier>{22eebc76-9803-45f2-8cfe-8d7d65364521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{6220e86f-67ab-4ecd-9133-72aa913c6c03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DragonBonesSFML">
+      <UniqueIdentifier>{6c44b536-1819-483d-9fd6-d56edf4d488b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameComponents">
+      <UniqueIdentifier>{79f76fba-403d-4051-b0c5-4032980653c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{3537f847-27e9-4541-a3c9-2dba3a9c61a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Characters">
+      <UniqueIdentifier>{1816b661-ab1f-4bc2-bfec-956b44595603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Characters\MainCharacter">
+      <UniqueIdentifier>{8d5a257b-f8a1-49bf-8b8e-6895983b0e3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Worlds">
+      <UniqueIdentifier>{2bd38dd5-91ea-4d0a-a56e-75303399cdad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Worlds\Night">
+      <UniqueIdentifier>{c3a03ab3-62c9-49e0-a1f8-e2e9da16557e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="dragonBones\SFMLArmatureDisplay.cpp">
+      <Filter>Source Files\DragonBonesSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="dragonBones\SFMLArmatureProxy.cpp">
+      <Filter>Source Files\DragonBonesSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="dragonBones\SFMLFactory.cpp">
+      <Filter>Source Files\DragonBonesSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="dragonBones\SFMLSlot.cpp">
+      <Filter>Source Files\DragonBonesSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="dragonBones\SFMLTextureAtlasData.cpp">
+      <Filter>Source Files\DragonBonesSFML</Filter>
+    </ClCompile>
     <ClCompile Include="Cvijet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files\GameComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cvijet.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="dragonBones\SFMLArmatureDisplay.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
     </ClInclude>
+    <ClInclude Include="dragonBones\SFMLArmatureProxy.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLDisplay.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLEventDispatcher.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLFactory.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLNode.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLSlot.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLTextureAtlasData.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="dragonBones\SFMLTextureData.h">
+      <Filter>Header Files\DragonBonesSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="Cvijet.h">
+      <Filter>Header Files\GameComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files\GameComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="dataContainers.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Characters\MainCharacter\MainCharacter_tex.json">
+      <Filter>Resource Files\Characters\MainCharacter</Filter>
+    </None>
+    <None Include="Assets\Characters\MainCharacter\MainCharacter_ske.json">
+      <Filter>Resource Files\Characters\MainCharacter</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Characters\MainCharacter\MainCharacter_tex.png">
+      <Filter>Resource Files\Characters\MainCharacter</Filter>
+    </Image>
+    <Image Include="Assets\Worlds\Night\3.png">
+      <Filter>Resource Files\Worlds\Night</Filter>
+    </Image>
+    <Image Include="Assets\Worlds\Night\0.png">
+      <Filter>Resource Files\Worlds\Night</Filter>
+    </Image>
+    <Image Include="Assets\Worlds\Night\1.png">
+      <Filter>Resource Files\Worlds\Night</Filter>
+    </Image>
+    <Image Include="Assets\Worlds\Night\2.png">
+      <Filter>Resource Files\Worlds\Night</Filter>
+    </Image>
   </ItemGroup>
 </Project>

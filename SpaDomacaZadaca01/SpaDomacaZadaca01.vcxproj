@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC; _DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\dragonBones;..\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -113,6 +113,10 @@
       <AdditionalLibraryDirectories>..\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib; freetype.lib; winmm.lib; sfml-graphics-s-d.lib; sfml-window-s-d.lib; sfml-system-s-d.lib; kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -155,11 +159,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Cvijet.cpp" />
+    <ClCompile Include="dragonBones\SFMLArmatureDisplay.cpp" />
+    <ClCompile Include="dragonBones\SFMLArmatureProxy.cpp" />
+    <ClCompile Include="dragonBones\SFMLFactory.cpp" />
+    <ClCompile Include="dragonBones\SFMLSlot.cpp" />
+    <ClCompile Include="dragonBones\SFMLTextureAtlasData.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Cvijet.h" />
+    <ClInclude Include="dataContainers.h" />
+    <ClInclude Include="dragonBones\SFMLArmatureDisplay.h" />
+    <ClInclude Include="dragonBones\SFMLArmatureProxy.h" />
+    <ClInclude Include="dragonBones\SFMLDisplay.h" />
+    <ClInclude Include="dragonBones\SFMLEventDispatcher.h" />
+    <ClInclude Include="dragonBones\SFMLFactory.h" />
+    <ClInclude Include="dragonBones\SFMLNode.h" />
+    <ClInclude Include="dragonBones\SFMLSlot.h" />
+    <ClInclude Include="dragonBones\SFMLTextureAtlasData.h" />
+    <ClInclude Include="dragonBones\SFMLTextureData.h" />
+    <ClInclude Include="World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dragonBones\dragonBones.vcxproj">
+      <Project>{9e9347a4-41bf-49f9-a5de-48ada9eb3055}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Characters\MainCharacter\MainCharacter_ske.json">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </DeploymentContent>
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Characters\MainCharacter\MainCharacter_tex.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Characters\MainCharacter\MainCharacter_tex.png" />
+    <Image Include="Assets\Worlds\Night\0.png" />
+    <Image Include="Assets\Worlds\Night\1.png" />
+    <Image Include="Assets\Worlds\Night\2.png" />
+    <Image Include="Assets\Worlds\Night\3.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
