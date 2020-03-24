@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 class Cvijet
 {
+	// ~~~ Varijable
 	bool up = true;
 	sf::RenderWindow* window;
 	sf::Color green = sf::Color(70, 250, 70);
@@ -10,7 +11,14 @@ class Cvijet
 	sf::CircleShape circle = sf::CircleShape(50.f, 12.f);
 	sf::ConvexShape convex;
 	sf::ConvexShape convex2;
+
+	// ~~~ Funkcije
 	void setup();
+	void background_setup();
+	void rect_setup();
+	void circle_setup();
+	void convex_setup();
+	void convex2_setup();
 public:
 	Cvijet(sf::RenderWindow *window);
 	void draw();
