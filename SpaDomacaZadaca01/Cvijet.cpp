@@ -1,8 +1,7 @@
 #include "Cvijet.h"
 
-Cvijet::Cvijet(sf::RenderWindow *window)
+void Cvijet::setup()
 {
-	this->window = window;
 	background.setFillColor(sf::Color(100, 150, 100));
 	background.setPosition(0.f, 0.f);
 	rect.setFillColor(green);
@@ -34,13 +33,19 @@ Cvijet::Cvijet(sf::RenderWindow *window)
 	convex2.rotate(20.f);
 }
 
+Cvijet::Cvijet(sf::RenderWindow *window)
+{
+	this->window = window;
+	setup();
+}
+
 void Cvijet::draw()
 {
 	window->draw(background);
 	auto color = background.getFillColor();
 	if (up) {
 		color.r++;
-		if (color.r == 255)
+		if (color.r == 150)
 			up = !up;
 	}
 	else {

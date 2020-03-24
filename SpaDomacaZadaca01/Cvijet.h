@@ -10,6 +10,7 @@ class Cvijet
 	sf::CircleShape circle = sf::CircleShape(50.f, 12.f);
 	sf::ConvexShape convex;
 	sf::ConvexShape convex2;
+	void setup();
 public:
 	Cvijet(sf::RenderWindow *window);
 	void draw();
