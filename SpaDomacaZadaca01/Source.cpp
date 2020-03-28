@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include<iostream>
+#include<vector>
 #include"Cvijet.h"
 
 int main()
