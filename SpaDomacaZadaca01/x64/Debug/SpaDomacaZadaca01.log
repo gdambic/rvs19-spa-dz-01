@@ -1,0 +1,14 @@
+﻿  Animation.cpp
+D:\Algebra Software Engineering\SPA\DZ\SPA domaća zadaća 01\DZ\LovroBenic_DZ_I1\SpaDomacaZadaca01\Animation.cpp(10,38): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Algebra Software Engineering\SPA\DZ\SPA domaća zadaća 01\DZ\LovroBenic_DZ_I1\SpaDomacaZadaca01\Animation.cpp(11,39): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Main.cpp
+  Generating Code...
+  SpaDomacaZadaca01.vcxproj -> D:\Algebra Software Engineering\SPA\DZ\SPA domaća zadaća 01\DZ\LovroBenic_DZ_I1\x64\Debug\SpaDomacaZadaca01.exe
