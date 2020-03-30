@@ -1,17 +1,24 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <vector>
+#include "Cvijet.h"
 
 int main()
 {
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
+	
 	Cvijet cvijet(&window);
 
-	class cvijet() {
-
-	};
+	
 
 	while (window.isOpen())
 	{
+		
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -19,7 +26,10 @@ int main()
 				window.close();
 		}
 
-		window.clear();
+		
+
+		
+		window.clear(sf::Color(144,238,144));
 		cvijet.draw();
 		window.display();
 	}
