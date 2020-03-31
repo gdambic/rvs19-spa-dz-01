@@ -3,9 +3,10 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Don't click please!");
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
+	sf::Vector2u prozorDim = window.getSize();
 
 	while (window.isOpen())
 	{
@@ -17,10 +18,11 @@ int main()
 		}
 
 		window.clear();
-		sf::CircleShape shape(50.f);
-		//shape.setFillColor(sf::Color(150, 50, 250));
-		window.draw(shape);
-		//cvijet.draw(shape);
+		cvijet.draw();
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			window.setTitle("You had to :'(");
+		}
 		window.display();
 	}
 
