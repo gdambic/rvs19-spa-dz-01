@@ -155,7 +155,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cvijet.cpp" />
+    <ClCompile Include="CvijetMover.cpp" />
+    <ClCompile Include="Pravokutnik.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Sunce.cpp" />
+    <ClCompile Include="Tocka.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cvijet.h" />
+    <ClInclude Include="CvijetMover.h" />
+    <ClInclude Include="Pravokutnik.h" />
+    <ClInclude Include="Sunce.h" />
+    <ClInclude Include="Tocka.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
