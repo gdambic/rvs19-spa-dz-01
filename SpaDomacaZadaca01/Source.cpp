@@ -11,6 +11,7 @@ int main()
 	window.setFramerateLimit(60);
 	
 
+
 	Cvijet cvijet(&window);
 	
 
@@ -23,7 +24,6 @@ int main()
 				window.close();
 		}
 		window.clear();
-		//window.draw(shape);
 		cvijet.draw();
 		window.display();
 	}
