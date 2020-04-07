@@ -1,84 +1,136 @@
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <string>
+#include <vector>
 #include "Cvijet.h"
 
 void Cvijet::setup()
 {
 	background_setup();
-	rect_setup();
-	circle_setup();
-	convex_setup();
-	convex2_setup();
+	latice();
+	stalak();
 }
 
+// sf::RectangleShape(sf::Vector2f(800.f, 600.f));
 void Cvijet::background_setup()
 {
-	background.setFillColor(sf::Color(100, 150, 100));
-	background.setPosition(0.f, 0.f);
+	background = sf::RectangleShape(sf::Vector2f((float)windowsize[0] * 2, (float)windowsize[0] * 2));
+	background.setOrigin((float)windowsize[0], (float)windowsize[0]);
+	background.setRotation(90.f);
+	background.setPosition(sf::Vector2f((float)windowsize[0] / 2, (float)windowsize[1]));
+	texture_background.loadFromFile("textures/skybox.png");
+	background.setTexture(&texture_background);
+
+	sunmun = sf::RectangleShape(sf::Vector2f(58.f, 878.f));
+	sunmun.setOrigin(29.f, 439.f);
+	sunmun.setRotation(90.f);
+	sunmun.setPosition(sf::Vector2f((float)windowsize[0] / 2, (float)windowsize[1]));
+	texture_sunmun.loadFromFile("textures/sunmun-0.png");
+	sunmun.setTexture(&texture_sunmun);
+	sunmun.setScale(1.75f, 1.75f);
 }
 
-void Cvijet::rect_setup()
+void Cvijet::latice()
 {
-	rect.setFillColor(green);
-	rect.setPosition(70.0, 135.0);
+	std::ifstream fin(flowerpoints);
+	std::string line;
+	std::string coordinate;
+
+	while (getline(fin, line)) {
+		std::vector<std::array<float, 2>> temp;
+		std::array<float, 2> coords;
+		std::stringstream ss(line);
+		while (ss >> coords[0]) {
+			ss >> coords[1];
+			temp.push_back(coords);
+		}
+		petals.push_back(temp);
+	}
+	fin.close();
+
+	petal_convex = new sf::ConvexShape[petals.size()];
+	for (int i = 0; i < petals.size(); i++) {
+		petal_convex[i].setPointCount(petals[i].size());
+		for (int j = 0; j < petals[i].size(); j++) {
+			petal_convex[i].setPoint(j, sf::Vector2f((float)petals[i][j][0], (float)petals[i][j][1]));
+		}
+		petal_convex[i].setScale(scale, scale);
+		petal_convex[i].move(move[0], move[1]);
+		petal_convex[i].setFillColor(sf::Color(255 - i/2, i*(3/2), i, 255));
+	}
+
 }
 
-void Cvijet::circle_setup()
+void Cvijet::stalak()
 {
-	circle.setFillColor(sf::Color(250, 250, 150));
-	circle.setOutlineThickness(25.f);
-	circle.setOutlineColor(sf::Color(250, 50, 50));
-	circle.setOrigin(50.f, 50.f);
-	circle.setPosition(75.f, 75.f);
-}
+	std::ifstream fin(stalkpoints);
+	std::string line;
+	std::string coordinate;
+	while (getline(fin, line)) {
+		std::vector<std::array<float, 2>> temp;
+		std::array<float, 2> coords;
+		std::stringstream ss(line);
+		while (ss >> coords[0]) {
+			ss >> coords[1];
+			temp.push_back(coords);
+		}
+		stalks.push_back(temp);
+	}
+	fin.close();
 
-void Cvijet::convex_setup()
-{
-	convex.setPointCount(4);
-	convex.setFillColor(green);
-	convex.setPoint(0, sf::Vector2f(0.f, 0.f));
-	convex.setPoint(1, sf::Vector2f(250.f, 10.f));
-	convex.setPoint(2, sf::Vector2f(120.f, 45.f));
-	convex.setPoint(3, sf::Vector2f(30.f, 50.f));
-	convex.setPosition(40.f, 550);
-	convex.rotate(-20.f);
-	convex.scale(1.5f, 1.5f);
-}
-
-void Cvijet::convex2_setup()
-{
-	convex2.setPointCount(4);
-	convex2.setFillColor(green);
-	convex2.setPoint(0, sf::Vector2f(0.f, 0.f));
-	convex2.setPoint(1, sf::Vector2f(150.f, 10.f));
-	convex2.setPoint(2, sf::Vector2f(120.f, 90.f));
-	convex2.setPoint(3, sf::Vector2f(30.f, 100.f));
-	convex2.setPosition(-50.f, 500.f);
-	convex2.rotate(20.f);
+	stalk_convex = new sf::ConvexShape[stalks.size()];
+	numbies = new sf::Text[stalks.size()];
+	for (int i = 0; i < stalks.size(); i++) {
+		stalk_convex[i].setPointCount(stalks[i].size());
+		numbies[i].setString(char(i));
+		numbies[i].setPosition(sf::Vector2f((float)stalks[i][0][0], (float)stalks[i][0][1]));
+		for (int j = 0; j < stalks[i].size(); j++) {
+			stalk_convex[i].setPoint(j, sf::Vector2f((float)stalks[i][j][0], (float)stalks[i][j][1]));
+		}
+		int size = 35;
+		sf::Image gradient();
+		stalk_convex[i].setScale(scale, scale);
+		stalk_convex[i].move(move[0], move[1]);
+		stalk_convex[i].setFillColor(sf::Color(i, 255 - i*10, i * 2, 255));
+	}
 }
 
 Cvijet::Cvijet(sf::RenderWindow *window)
 {
 	this->window = window;
+	auto size = window->getSize();
+	move[0] = (size.x / 2) - (width * scale) / 2;
+	move[1] = size.y - (height * scale);
+	windowsize[0] = size.x;
+	windowsize[1] = size.y;
 	setup();
 }
 
-void Cvijet::draw()
+void Cvijet::draw(sf::Time elapsedTime)
 {
+	background.rotate(0.1f);
+	sunmun.rotate(0.1f);
+	std::stringstream to_string(background.getRotation());
+	window->setTitle(to_string.str());
+
+	if (mun && sunmun.getRotation() > 90.f && sunmun.getRotation() < 270.f) {
+		texture_sunmun.loadFromFile(textures[++texture]);
+		if (texture == 7)
+			texture = 0;
+		mun = false;
+	}
+	if (!mun && sunmun.getRotation() > 270.f) {
+
+		mun = true;
+	}
 	window->draw(background);
-	auto color = background.getFillColor();
-	if (up) {
-		color.r++;
-		if (color.r == 150)
-			up = !up;
+	window->draw(sunmun);
+
+	for (int i = 0; i < petals.size(); i++)
+		window->draw(petal_convex[i]);
+
+	for (int i = 0; i < stalks.size(); i++) {
+		window->draw(stalk_convex[i]);
 	}
-	else {
-		color.r--;
-		if (color.r == 50)
-			up = !up;
-	}
-	background.setFillColor(color);
-	circle.rotate(1.f);
-	window->draw(rect);
-	window->draw(circle);
-	window->draw(convex);
-	window->draw(convex2);
 }

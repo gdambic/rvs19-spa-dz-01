@@ -27,4 +27,41 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="flowerpoints">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="stalkpoints">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\skybox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\sunmun-7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

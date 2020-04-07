@@ -3,12 +3,15 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Pozdrav, Profesore!");
+	sf::Clock clock;
+	sf::Time prevTime = clock.getElapsedTime();
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "Pozdrav, Profesore!");
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
+		sf::Time elapsedTime = clock.getElapsedTime() - prevTime;
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -17,7 +20,7 @@ int main()
 		}
 
 		window.clear();
-		cvijet.draw();
+		cvijet.draw(elapsedTime);
 		window.display();
 	}
 
