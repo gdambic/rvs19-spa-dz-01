@@ -1,3 +1,4 @@
+#include <SFML/Graphics.hpp>
 #include "Cvijet.h"
 
 int main()
