@@ -10,10 +10,21 @@ private:
 	sf::CircleShape glava;
 	sf::RectangleShape stabljika;
     sf::ConvexShape list;
+	sf::CircleShape sunce;
 
-	void designGlava(sf::CircleShape glava);
-	void designStabljika(sf::RectangleShape stabljika);
-	void designList(sf::ConvexShape list);
+	sf::Clock clock;
+
+
+	int skalar;
+	
+	
+	
+	void designGlava();
+	void designStabljika();
+	void designList();
+	void designSunce();
+
+	void sunceAnimacija();
 
 public:
 	Cvijet(sf::RenderWindow* windowAdress);
