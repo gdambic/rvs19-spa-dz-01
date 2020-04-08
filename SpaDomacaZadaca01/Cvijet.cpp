@@ -40,11 +40,6 @@ void Cvijet::draw() {
 		l[i].setOutlineColor(sf::Color(0, 0, 0));
 	}
 
-	r = EllipseShape(sf::Vector2f(1.5f, 5.f));
-	r.setRotation(45);
-	r.setPosition(rainposx, rainposy);
-	r.setFillColor(sf::Color(40, 96, 153));
-
 	time = clk.getElapsedTime();
 	if (time.asSeconds() < 1) {
 		rainposx = 700;
@@ -53,6 +48,11 @@ void Cvijet::draw() {
 		rainposx -= 10;
 		rainposy += 10;
 	}
+	r = EllipseShape(sf::Vector2f(1.5f, 5.f));
+	r.setRotation(45);
+	r.setPosition(rainposx, rainposy);
+	r.setFillColor(sf::Color(40, 96, 153));
+
 	window->draw(s2);
 	window->draw(s1);
 	window->draw(s);
