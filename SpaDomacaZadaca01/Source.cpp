@@ -1,10 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include "Okolina.h"
+#include "Tlo.h"
+#include "Trava.h"
+#include <time.h>
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+
+	srand(time(NULL));
+
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Pino Roglic-domaca zadaca");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Okolina okolina(&window);
+	Tlo tlo(&window, 1000);
 
 	while (window.isOpen())
 	{
@@ -14,10 +22,12 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
-		window.clear();
-		//cvijet.draw();
+		window.clear(Color(100, 100, 255));
+		
+		tlo.draw();
+		okolina.draw();
 		window.display();
+
 	}
 
 	return 0;

@@ -155,7 +155,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cvijet.cpp" />
+    <ClCompile Include="Okolina.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Sunce.cpp" />
+    <ClCompile Include="Tlo.cpp" />
+    <ClCompile Include="Trava.cpp" />
+    <ClCompile Include="Zvijezda.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cvijet.h" />
+    <ClInclude Include="Okolina.h" />
+    <ClInclude Include="Sunce.h" />
+    <ClInclude Include="Tlo.h" />
+    <ClInclude Include="Trava.h" />
+    <ClInclude Include="Zvijezda.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
