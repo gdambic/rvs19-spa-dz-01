@@ -33,7 +33,7 @@ int main()
 	flower.setTexture(&flowerTexture);
 	
 	Animation flowerAnimation(&flowerTexture, sf::Vector2u(6, 3), 0.35f);
-	//Animation sunAnimation(&sunTexture, sf::Vector2u(1, 1), 0.01f);
+	Animation sunAnimation(&sunTexture, sf::Vector2u(1, 1), 0.01f);
 	Animation glowAnimation(&glowTexture, sf::Vector2u(4, 4), 0.25f);
 	float deltaTime = 0.0f;
 	sf::Clock clock;
@@ -52,8 +52,8 @@ int main()
 		}
 		flowerAnimation.Update(0, deltaTime);
 		flower.setTextureRect(flowerAnimation.uvRect);
-		//sunAnimation.Update(0, deltaTime);
-		//sun.setTextureRect(sunAnimation.uvRect);
+		sunAnimation.Update(0, deltaTime);
+		sun.setTextureRect(sunAnimation.uvRect);
 		glowAnimation.Update(0, deltaTime);
 		glow.setTextureRect(glowAnimation.uvRect);
 		window.clear();
