@@ -1,24 +1,42 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Vertex.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
+#include <SFML/Audio.hpp>
+#include "Cvijet.h"
+#include <thread>
+#include <Windows.h>
+#include <iostream>
+using namespace std;
+using namespace sf;
 
-int main()
+char main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
-	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	RenderWindow window(VideoMode(1920,1080),"Cvijet"); window.setFramerateLimit (50);
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+	Texture pozadina_tekstura, cvijet_glava_tekstura, cvijet_baza_tekstura;
+	if (!(pozadina_tekstura.loadFromFile("pozadina3.png"))) cout << "greska pozadina";
+	if (!(cvijet_glava_tekstura.loadFromFile("cvijet_glava1.png"))) cout << "greska cvijet glava";
+	if (!(cvijet_baza_tekstura.loadFromFile("baza_cvijeta.png"))) cout << "greska cvijet baza";
 
-		window.clear();
-		//cvijet.draw();
-		window.display();
-	}
+	Sprite pozadina, cvijet_glava, cvijet_baza; 
+		pozadina.setTexture(pozadina_tekstura); 
+		cvijet_glava.setTexture(cvijet_glava_tekstura);
+		cvijet_baza.setTexture(cvijet_baza_tekstura);
 
-	return 0;
+					cvijet_glava.setOrigin(250, 250);		cvijet_baza.setOrigin(250, 250);
+					pozadina.setScale(0.5, 0.5);			cvijet_baza.setPosition(850, 690);
+
+	Cvijet cvijet(&window, &pozadina, &cvijet_glava, &cvijet_baza);
+
+
+
+
+
+	/*******************************/while (window.isOpen()) cvijet.draw();/********************************/
+
+
+
+
+
+	return '0' - 48;
 }
