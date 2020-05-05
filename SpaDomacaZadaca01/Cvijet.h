@@ -6,7 +6,7 @@ class Cvijet
 public:
 	Cvijet(sf::RenderWindow *window);
 	void draw();
-	sf::Color randColor(float x);
+	sf::Color randColor();
 	sf::RectangleShape background(sf::Vector2u& prozorDim, const sf::Color boja);
 	void set_tekstura(std::string file);
 	void set_krug(float velicina, float x, float y, float outlineThickness);

@@ -10,12 +10,11 @@ Cvijet::Cvijet(sf::RenderWindow* window)
 
 sf::Color Cvijet::randColor(float x)
 {
-	srand(time(nullptr));
 	int randInt0 = rand() % (255 - 1 + 1) + 1;
 	int randInt1 = rand() % (255 - 1 + 1) + 1;
 	int randInt2 = rand() % (255 - 1 + 1) + 1;
 
-	sf::sleep(sf::seconds(x));
+//	sf::sleep(sf::seconds(x));
 	return sf::Color(randInt0, randInt1, randInt2);
 }
 
@@ -73,6 +72,7 @@ sf::RectangleShape Cvijet::background(sf::Vector2u& prozorDim, const sf::Color b
 
 void Cvijet::draw()
 {
+	srand(time(nullptr));
 	srand(time(nullptr));
 	std::string slika = "trava.jpg";
 	sf::Color bojaNeba = sf::Color::Cyan;
