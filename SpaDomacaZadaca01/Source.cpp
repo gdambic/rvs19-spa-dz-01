@@ -1,10 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Don't click please!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Cvijet cvijet(&window);
+	sf::Vector2u prozorDim = window.getSize();
 
 	while (window.isOpen())
 	{
@@ -16,7 +18,11 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			window.setTitle("You had to :'(");
+		}
 		window.display();
 	}
 
