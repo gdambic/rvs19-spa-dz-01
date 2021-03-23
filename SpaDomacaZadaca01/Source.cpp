@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "Cvijet.h"
+#include <iostream>
 
 int main()
 {
+	std::cout << "comment" << std::endl;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
