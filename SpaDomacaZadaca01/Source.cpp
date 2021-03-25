@@ -18,6 +18,7 @@ int main()
 		window.clear();
 		cvijet.draw();
 		window.display();
+		//Proba 3 uspjesna!
 	}
 	
 	return 0;
