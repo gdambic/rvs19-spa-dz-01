@@ -1,11 +1,14 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Nature.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "NATURE - Tomislav Kescec");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
-
+	
+	Nature nature(&window);
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -16,7 +19,7 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		nature.render();
 		window.display();
 	}
 

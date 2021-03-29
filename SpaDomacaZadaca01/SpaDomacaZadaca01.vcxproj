@@ -23,7 +23,7 @@
     <ProjectGuid>{27E5E2CC-0412-4F77-917C-6285F9D6F224}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SpaDomacaZadaca01</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -155,7 +155,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Butterfly.cpp" />
+    <ClCompile Include="Clouds.cpp" />
+    <ClCompile Include="Flower.cpp" />
+    <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="Nature.cpp" />
+    <ClCompile Include="Sky.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Sun.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Butterfly.h" />
+    <ClInclude Include="Clouds.h" />
+    <ClInclude Include="Flower.h" />
+    <ClInclude Include="Grass.h" />
+    <ClInclude Include="Nature.h" />
+    <ClInclude Include="Sky.h" />
+    <ClInclude Include="Sun.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\butterfly.png" />
+    <Image Include="assets\clouds.png" />
+    <Image Include="assets\flower.png" />
+    <Image Include="assets\grass.png" />
+    <Image Include="assets\sky.jpg" />
+    <Image Include="assets\sun.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
