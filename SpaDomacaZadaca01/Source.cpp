@@ -1,13 +1,13 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Cvijet.h"
+#include "Nature.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "NATURE - Tomislav Kescec");
 	window.setFramerateLimit(60);
 	
-	Cvijet cvijet(&window);
+	Nature nature(&window);
 	
 	while (window.isOpen())
 	{
@@ -19,7 +19,7 @@ int main()
 		}
 
 		window.clear();
-		cvijet.draw();
+		nature.render();
 		window.display();
 	}
 

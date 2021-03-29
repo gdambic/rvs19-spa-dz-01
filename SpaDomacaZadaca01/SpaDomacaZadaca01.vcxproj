@@ -155,14 +155,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cvijet.cpp" />
+    <ClCompile Include="Butterfly.cpp" />
+    <ClCompile Include="Clouds.cpp" />
+    <ClCompile Include="Flower.cpp" />
+    <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="Nature.cpp" />
+    <ClCompile Include="Sky.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Sun.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cvijet.h" />
+    <ClInclude Include="Butterfly.h" />
+    <ClInclude Include="Clouds.h" />
+    <ClInclude Include="Flower.h" />
+    <ClInclude Include="Grass.h" />
+    <ClInclude Include="Nature.h" />
+    <ClInclude Include="Sky.h" />
+    <ClInclude Include="Sun.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\butterfly.png" />
+    <Image Include="assets\clouds.png" />
     <Image Include="assets\flower.png" />
     <Image Include="assets\grass.png" />
     <Image Include="assets\sky.jpg" />
