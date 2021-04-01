@@ -1,10 +1,19 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	// dodano tako da scena izgleda ljepse
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Tulipan - Vladimir Sindler, 1RP2", sf::Style::Default, settings);
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+
+	// Posto SFML vec sadrzi timer, iskoristio sam njega umjesto chrono.
+	sf::Clock clock;
+
+	Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
@@ -15,8 +24,7 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		//cvijet.draw();
+		cvijet.draw(clock.getElapsedTime());
 		window.display();
 	}
 
