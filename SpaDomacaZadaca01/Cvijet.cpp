@@ -674,6 +674,7 @@ void Cvijet::NkutT_latice_animacija(sf::CircleShape element)
 	window->draw(element);
 }
 
+//crtanje
 void Cvijet::draw(sf::Time* vrijeme)
 {
 	set_vrijeme(vrijeme);

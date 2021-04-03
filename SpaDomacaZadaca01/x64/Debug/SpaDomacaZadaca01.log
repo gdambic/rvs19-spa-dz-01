@@ -1,0 +1,3 @@
+﻿  Cvijet.cpp
+C:\Users\Martin\source\repos\SPA_Z1_01\rvs19-spa-dz-01\SpaDomacaZadaca01\Cvijet.cpp(32,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  SpaDomacaZadaca01.vcxproj -> C:\Users\Martin\source\repos\SPA_Z1_01\rvs19-spa-dz-01\x64\Debug\SpaDomacaZadaca01.exe
