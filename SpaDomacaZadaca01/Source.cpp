@@ -1,10 +1,18 @@
-#include <SFML/Graphics.hpp>
+#include<SFML/Graphics.hpp>
+#include"Cvijet.h"
+#include<iostream>
+#include<SFML/System/clock.hpp>
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	std::cout << std::endl << "Animacija by Martin Majeric" << std::endl;
+
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Cvijet");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+
+	Cvijet cvijet(&window);
+
+	sf::Clock clock;
 
 	while (window.isOpen())
 	{
@@ -15,8 +23,12 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		//cvijet.draw();
+		window.clear(sf::Color::Black);
+
+		sf::Time vrijeme = clock.getElapsedTime();
+
+		cvijet.draw(&vrijeme);
+
 		window.display();
 	}
 
