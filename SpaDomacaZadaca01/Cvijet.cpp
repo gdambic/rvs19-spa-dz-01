@@ -3,6 +3,7 @@
 #include<SFML/Graphics.hpp>
 #include<SFML/Window.hpp>
 #include<SFML/System.hpp>
+#include<time.h>
 
 Cvijet::Cvijet(sf::RenderWindow* window)
 {
@@ -29,7 +30,7 @@ void Cvijet::background()
 		y = 4;
 	}
 
-	int time = vrijeme->asSeconds();
+	float time = vrijeme->asSeconds();
 
 	if (x_temp == 2872 || x_temp < 0)
 	{
@@ -40,7 +41,9 @@ void Cvijet::background()
 	x_temp = x_temp + x;
 	y_temp = y_temp + y;
 
-	std::cout << "\tx, y =" << x_temp << "\tTime:" << vrijeme->asSeconds() << "\tGreen6: " << green6 << std::endl;
+	std::cout << "\tx, y =" << x_temp << "\tTime:" << vrijeme->asSeconds() << "\tGreen6: " << green6 <<
+		"\tx_master: " << x_master << "\ty_master: " << y_master << "\tRandom x: " << random_temp_x << "\tRadnom y: " << random_temp_y
+		<< std::endl;
 
 	sf::VertexArray pozadina(sf::TrianglesFan, 9);
 
@@ -147,7 +150,7 @@ void Cvijet::krug1Draw()
 	float upper = 85.f;
 	float lower = 80.f;
 
-	krug_1.setPosition(320, 220);
+	krug_1.setPosition(320 + x_master, 220 + y_master);
 
 	/////////////////////////////////////////////////////
 
@@ -170,7 +173,7 @@ void Cvijet::krug2Draw()
 	float upper = 87.f;
 	float lower = 82.f;
 
-	krug_2.setPosition(325, 225);
+	krug_2.setPosition(325 + x_master, 225 + y_master);
 
 	/////////////////////////////////////////////////////
 
@@ -194,7 +197,7 @@ void Cvijet::krug3Draw()
 	float upper = 350.f;
 	float lower = 100.f;
 
-	krug_3.setPosition(280, 180);
+	krug_3.setPosition(280 + x_master, 180 + y_master);
 
 	/////////////////////////////////////////////////////
 
@@ -215,7 +218,7 @@ void Cvijet::krug3Draw()
 ///////////////////////////////////////////
 void Cvijet::Nkut1Draw()
 {
-	Nkut01.setPosition(400, 300);
+	Nkut01.setPosition(400 + x_master, 300 + y_master);
 	Nkut01.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut01.rotate(1.1f);
 
@@ -224,7 +227,7 @@ void Cvijet::Nkut1Draw()
 
 void Cvijet::Nkut2Draw()
 {
-	Nkut02.setPosition(400, 300);
+	Nkut02.setPosition(400 + x_master, 300 + y_master);
 	Nkut02.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut02.rotate(1.2f);
 
@@ -233,7 +236,7 @@ void Cvijet::Nkut2Draw()
 
 void Cvijet::Nkut3Draw()
 {
-	Nkut03.setPosition(400, 300);
+	Nkut03.setPosition(400 + x_master, 300 + y_master);
 	Nkut03.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut03.rotate(1.3f);
 
@@ -242,7 +245,7 @@ void Cvijet::Nkut3Draw()
 
 void Cvijet::Nkut4Draw()
 {
-	Nkut04.setPosition(400, 300);
+	Nkut04.setPosition(400 + x_master, 300 + y_master);
 	Nkut04.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut04.rotate(1.4f);
 
@@ -251,7 +254,7 @@ void Cvijet::Nkut4Draw()
 
 void Cvijet::Nkut5Draw()
 {
-	Nkut05.setPosition(400, 300);
+	Nkut05.setPosition(400 + x_master, 300 + y_master);
 	Nkut05.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut05.rotate(1.5f);
 
@@ -260,7 +263,7 @@ void Cvijet::Nkut5Draw()
 
 void Cvijet::Nkut6Draw()
 {
-	Nkut06.setPosition(400, 300);
+	Nkut06.setPosition(400 + x_master, 300 + y_master);
 	Nkut06.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut06.rotate(1.6f);
 
@@ -269,7 +272,7 @@ void Cvijet::Nkut6Draw()
 
 void Cvijet::Nkut7Draw()
 {
-	Nkut07.setPosition(400, 300);
+	Nkut07.setPosition(400 + x_master, 300 + y_master);
 	Nkut07.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut07.rotate(1.7f);
 
@@ -278,7 +281,7 @@ void Cvijet::Nkut7Draw()
 
 void Cvijet::Nkut8Draw()
 {
-	Nkut08.setPosition(400, 300);
+	Nkut08.setPosition(400 + x_master, 300 + y_master);
 	Nkut08.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut08.rotate(1.8f);
 
@@ -287,7 +290,7 @@ void Cvijet::Nkut8Draw()
 
 void Cvijet::Nkut9Draw()
 {
-	Nkut09.setPosition(400, 300);
+	Nkut09.setPosition(400 + x_master, 300 + y_master);
 	Nkut09.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut09.rotate(1.9f);
 
@@ -296,7 +299,7 @@ void Cvijet::Nkut9Draw()
 
 void Cvijet::Nkut10Draw()
 {
-	Nkut10.setPosition(400, 300);
+	Nkut10.setPosition(400 + x_master, 300 + y_master);
 	Nkut10.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut10.rotate(2.f);
 
@@ -305,7 +308,7 @@ void Cvijet::Nkut10Draw()
 
 void Cvijet::Nkut11Draw()
 {
-	Nkut11.setPosition(400, 300);
+	Nkut11.setPosition(400 + x_master, 300 + y_master);
 	Nkut11.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut11.rotate(2.1f);
 
@@ -314,7 +317,7 @@ void Cvijet::Nkut11Draw()
 
 void Cvijet::Nkut12Draw()
 {
-	Nkut12.setPosition(400, 300);
+	Nkut12.setPosition(400 + x_master, 300 + y_master);
 	Nkut12.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut12.rotate(2.2f);
 
@@ -323,7 +326,7 @@ void Cvijet::Nkut12Draw()
 
 void Cvijet::Nkut13Draw()
 {
-	Nkut13.setPosition(400, 300);
+	Nkut13.setPosition(400 + x_master, 300 + y_master);
 	Nkut13.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut13.rotate(2.3f);
 
@@ -332,7 +335,7 @@ void Cvijet::Nkut13Draw()
 
 void Cvijet::Nkut14Draw()
 {
-	Nkut14.setPosition(400, 300);
+	Nkut14.setPosition(400 + x_master, 300 + y_master);
 	Nkut14.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut14.rotate(2.4f);
 
@@ -341,7 +344,7 @@ void Cvijet::Nkut14Draw()
 
 void Cvijet::Nkut15Draw()
 {
-	Nkut15.setPosition(400, 300);
+	Nkut15.setPosition(400 + x_master, 300 + y_master);
 	Nkut15.setFillColor(sf::Color(red1, green1, blue1));
 	Nkut15.rotate(2.5f);
 
@@ -350,7 +353,7 @@ void Cvijet::Nkut15Draw()
 
 void Cvijet::Nkut16Draw()
 {
-	Nkut16.setPosition(400, 300);
+	Nkut16.setPosition(400 + x_master, 300 + y_master);
 	Nkut16.setFillColor(sf::Color(red2, green2, blue2));
 	Nkut16.rotate(2.6f);
 
@@ -361,7 +364,7 @@ void Cvijet::Nkut16Draw()
 
 void Cvijet::Nkut1DrawD()
 {
-	Nkut01D.setPosition(400, 300);
+	Nkut01D.setPosition(400 + x_master, 300 + y_master);
 	Nkut01D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut01D.rotate(-1.19f);
 
@@ -370,7 +373,7 @@ void Cvijet::Nkut1DrawD()
 
 void Cvijet::Nkut2DrawD()
 {
-	Nkut02D.setPosition(400, 300);
+	Nkut02D.setPosition(400 + x_master, 300 + y_master);
 	Nkut02D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut02D.rotate(-1.29f);
 
@@ -379,7 +382,7 @@ void Cvijet::Nkut2DrawD()
 
 void Cvijet::Nkut3DrawD()
 {
-	Nkut03D.setPosition(400, 300);
+	Nkut03D.setPosition(400 + x_master, 300 + y_master);
 	Nkut03D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut03D.rotate(-1.39f);
 
@@ -388,7 +391,7 @@ void Cvijet::Nkut3DrawD()
 
 void Cvijet::Nkut4DrawD()
 {
-	Nkut04D.setPosition(400, 300);
+	Nkut04D.setPosition(400 + x_master, 300 + y_master);
 	Nkut04D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut04D.rotate(-1.49f);
 
@@ -397,7 +400,7 @@ void Cvijet::Nkut4DrawD()
 
 void Cvijet::Nkut5DrawD()
 {
-	Nkut05D.setPosition(400, 300);
+	Nkut05D.setPosition(400 + x_master, 300 + y_master);
 	Nkut05D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut05D.rotate(-1.59f);
 
@@ -406,7 +409,7 @@ void Cvijet::Nkut5DrawD()
 
 void Cvijet::Nkut6DrawD()
 {
-	Nkut06D.setPosition(400, 300);
+	Nkut06D.setPosition(400 + x_master, 300 + y_master);
 	Nkut06D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut06D.rotate(-1.69f);
 
@@ -415,7 +418,7 @@ void Cvijet::Nkut6DrawD()
 
 void Cvijet::Nkut7DrawD()
 {
-	Nkut07D.setPosition(400, 300);
+	Nkut07D.setPosition(400 + x_master, 300 + y_master);
 	Nkut07D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut07D.rotate(-1.79f);
 
@@ -424,7 +427,7 @@ void Cvijet::Nkut7DrawD()
 
 void Cvijet::Nkut8DrawD()
 {
-	Nkut08D.setPosition(400, 300);
+	Nkut08D.setPosition(400 + x_master, 300 + y_master);
 	Nkut08D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut08D.rotate(-1.89f);
 
@@ -433,7 +436,7 @@ void Cvijet::Nkut8DrawD()
 
 void Cvijet::Nkut9DrawD()
 {
-	Nkut09D.setPosition(400, 300);
+	Nkut09D.setPosition(400 + x_master, 300 + y_master);
 	Nkut09D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut09D.rotate(-1.99f);
 
@@ -442,7 +445,7 @@ void Cvijet::Nkut9DrawD()
 
 void Cvijet::Nkut10DrawD()
 {
-	Nkut10D.setPosition(400, 300);
+	Nkut10D.setPosition(400 + x_master, 300 + y_master);
 	Nkut10D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut10D.rotate(-2.09f);
 
@@ -451,7 +454,7 @@ void Cvijet::Nkut10DrawD()
 
 void Cvijet::Nkut11DrawD()
 {
-	Nkut11D.setPosition(400, 300);
+	Nkut11D.setPosition(400 + x_master, 300 + y_master);
 	Nkut11D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut11D.rotate(-2.19f);
 
@@ -460,7 +463,7 @@ void Cvijet::Nkut11DrawD()
 
 void Cvijet::Nkut12DrawD()
 {
-	Nkut12D.setPosition(400, 300);
+	Nkut12D.setPosition(400 + x_master, 300 + y_master);
 	Nkut12D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut12D.rotate(-2.29f);
 
@@ -469,7 +472,7 @@ void Cvijet::Nkut12DrawD()
 
 void Cvijet::Nkut13DrawD()
 {
-	Nkut13D.setPosition(400, 300);
+	Nkut13D.setPosition(400 + x_master, 300 + y_master);
 	Nkut13D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut13D.rotate(-2.39f);
 
@@ -478,7 +481,7 @@ void Cvijet::Nkut13DrawD()
 
 void Cvijet::Nkut14DrawD()
 {
-	Nkut14D.setPosition(400, 300);
+	Nkut14D.setPosition(400 + x_master, 300 + y_master);
 	Nkut14D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut14D.rotate(-2.49f);
 
@@ -487,7 +490,7 @@ void Cvijet::Nkut14DrawD()
 
 void Cvijet::Nkut15DrawD()
 {
-	Nkut15D.setPosition(400, 300);
+	Nkut15D.setPosition(400 + x_master, 300 + y_master);
 	Nkut15D.setFillColor(sf::Color(red3, green3, blue3));
 	Nkut15D.rotate(-2.59f);
 
@@ -496,7 +499,7 @@ void Cvijet::Nkut15DrawD()
 
 void Cvijet::Nkut16DrawD()
 {
-	Nkut16D.setPosition(400, 300);
+	Nkut16D.setPosition(400 + x_master, 300 + y_master);
 	Nkut16D.setFillColor(sf::Color(red4, green4, blue4));
 	Nkut16D.rotate(-2.69f);
 
@@ -509,7 +512,7 @@ void Cvijet::Nkut16DrawD()
 
 void Cvijet::Nkut1DrawT()
 {
-	Nkut01T.setPosition(400, 300);
+	Nkut01T.setPosition(400 + x_master, 300 + y_master);
 	Nkut01T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut01T.rotate(1.3f);
 
@@ -518,7 +521,7 @@ void Cvijet::Nkut1DrawT()
 
 void Cvijet::Nkut2DrawT()
 {
-	Nkut02T.setPosition(400, 300);
+	Nkut02T.setPosition(400 + x_master, 300 + y_master);
 	Nkut02T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut02T.rotate(1.4f);
 
@@ -527,7 +530,7 @@ void Cvijet::Nkut2DrawT()
 
 void Cvijet::Nkut3DrawT()
 {
-	Nkut03T.setPosition(400, 300);
+	Nkut03T.setPosition(400 + x_master, 300 + y_master);
 	Nkut03T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut03T.rotate(1.6f);
 
@@ -536,7 +539,7 @@ void Cvijet::Nkut3DrawT()
 
 void Cvijet::Nkut4DrawT()
 {
-	Nkut04T.setPosition(400, 300);
+	Nkut04T.setPosition(400 + x_master, 300 + y_master);
 	Nkut04T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut04T.rotate(1.8f);
 
@@ -545,7 +548,7 @@ void Cvijet::Nkut4DrawT()
 
 void Cvijet::Nkut5DrawT()
 {
-	Nkut05T.setPosition(400, 300);
+	Nkut05T.setPosition(400 + x_master, 300 + y_master);
 	Nkut05T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut05T.rotate(2.0f);
 
@@ -554,7 +557,7 @@ void Cvijet::Nkut5DrawT()
 
 void Cvijet::Nkut6DrawT()
 {
-	Nkut06T.setPosition(400, 300);
+	Nkut06T.setPosition(400 + x_master, 300 + y_master);
 	Nkut06T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut06T.rotate(2.2f);
 
@@ -563,7 +566,7 @@ void Cvijet::Nkut6DrawT()
 
 void Cvijet::Nkut7DrawT()
 {
-	Nkut07T.setPosition(400, 300);
+	Nkut07T.setPosition(400 + x_master, 300 + y_master);
 	Nkut07T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut07T.rotate(2.4f);
 
@@ -572,7 +575,7 @@ void Cvijet::Nkut7DrawT()
 
 void Cvijet::Nkut8DrawT()
 {
-	Nkut08T.setPosition(400, 300);
+	Nkut08T.setPosition(400 + x_master, 300 + y_master);
 	Nkut08T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut08T.rotate(2.6f);
 
@@ -581,7 +584,7 @@ void Cvijet::Nkut8DrawT()
 
 void Cvijet::Nkut9DrawT()
 {
-	Nkut09T.setPosition(400, 300);
+	Nkut09T.setPosition(400 + x_master, 300 + y_master);
 	Nkut09T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut09T.rotate(2.8f);
 
@@ -590,7 +593,7 @@ void Cvijet::Nkut9DrawT()
 
 void Cvijet::Nkut10DrawT()
 {
-	Nkut10T.setPosition(400, 300);
+	Nkut10T.setPosition(400 + x_master, 300 + y_master);
 	Nkut10T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut10T.rotate(3.0f);
 
@@ -599,7 +602,7 @@ void Cvijet::Nkut10DrawT()
 
 void Cvijet::Nkut11DrawT()
 {
-	Nkut11T.setPosition(400, 300);
+	Nkut11T.setPosition(400 + x_master, 300 + y_master);
 	Nkut11T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut11T.rotate(3.2f);
 
@@ -608,7 +611,7 @@ void Cvijet::Nkut11DrawT()
 
 void Cvijet::Nkut12DrawT()
 {
-	Nkut12T.setPosition(400, 300);
+	Nkut12T.setPosition(400 + x_master, 300 + y_master);
 	Nkut12T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut12T.rotate(3.4f);
 
@@ -617,7 +620,7 @@ void Cvijet::Nkut12DrawT()
 
 void Cvijet::Nkut13DrawT()
 {
-	Nkut13T.setPosition(400, 300);
+	Nkut13T.setPosition(400 + x_master, 300 + y_master);
 	Nkut13T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut13T.rotate(3.6f);
 
@@ -626,7 +629,7 @@ void Cvijet::Nkut13DrawT()
 
 void Cvijet::Nkut14DrawT()
 {
-	Nkut14T.setPosition(400, 300);
+	Nkut14T.setPosition(400 + x_master, 300 + y_master);
 	Nkut14T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut14T.rotate(3.8f);
 
@@ -635,7 +638,7 @@ void Cvijet::Nkut14DrawT()
 
 void Cvijet::Nkut15DrawT()
 {
-	Nkut15T.setPosition(400, 300);
+	Nkut15T.setPosition(400 + x_master, 300 + y_master);
 	Nkut15T.setFillColor(sf::Color(red5, green5, blue5));
 	Nkut15T.rotate(4.0f);
 
@@ -644,7 +647,7 @@ void Cvijet::Nkut15DrawT()
 
 void Cvijet::Nkut16DrawT()
 {
-	Nkut16T.setPosition(400, 300);
+	Nkut16T.setPosition(400 + x_master, 300 + y_master);
 	Nkut16T.setFillColor(sf::Color(red6, green6, blue6));
 	Nkut16T.rotate(4.2f);
 
@@ -674,6 +677,32 @@ void Cvijet::NkutT_latice_animacija(sf::CircleShape element)
 	window->draw(element);
 }
 
+void Cvijet::pomicanje_objekta()
+{
+	if (x_temp_master == 0 || y_temp_master == 0)
+	{
+		x_temp_master = 1;
+		y_temp_master = 1;
+	}
+
+	srand(time(0));
+
+	random_temp_x = rand() % 12 + 3;
+	random_temp_y = rand() % 12 + 3;
+
+	if (random_x == random_temp_x || x_master + 400 > 1920 || y_master + 300 > 1080 || x_master + 400 < 0 || y_master + 300 < 0)
+	{
+		x_temp_master *= -1;
+	}
+	if (random_y == random_temp_y || x_master + 400 > 1920 || y_master + 300 > 1080 || x_master + 400 < 0 || y_master + 300 < 0)
+	{
+		y_temp_master *= -1;
+	}
+
+	x_master += x_temp_master;
+	y_master += y_temp_master;
+}
+
 //crtanje
 void Cvijet::draw(sf::Time* vrijeme)
 {
@@ -684,6 +713,8 @@ void Cvijet::draw(sf::Time* vrijeme)
 	bojelatica1();
 	bojelatica2();
 	bojelatica3();
+
+	pomicanje_objekta();
 
 	//Pozadinski krug cvijeta - iza latiica
 	krug3Draw();

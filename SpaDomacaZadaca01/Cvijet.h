@@ -85,6 +85,8 @@ public:
 	void NkutD_latice_animacija(sf::CircleShape element);
 	void NkutT_latice_animacija(sf::CircleShape element);
 
+	void pomicanje_objekta();
+
 	void draw(sf::Time* vrijeme);
 
 private:
@@ -206,4 +208,17 @@ private:
 	int temp_boja6 = 0;
 
 	// // // // // //
+	//pomicanje cijelog objekta
+	float x_master = 300;
+	float y_master = 300;
+
+	float x_temp_master;
+	float y_temp_master;
+
+	//neka vrijednost koju random generateor mora pogodit da bi promijenio smijer;
+	float random_x = 5;
+	float random_y = 6;
+
+	int random_temp_x;
+	int random_temp_y;
 };
