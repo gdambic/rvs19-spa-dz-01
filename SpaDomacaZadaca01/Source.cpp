@@ -1,10 +1,14 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "Cvijet.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Cvijet");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Cvijet cvijet;
+
+	//sf::CircleShape krug(50.f); 
 
 	while (window.isOpen())
 	{
@@ -16,7 +20,8 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw(window);
+		//window.draw(krug);
 		window.display();
 	}
 
