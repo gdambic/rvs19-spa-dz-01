@@ -5,7 +5,7 @@ class Cvijet
 private:
 	sf::CircleShape krug;
 	sf::RenderWindow window;
-	
+
 
 public:
 	Cvijet(); //sf::RenderWindow& window

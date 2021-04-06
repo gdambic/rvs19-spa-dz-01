@@ -12,6 +12,6 @@ Cvijet::Cvijet() //: window(window), RenderWindow& window
 
 void Cvijet::draw(RenderWindow& window)
 {
-		CircleShape krug(50.f);
-		window.draw(krug);
+	CircleShape krug(50.f);
+	window.draw(krug);
 }
