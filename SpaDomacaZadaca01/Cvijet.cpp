@@ -1,40 +1,60 @@
 #include "Cvijet.h"
 
 Cvijet::Cvijet(sf::RenderWindow& window): window(window){
-
-	
+	//this->brzina = brzina;
+	//this->x = x;
 }
 
-void Cvijet::draw_glava()
+void Cvijet::set_anim(sf::CircleShape& kruna2, sf::Clock& clock)
+{
+	clock;
+
+	this->x = x;
+	this->brzina = brzina;
+
+
+	kruna2.setRadius(100);
+	kruna2.setPointCount(8);
+	kruna2.setFillColor(sf::Color::Blue);
+	kruna2.setOrigin(100, 100);
+	kruna2.setPosition(x, 260);
+
+	//kruna2.setRotation(x);
+	window.draw(kruna2);
+
+
+
+}
+
+void Cvijet::draw_glava(sf::CircleShape& oblik)
 {
 	
-	sf::CircleShape oblik(60.f);
-	
+	oblik.setRadius(60.f);
 	oblik.setFillColor(sf::Color::Yellow);
 	oblik.setPosition(300, 200);
 	window.draw(oblik);
 
 }
 
-void Cvijet::draw_tijelo()
+void Cvijet::draw_tijelo(sf::RectangleShape& line, sf::RectangleShape& line2)//sf::RectangleShape line, sf::RectangleShape line2)
 {
-	sf::RectangleShape line(sf::Vector2f(180, 8));
+	line.setSize (sf::Vector2f(180, 8));
 	line.setPosition(340, 290);
 	line.setFillColor(sf::Color::Green);
-	line.rotate(110);
+	line.setRotation(110);
 	window.draw(line);
 
-	sf::RectangleShape line2(sf::Vector2f(200, 8));
+	line2.setSize(sf::Vector2f(200, 8));
 	line2.setPosition(278, 450);
 	line2.setFillColor(sf::Color::Green);
-	line2.rotate(60);
+	line2.setRotation(60);
 	window.draw(line2);
 
 }
 
-void Cvijet::draw_latice()
+void Cvijet::draw_latice(sf::ConvexShape& latica1, sf::ConvexShape& latica2)
 {
-	sf::ConvexShape latica1;
+	
 
 	latica1.setPointCount(5);
 	latica1.setFillColor(sf::Color::Green);
@@ -47,7 +67,6 @@ void Cvijet::draw_latice()
 	
 	window.draw(latica1);
 
-	sf::ConvexShape latica2;
 
 	latica2.setPointCount(5);
 	latica2.setFillColor(sf::Color::Green);
@@ -62,10 +81,10 @@ void Cvijet::draw_latice()
 	window.draw(latica2);
 }
 
-void Cvijet::draw_kruna()
+void Cvijet::draw_kruna(sf::CircleShape& kruna)
 {
-	sf::CircleShape kruna(80, 6);
-
+	kruna.setRadius(80);
+	kruna.setPointCount(6);
 	kruna.setFillColor(sf::Color::Red);
 	kruna.setPosition(280, 180);
 
@@ -75,12 +94,22 @@ void Cvijet::draw_kruna()
 
 }
 
+void Cvijet::draw_animirani(sf::Time& dt) {
+	
+	dt = clock.restart();
+
+	x += brzina * dt.asSeconds();
+
+
+
+}
 void Cvijet::draw()
 {
-	draw_tijelo();
-	draw_kruna();
-	draw_glava();
-	draw_latice();
+	draw_tijelo(line,line2);
+	draw_animirani(dt);
+	draw_kruna(kruna);
+	draw_glava(oblik);
+	draw_latice(latica1, latica2);
 }
 
 

@@ -7,6 +7,7 @@ int main()
 	window.setFramerateLimit(60);
 	Cvijet cvijet(window);
 	
+	
 
 	while (window.isOpen())
 	{
@@ -16,7 +17,8 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
+		
+	
 		window.clear();
 		//cvijet.draw();
 		cvijet.draw();
