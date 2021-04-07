@@ -79,11 +79,22 @@ public:
 	void Nkut15DrawT();
 	void Nkut16DrawT();
 
+	// Radnom mali kruzici
+
+	void kruzic01Draw();
+	void kruzic02Draw();
+	void kruzic03Draw();
+	void kruzic04Draw();
+	void kruzic05Draw();
+	void kruzic06Draw();
+
 	/////////////////////////
 
 	void Nkut_latice_animacija(sf::CircleShape element);
 	void NkutD_latice_animacija(sf::CircleShape element);
 	void NkutT_latice_animacija(sf::CircleShape element);
+
+	void radnom_generator();
 
 	void pomicanje_objekta();
 

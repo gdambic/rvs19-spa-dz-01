@@ -677,6 +677,14 @@ void Cvijet::NkutT_latice_animacija(sf::CircleShape element)
 	window->draw(element);
 }
 
+void Cvijet::radnom_generator()
+{
+	srand(time(0));
+
+	random_temp_x = rand() % 12 + 3;
+	random_temp_y = rand() % 12 + 3;
+}
+
 void Cvijet::pomicanje_objekta()
 {
 	if (x_temp_master == 0 || y_temp_master == 0)
@@ -685,10 +693,7 @@ void Cvijet::pomicanje_objekta()
 		y_temp_master = 1;
 	}
 
-	srand(time(0));
-
-	random_temp_x = rand() % 12 + 3;
-	random_temp_y = rand() % 12 + 3;
+	radnom_generator();
 
 	if (random_x == random_temp_x || x_master + 400 > 1920 || y_master + 300 > 1080 || x_master + 400 < 0 || y_master + 300 < 0)
 	{
