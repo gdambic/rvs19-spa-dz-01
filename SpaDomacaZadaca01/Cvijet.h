@@ -10,6 +10,7 @@ private:
 	sf::CircleShape oblik;
 	sf::RectangleShape line;
 	sf::RectangleShape line2;
+	sf::RectangleShape line3;
 	sf::ConvexShape latica1;
 	sf::ConvexShape latica2;
 	sf::CircleShape kruna;
@@ -28,13 +29,13 @@ private:
 public:
 
 	Cvijet(sf::RenderWindow& window);
-
+	void set_cvijet(float x, float brzina);
 	void draw_kruna2(sf::CircleShape& kruna2, sf::Clock& clock, sf::Time& dt);
 	void draw_glava(sf::CircleShape& oblik);
 	void draw_zemlja(sf::RectangleShape& zemlja);
-	void draw_tijelo(sf::RectangleShape& line, sf::RectangleShape& line2);
+	void draw_tijelo(sf::RectangleShape& line, sf::RectangleShape& line2, sf::RectangleShape& line3);
 	void draw_latice(sf::ConvexShape& latica1, sf::ConvexShape& latica2);
-	void draw_kruna(sf::CircleShape& kruna);
+	void draw_kruna(sf::CircleShape& kruna,sf::Clock& clock, sf::Time& dt);
 	void draw();
 };
 
