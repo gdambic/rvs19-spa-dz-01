@@ -4,8 +4,10 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-Cvijet::Cvijet() //: window(window), RenderWindow& window
+Cvijet::Cvijet(RenderWindow &window) : window(window)
 {
+	this->brzina = 7;
+	this->brzina2 = -4;
 	this->r = 280.f;
 	this->x= 380.f;
 	this->elipsaX = 380.f;
@@ -18,18 +20,25 @@ Cvijet::Cvijet() //: window(window), RenderWindow& window
 	this->elipsa7X = 330.f;
 	this->listR = 200.f;
 	this->list2R = 160.f;
-	//CircleShape krug(50.f);
-	//krug.setFillColor(Color(100, 250, 50));
-	//krug.setPosition(90.f, 90.f);
+	//dt = clock.restart();
 }
 
-void Cvijet::draw(RenderWindow& window, Time &dt)
+void Cvijet::draw_krug()
 {
-	//Time dt = clock.restart();
-	//float brzina = 7.f;
-	//float r = 290.f;
+	CircleShape krug;
+	krug.setRadius((30.f));
+	krug.setFillColor(Color(215, 185, 35));
+	krug.setPosition(x, 160);
+	krug.setOutlineThickness(2.f);
+	krug.setOutlineColor(Color(230, 165, 10));
+	
+	x += brzina * dt.asSeconds();
 
-	//Stabljika
+	window.draw(krug);
+}
+
+void Cvijet::draw_stabljika() {
+
 	RectangleShape stabljika1(Vector2f(80.f, 3.f));
 	stabljika1.setPosition(376, 322);
 	stabljika1.rotate(r);
@@ -55,19 +64,56 @@ void Cvijet::draw(RenderWindow& window, Time &dt)
 	stabljika4.setPosition(379, 322);
 	stabljika4.rotate(95.f);
 	stabljika4.setFillColor(Color(52, 150, 59));
-	//stabljika4.setOutlineThickness(1.f);
-	//stabljika4.setOutlineColor(Color(40, 100, 44));
 
-	//Pelud
-	CircleShape krug(32.f);
-	krug.setFillColor(Color(215, 185, 35));
-	krug.setPosition(x, 160);
-	krug.setOutlineThickness(2.f);
-	krug.setOutlineColor(Color(230, 165, 10));
-	//krug.setOrigin(16.f, 16.f);
-	
+	r += brzina * dt.asSeconds();
 
-	//Latice
+	window.draw(stabljika1);
+	window.draw(stabljika2);
+	window.draw(stabljika3);
+	window.draw(stabljika4);
+}
+
+void Cvijet::draw_list()
+{
+	Elipsa list(Vector2f(30.f, 55.f));
+	list.setPosition(415, 495);
+	list.setFillColor(Color(52, 150, 59));
+	list.rotate(listR);
+	list.setOutlineThickness(1.f);
+	list.setOutlineColor(Color(40, 100, 44));
+
+	listR += brzina2 * dt.asSeconds();
+
+	window.draw(list);
+}
+
+void Cvijet::draw_list2()
+{
+	Elipsa list2(Vector2f(30.f, 55.f));
+	list2.setPosition(405, 470);
+	list2.setFillColor(Color(52, 150, 59));
+	list2.rotate(list2R);
+	list2.setOutlineThickness(1.f);
+	list2.setOutlineColor(Color(40, 100, 44));
+
+	list2R += brzina * dt.asSeconds();
+
+	window.draw(list2);
+}
+
+void Cvijet::draw_trava()
+{
+	CircleShape trava(1200.f);
+	trava.setFillColor(Color(64, 143, 69));
+	trava.setPosition(-800, 450);
+	trava.setOutlineThickness(2.f);
+	trava.setOutlineColor(Color(42, 105, 50));
+
+	window.draw(trava);
+}
+
+void Cvijet::draw_latice() { 
+
 	Elipsa elipsa(Vector2f(30.f, 40.f));
 	elipsa.setPosition(elipsaX, 100);
 	elipsa.setFillColor(Color(165, 53, 53));
@@ -80,7 +126,6 @@ void Cvijet::draw(RenderWindow& window, Time &dt)
 	elipsa2.rotate(45.f);
 	elipsa2.setOutlineThickness(1.f);
 	elipsa2.setOutlineColor(Color(115, 53, 53));
-	//elipsa2.setOrigin(15.f, 20.f);
 
 	Elipsa elipsa3(Vector2f(30.f, 40.f));
 	elipsa3.setPosition(elipsa3X, 170);
@@ -115,44 +160,8 @@ void Cvijet::draw(RenderWindow& window, Time &dt)
 	elipsa7.setFillColor(Color(165, 53, 53));
 	elipsa7.rotate(320.f);
 	elipsa7.setOutlineThickness(1.f);
-	elipsa7.setOutlineColor(Color(115, 53, 53));
+	elipsa7.setOutlineColor(Color(115, 53, 53));	
 
-	//Listovi
-	Elipsa list(Vector2f(30.f, 55.f));
-	list.setPosition(415, 495);
-	list.setFillColor(Color(52, 150, 59));
-	list.rotate(listR); // 30.f
-	list.setOutlineThickness(1.f);
-	list.setOutlineColor(Color(40, 100, 44));
-
-	Elipsa list2(Vector2f(30.f, 55.f));
-	list2.setPosition(405, 470);
-	list2.setFillColor(Color(52, 150, 59));
-	list2.rotate(list2R); //330.f
-	list2.setOutlineThickness(1.f);
-	list2.setOutlineColor(Color(40, 100, 44));
-
-	//Trava
-	CircleShape trava(1200.f);
-	trava.setFillColor(Color(64, 143, 69));
-	trava.setPosition(-800, 450);
-	trava.setOutlineThickness(2.f);
-	trava.setOutlineColor(Color(42, 105, 50));
-	
-	//Nebo
-	/*RectangleShape nebo(Vector2f(800.f, 550.f));
-	nebo.setFillColor(Color(10, 125, 196));*/
-
-	//Iscrtavanje
-	//window.draw(nebo);
-	window.clear(Color(10, 125, 196));
-	window.draw(trava);
-	window.draw(list2);
-	window.draw(stabljika1);
-	window.draw(stabljika2);
-	window.draw(stabljika3);
-	window.draw(stabljika4);
-	window.draw(list);
 	window.draw(elipsa);
 	window.draw(elipsa2);
 	window.draw(elipsa4);
@@ -160,10 +169,7 @@ void Cvijet::draw(RenderWindow& window, Time &dt)
 	window.draw(elipsa6);
 	window.draw(elipsa5);
 	window.draw(elipsa7);
-	window.draw(krug);
 
-	r += brzina * dt.asSeconds();
-	x += brzina * dt.asSeconds();
 	elipsaX += brzina * dt.asSeconds();
 	elipsa2X += brzina * dt.asSeconds();
 	elipsa3X += brzina * dt.asSeconds();
@@ -171,18 +177,26 @@ void Cvijet::draw(RenderWindow& window, Time &dt)
 	elipsa5X += brzina * dt.asSeconds();
 	elipsa6X += brzina * dt.asSeconds();
 	elipsa7X += brzina * dt.asSeconds();
-	listR += brzina2 * dt.asSeconds();
-	list2R += brzina * dt.asSeconds();
-	//float krugX = krug.getPosition().x;
-	
+}
 
-	//krug.setPosition(Vector2f(krugx, 160));
+void Cvijet::draw() 
+{
+	//Iscrtavanje
+	window.clear(Color(10, 125, 196));
+	draw_trava();
+	draw_list2();
+	draw_stabljika();
+	draw_latice();
+	draw_list();
+	draw_krug();
+
+	dt = clock.restart();
 
 	if (r >= 290 || r <= 280) {
 		brzina *= -1.0f;
 	}
+
 	if (r >= 290 || r <= 280) {
 		brzina2 *= -1.0f;
 	}
-	//latice u suprotnim smjerovima, bug zbog 288
 }

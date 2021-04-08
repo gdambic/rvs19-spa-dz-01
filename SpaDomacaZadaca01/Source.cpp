@@ -1,5 +1,5 @@
-#include <SFML/Audio.hpp>
-//#include <SFML/Graphics.hpp>
+//#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Cvijet.h"
 #include "Elipsa.h"
@@ -20,14 +20,8 @@ int main()
 	sf::Sound sound;
 	sound.setBuffer(buffer);
 	sound.play();*/
-	
-	float brzina = 7.0f;
 
-	sf::Clock clock;
-
-	Cvijet cvijet;
-
-	
+	Cvijet cvijet(window);
 
 	while (window.isOpen())
 	{
@@ -38,11 +32,7 @@ int main()
 				window.close();
 		}
 
-		sf::Time dt = clock.restart();
-
-		//window.clear();
-		float krug = 400;
-		cvijet.draw(window, dt); 
+		cvijet.draw();
 
 		window.display();
 	}

@@ -3,9 +3,11 @@
 class Cvijet
 {
 private:
-	sf::CircleShape krug;
-	float brzina = 7;
-	float brzina2 = -4;
+	sf::RenderWindow &window;
+	sf::Time dt;
+	sf::Clock clock;
+	float brzina;
+	float brzina2;
 	float elipsaX;
 	float elipsa2X;
 	float elipsa3X;
@@ -17,11 +19,15 @@ private:
 	float list2R;
 	float r;
 	float x;
-	//sf::Time dt;
-	//sf::RenderWindow window;
 
 public:
-	Cvijet(); //sf::RenderWindow& window
-	void draw(sf::RenderWindow& window, sf::Time& dt);
+	Cvijet(sf::RenderWindow &window); 
+	void draw_krug();
+	void draw_stabljika();
+	void draw_latice(); 
+	void draw_list(); 
+	void draw_list2(); 
+	void draw_trava();
+	void draw(); 
 };
 
