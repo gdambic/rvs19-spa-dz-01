@@ -76,7 +76,7 @@ void Cvijet::draw()
 	}
 
 	sf::Time glavnoVrijemeProvjere = sf::seconds(3);
-	sf::Time yVrijeme = globalnoVrijeme.getElapsedTime() - xVrijeme;
+	sf::Time yVrijeme = frameClock.getElapsedTime() - xVrijeme;
 	xVrijeme += yVrijeme;
 
 	//Promjeni boju
@@ -124,7 +124,7 @@ void Cvijet::postavljanjeLaticaNaPocetnuVrijednost(sf::Time glavnoVrijemeProvjer
 			}
 			window->draw(latice[i]);
 		}
-		globalnoVrijeme.restart();
+		frameClock.restart();
 	}
 }
 

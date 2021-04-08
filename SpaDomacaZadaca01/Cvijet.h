@@ -4,8 +4,8 @@ class Cvijet
 {
 private:
 	sf::RenderWindow* window;
-	sf::Clock globalnoVrijeme;
-	sf::Time xVrijeme = globalnoVrijeme.getElapsedTime();
+	sf::Clock frameClock;
+	sf::Time xVrijeme = frameClock.getElapsedTime();
 	std::vector<sf::CircleShape> latice;
 public:
 	Cvijet(sf::RenderWindow* window);
