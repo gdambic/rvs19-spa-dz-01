@@ -1,10 +1,27 @@
+//#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "Cvijet.h"
+#include "Elipsa.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Cvijet", sf::Style::Default, settings);
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+
+	/*sf::SoundBuffer buffer;
+	if (!buffer.loadFromFile("vjetar.wav"))
+	{
+		std::cout << "Greska s audiom!";
+		return 1;
+	}
+	sf::Sound sound;
+	sound.setBuffer(buffer);
+	sound.play();*/
+
+	Cvijet cvijet(window);
 
 	while (window.isOpen())
 	{
@@ -15,8 +32,8 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
+
 		window.display();
 	}
 
