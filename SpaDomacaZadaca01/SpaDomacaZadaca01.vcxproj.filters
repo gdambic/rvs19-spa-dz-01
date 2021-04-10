@@ -18,5 +18,24 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cvijet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cvijet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="AlgebraBackground.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AlgebraFlower.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AlgebraStem.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

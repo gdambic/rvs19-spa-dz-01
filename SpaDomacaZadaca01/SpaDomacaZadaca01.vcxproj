@@ -155,7 +155,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cvijet.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cvijet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="AlgebraBackground.jpg" />
+    <Image Include="AlgebraFlower.png" />
+    <Image Include="AlgebraStem.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
