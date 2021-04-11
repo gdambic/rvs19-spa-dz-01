@@ -13,6 +13,8 @@ private:
 
 	sf::RenderWindow* adresa;
 
+	sf::Clock clock;
+
 	sf::RectangleShape nebo;
 	sf::Texture neboTexture;
 	sf::RectangleShape livada;

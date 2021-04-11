@@ -51,6 +51,20 @@ Cvijet::Cvijet(sf::RenderWindow* adresa)
 }
 
 void Cvijet::draw() {
+
+	sf::Time counter = clock.getElapsedTime();
+	sf::Time t1 = sf::seconds(1.00f);
+	sf::Time t2 = sf::seconds(2.00f);
+	sf::Time t3 = sf::seconds(3.00f);
+	sf::Time t4 = sf::seconds(4.00f);
+	sf::Time t5 = sf::seconds(5.00f);
+	sf::Time t6 = sf::seconds(6.00f);
+	sf::Time t7 = sf::seconds(7.00f);
+	sf::Time t8 = sf::seconds(8.00f);
+	sf::Time t9 = sf::seconds(9.00f);
+
+	cout << counter.asSeconds() << endl;
+
 	
 	sf::CircleShape latica1(10.f);
 	latica1.setPosition(258.f, 179.f);
@@ -113,14 +127,52 @@ void Cvijet::draw() {
 	adresa->draw(cvijetic);
 	adresa->draw(cvijetic1);
 
-	adresa->draw(latica1);
-	adresa->draw(latica2);
-	adresa->draw(latica3);
-	adresa->draw(latica4);
-	adresa->draw(latica5);
-	adresa->draw(latica6);
-	adresa->draw(latica7);
-	adresa->draw(latica8);
+
+	if (counter >= t1) {
+
+		adresa->draw(latica1);
+
+	}
+	if (counter >= t2) {
+
+		adresa->draw(latica2);
+
+	}
+	if (counter >= t3) {
+
+		adresa->draw(latica3);
+
+	}
+	if (counter >= t4) {
+
+		adresa->draw(latica4);
+
+	}
+	if (counter >= t5) {
+
+		adresa->draw(latica5);
+
+	}
+	if (counter >= t6) {
+
+		adresa->draw(latica6);
+
+	}
+	if (counter >= t7) {
+
+		adresa->draw(latica7);
+
+	}
+	if (counter >= t8) {
+
+		adresa->draw(latica8);
+
+	}
+	if (counter >= t9) {
+
+		clock.restart();
+
+	}
 
 
 
