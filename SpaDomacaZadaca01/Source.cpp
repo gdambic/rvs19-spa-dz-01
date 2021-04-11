@@ -1,10 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
+#include <iostream>
+
+
 
 int main()
-{
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+{ 
+	sf::RenderWindow window(sf::VideoMode(1024, 1024), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.f, 768.f));
+	window.setView(view);
+	Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
@@ -15,8 +21,9 @@ int main()
 				window.close();
 		}
 
+	 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
 		window.display();
 	}
 
