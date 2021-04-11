@@ -20,6 +20,6 @@ int main()
 		cvijet.draw();
 		window.display();
 	}
-
+	//komentar
 	return 0;
 }
