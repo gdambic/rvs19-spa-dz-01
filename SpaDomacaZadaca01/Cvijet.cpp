@@ -25,7 +25,6 @@ void Cvijet::draw()
 	sf::Time t8 = sf::seconds(8.00f);
 	sf::Time t9 = sf::seconds(9.00f);
 	sf::Time t10 = sf::seconds(11.00f);
-	
 
 	cout << counter.asSeconds() << endl;
 

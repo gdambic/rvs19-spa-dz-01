@@ -10,4 +10,15 @@ public:
 private:
 	sf::RenderWindow* address;
 	sf::Clock frameClock;
+	sf::RectangleShape nebo;
+	sf::RectangleShape livada;
+	sf::RectangleShape stabljika;
+	sf::RectangleShape stabljika2;
+	sf::CircleShape list;
+	sf::CircleShape list2;
+	sf::CircleShape cvijet;
+	sf::CircleShape cvijet2;
+	sf::CircleShape cvijet3;
+	sf::CircleShape cvijet4;
+	sf::CircleShape cvijet5;
 };
