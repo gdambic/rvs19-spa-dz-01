@@ -1,10 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "Cvijet.h"
+using namespace std;
+using namespace sf;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Clock clock;
+	Cvijet cvijet(&window);
+
+	Cvijet cvijet1(&window);
+
 
 	while (window.isOpen())
 	{
@@ -16,7 +24,12 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+
+		sf::Time dt = clock.restart();
+
+		cvijet1.drawCvijet();
+		cvijet1.drawTriangle();
+		cvijet1.drawText("Marlboro.ttf");
 		window.display();
 	}
 
