@@ -27,10 +27,14 @@ int main()
 	sf::Clock clock;
 
 	//Flower class declarations (Texture setter optional, for custom textures)
-	Cvijet cvijet1(window, 120.0f, { 400.0f, 700.0f });
-	Cvijet cvijet2(window, 80.0f, { 1000.0f, 550.0f });
-	Cvijet cvijet3(window, 60.0f, { 1650.0f, 450.0f });
-	Cvijet cvijet4(window, 45.0f, { 250.0f, 400.0f });
+	Cvijet cvijet1(window, 120.0f, { 400.0f, 1000.0f });
+	Cvijet cvijet2(window, 80.0f, { 1000.0f, 650.0f });
+	Cvijet cvijet3(window, 60.0f, { 1650.0f, 600.0f });
+	Cvijet cvijet4(window, 45.0f, { 250.0f, 500.0f });
+
+	cvijet1.set_tiltOffstet(10.0f);
+	cvijet2.set_tiltOffstet(15.0f);
+	cvijet3.set_tiltOffstet(-5.0f);
 
 	while (window.isOpen())
 	{
@@ -53,6 +57,5 @@ int main()
 
 		window.display();
 	}
-
 	return 0;
 }
