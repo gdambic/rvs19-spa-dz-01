@@ -5,9 +5,10 @@
 class Cvijet
 {
 public:
-	Cvijet();
-	
+	Cvijet(RenderWindow* windowAdress);
+	void set_windowAdress(RenderWindow windowAdress);
+
 private:
-	RenderWindow window;
+	RenderWindow windowAdress;
 };
 
