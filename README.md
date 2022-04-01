@@ -1,4 +1,7 @@
-# rvs19-spa-dz-01
-Domaća zadaća 01 za SPA u 2019.
+# Strukture podataka i algoritmi <br> Data structures and algorithms
+2nd Semester @ [Algebra University College](https://www.algebra.hr/visoko-uciliste/en/)
 
-Koristi SFML verziju Visual C++ 15 (2017) - 64-bit sa https://www.sfml-dev.org/download/sfml/2.5.1/
+1st homework assignment for the algorithms course
+
+Dependancies:
+- [SFML Visual C++ 15 (2017) - 64-bit](https://www.sfml-dev.org/download/sfml/2.5.1/)
