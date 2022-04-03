@@ -5,7 +5,10 @@ using namespace sf;
 
 int main()
 {
-	RenderWindow window(VideoMode(800, 600), "Hello, SFML world!");
+	// dodan antialiasing level da ljepse izgleda
+	ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	RenderWindow window(VideoMode(800, 600), "Hello, SFML world!", Style::Default , settings);
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
