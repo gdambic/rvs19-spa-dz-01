@@ -19,10 +19,9 @@ int main()
 		}
 
 		window.clear();
-		//TODO draw method na klasi cvijet
 		cvijet.draw();
 		window.display();
 	}
 
 	return 0;
-} 
+}

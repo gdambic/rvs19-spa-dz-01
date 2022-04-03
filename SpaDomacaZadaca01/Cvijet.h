@@ -10,7 +10,8 @@ class Cvijet
 public:
 	Cvijet(RenderWindow* window);
 	void set_window(RenderWindow* window);
-	RenderWindow draw();
+	void draw();
+
 private:
 	RenderWindow* window;
 };

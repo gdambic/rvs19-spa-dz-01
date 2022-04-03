@@ -10,7 +10,12 @@ void Cvijet::set_window(RenderWindow* window)
 	this->window = window;
 }
 
-RenderWindow Cvijet::draw()
+void Cvijet::draw()
 {
-	
+	CircleShape circle(50);
+	circle.setFillColor(Color(250, 50, 0));
+	circle.setPosition(350.f, 250);
+	window->draw(circle);
 }
+
+	
