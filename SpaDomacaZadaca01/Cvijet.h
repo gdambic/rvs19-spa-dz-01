@@ -2,13 +2,16 @@
 
 #include <SFML/Graphics.hpp>
 
+using namespace std;
+using namespace sf;
+
 class Cvijet
 {
 public:
-	Cvijet(RenderWindow* windowAdress);
-	void set_windowAdress(RenderWindow windowAdress);
-
+	Cvijet(RenderWindow* window);
+	void set_window(RenderWindow* window);
+	RenderWindow draw();
 private:
-	RenderWindow windowAdress;
+	RenderWindow* window;
 };
 
