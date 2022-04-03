@@ -5,48 +5,120 @@
 using namespace std;
 
 
-Cvijet::Cvijet(sf::RenderWindow* adresa)
+Cvijet::Cvijet(RenderWindow* adresa)
 {
 	this->adresa = adresa;
 }
 
 void Cvijet::drawNebo()
 {
-	sf::RectangleShape nebo(sf::Vector2f(1200.f, 720.f));
+	RectangleShape nebo(sf::Vector2f(1200.f, 720.f));
 	nebo.setFillColor(sf::Color(10, 143, 245));
 	adresa->draw(nebo);
 }
 
 void Cvijet::drawSunce(float radius, float position1, float position2, int fillR, int fillG, int fillB, float outline, int outR, int outG, int outB)
 {
-	sf::CircleShape sunce(radius);
+	CircleShape sunce(radius);
 	sunce.setPosition(position1, position2);
 	sunce.setFillColor(sf::Color(fillR, fillG, fillB));
 	sunce.setOutlineThickness(outline);
 	sunce.setOutlineColor(sf::Color(outR, outG, outB));
+
+	Time elapsed2 = clock.getElapsedTime();
+
+	if (clock.getElapsedTime().asMilliseconds() > 2000)
+	{
+		sunce.setRadius(radius - 10.f * ((clock.getElapsedTime().asMilliseconds() - 2000) / 2000.f));
+		if (clock.getElapsedTime().asMilliseconds() >= 4000)
+		{
+			clock.restart();
+		}
+	}
+	else
+	{
+		sunce.setRadius(radius -10.f + 10.f * (clock.getElapsedTime().asMilliseconds() / 2000.f));
+	}
 	adresa->draw(sunce);
+
+
+	
 }
+
 
 void Cvijet::drawCvijet(float radius, float position1, float position2, int fillR, int fillG, int fillB, float outline, int outR, int outG, int outB)
 {
-	sf::CircleShape mainFlower (radius);
+	CircleShape mainFlower (radius);
 	mainFlower.setPosition(position1, position2);
 	mainFlower.setFillColor(sf::Color(fillR, fillG, fillB));
 	mainFlower.setOutlineThickness(outline);
 	mainFlower.setOutlineColor(sf::Color(outR, outG, outB));
+	
+	Time elapsed2 = clock.getElapsedTime();
+
+	if (clock.getElapsedTime().asMilliseconds() > 3000)
+	{
+		mainFlower.setRadius(radius - 5.f * ((clock.getElapsedTime().asMilliseconds() - 1500) / 1500.f));
+		/*if (clock.getElapsedTime().asMilliseconds() >= 3000)
+		{
+			clock.restart();
+		}*/
+	}
+	else
+	{
+		mainFlower.setRadius(radius + 5.f * (clock.getElapsedTime().asMilliseconds() / 1500.f));
+	}
 	adresa->draw(mainFlower);
 
 }
 
 void Cvijet::drawOblak()
 {
+	  
+		CircleShape oblak(45.f);
+	
+		oblak.setPosition(140.f, 30.f);
+		oblak.setFillColor(sf::Color(255, 255, 255));
+
+		CircleShape oblak1(50.f);
+	
+		oblak1.setPosition(160.f, 30.f);
+		oblak1.setFillColor(sf::Color(255, 255, 255));
+
+		CircleShape oblak2(43.f);
+	
+		oblak2.setPosition(190.f, 30.f);
+		oblak2.setFillColor(sf::Color(255, 255, 255));
+
+		Time elapsed2 = clock.getElapsedTime();
+
+		if (clock.getElapsedTime().asMilliseconds() > 6000)
+		{
+			oblak.setPosition(140.f -250.f * ((clock.getElapsedTime().asMilliseconds() - 1000) / 1000.f), 30.f);
+			oblak1.setPosition(180.f - 250.f * ((clock.getElapsedTime().asMilliseconds() - 1000) / 1000.f), 30.f);
+			oblak2.setPosition(220.f - 250.f * ((clock.getElapsedTime().asMilliseconds() - 1000) / 1000.f), 30.f);
+			if (clock.getElapsedTime().asMilliseconds() >= 50000000)
+			{
+				clock.restart();
+			}
+		}
+		else
+		{
+			oblak.setPosition(140.f +250.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 30.f);
+			oblak1.setPosition(180.f + 250.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 30.f);
+			oblak2.setPosition(220.f + 250.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 30.f);
+
+		}
+		adresa->draw(oblak);
+		adresa->draw(oblak1);
+		adresa->draw(oblak2);
 }
 
 
 
 void Cvijet::drawLivada()
 {
-	sf::ConvexShape livada(4);
+	ConvexShape livada(4);
 	livada.setPoint(0, sf::Vector2f(0.f, 400.f));
 	livada.setPoint(1, sf::Vector2f(1200.f, 400.f));
 	livada.setPoint(2, sf::Vector2f(1200.f, 720.f));
@@ -68,6 +140,8 @@ void Cvijet::draw()
 
 	//LIVADA
 	drawLivada();
+
+	drawOblak();
 
 
 	sf::ConvexShape stabljika(8);
@@ -137,39 +211,15 @@ void Cvijet::draw()
 	drawCvijet(20.f, 700.f, 255.f, 255, 0, 127, 5.f, 204, 0, 204);
 	drawCvijet(20.f, 665.f, 280.f, 255, 0, 127, 5.f, 204, 0, 204);
 	drawCvijet(20.f, 660.f, 325.f, 255, 0, 127, 5.f, 204, 0, 204);
-
 	drawCvijet(45.f, 690.f, 285.f, 51, 0, 102, 5.f, 153, 153, 255);
 
 
-	//Oblak
-	sf::CircleShape oblak(35.f);
-	sf::Vector2f oblakPozicija(140.f, 30.f);
-	oblak.setRadius(30.f);
-	oblak.setPosition(oblakPozicija);
-	oblak.setFillColor(sf::Color(255, 255, 255));
-	adresa->draw(oblak);
-	//sf::CircleShape oblak2(35.f);
-	//oblak2.setPosition(100.f, 30.f);
-	//oblak2.setFillColor(sf::Color(255, 255, 255));
-	//adresa->draw(oblak2);
+
+
+
 
 	
 
-	float xOs = 3;
-	float yOs = 3;
-
-	sf::Clock clock; // starts the clock
-	
-	
-	sf::Time elapsed= clock.getElapsedTime();
-	double t1 = elapsed.asSeconds();
-	while (t1) {
-		oblakPozicija.x += xOs;
-		oblakPozicija.y += yOs;
-		oblak.setPosition(oblakPozicija);
-	}
-
-	clock.restart();
 
 	
 

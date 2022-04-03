@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+using namespace std;
+using namespace sf;
 
 
 class Cvijet
@@ -15,7 +17,8 @@ public:
 	void drawLivada();
 	void draw();
 private:
-	sf::RenderWindow* adresa;
+	RenderWindow* adresa;
+	Clock clock;
 	
 };
 
