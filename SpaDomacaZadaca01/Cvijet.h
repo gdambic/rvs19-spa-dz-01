@@ -10,9 +10,14 @@ class Cvijet
 public:
 	Cvijet(RenderWindow* window);
 	void set_window(RenderWindow* window);
+	Time stanje = frameClock.getElapsedTime();
 	void draw();
+
 
 private:
 	RenderWindow* window;
+
+	Clock frameClock;
+	
 };
 
