@@ -155,7 +155,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bee.cpp" />
+    <ClCompile Include="EllipseShape.cpp" />
+    <ClCompile Include="Flower.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bee.h" />
+    <ClInclude Include="EllipseShape.h" />
+    <ClInclude Include="Flower.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bee.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
