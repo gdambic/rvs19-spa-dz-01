@@ -21,9 +21,9 @@ void Cvijet::drawSunce(float radius, float position1, float position2, int fillR
 {
 	CircleShape sunce(radius);
 	sunce.setPosition(position1, position2);
-	sunce.setFillColor(sf::Color(fillR, fillG, fillB));
+	sunce.setFillColor(Color(fillR, fillG, fillB));
 	sunce.setOutlineThickness(outline);
-	sunce.setOutlineColor(sf::Color(outR, outG, outB));
+	sunce.setOutlineColor(Color(outR, outG, outB));
 
 	Time elapsed2 = clock.getElapsedTime();
 
@@ -50,9 +50,9 @@ void Cvijet::drawCvijet(float radius, float position1, float position2, int fill
 {
 	CircleShape mainFlower (radius);
 	mainFlower.setPosition(position1, position2);
-	mainFlower.setFillColor(sf::Color(fillR, fillG, fillB));
+	mainFlower.setFillColor(Color(fillR, fillG, fillB));
 	mainFlower.setOutlineThickness(outline);
-	mainFlower.setOutlineColor(sf::Color(outR, outG, outB));
+	mainFlower.setOutlineColor(Color(outR, outG, outB));
 	
 	Time elapsed2 = clock.getElapsedTime();
 
@@ -78,17 +78,17 @@ void Cvijet::drawOblak()
 		CircleShape oblak(45.f);
 	
 		oblak.setPosition(140.f, 30.f);
-		oblak.setFillColor(sf::Color(255, 255, 255));
+		oblak.setFillColor(Color(255, 255, 255));
 
 		CircleShape oblak1(50.f);
 	
 		oblak1.setPosition(160.f, 30.f);
-		oblak1.setFillColor(sf::Color(255, 255, 255));
+		oblak1.setFillColor(Color(255, 255, 255));
 
 		CircleShape oblak2(43.f);
 	
 		oblak2.setPosition(190.f, 30.f);
-		oblak2.setFillColor(sf::Color(255, 255, 255));
+		oblak2.setFillColor(Color(255, 255, 255));
 
 		Time elapsed2 = clock.getElapsedTime();
 
@@ -119,28 +119,29 @@ void Cvijet::drawOblak()
 void Cvijet::drawLivada()
 {
 	ConvexShape livada(4);
-	livada.setPoint(0, sf::Vector2f(0.f, 400.f));
-	livada.setPoint(1, sf::Vector2f(1200.f, 400.f));
-	livada.setPoint(2, sf::Vector2f(1200.f, 720.f));
-	livada.setPoint(3, sf::Vector2f(0.f, 720.f));
-	livada.setFillColor(sf::Color(0, 153, 2));
+	livada.setPoint(0, Vector2f(0.f, 400.f));
+	livada.setPoint(1, Vector2f(1200.f, 400.f));
+	livada.setPoint(2, Vector2f(1200.f, 720.f));
+	livada.setPoint(3, Vector2f(0.f, 720.f));
+	livada.setFillColor(Color(0, 153, 2));
 	adresa->draw(livada);
+
+	/*sf::RectangleShape line(sf::Vector2f(5.f, 400.f));
+	line.setPosition(0.f, 420.f);
+
+	
+	line.setFillColor(sf::Color(0, 153, 76));
+	adresa->draw(line);*/
+
 
 }
 
 void Cvijet::draw()
 {
-	//Nebo
+	
 	drawNebo();
-
-	//SUNCE
-
 	drawSunce(80.f, 1050.f, -20.f, 255, 255, 0,  10.f, 255, 255, 153);
-
-
-	//LIVADA
 	drawLivada();
-
 	drawOblak();
 
 
