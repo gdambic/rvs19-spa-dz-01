@@ -54,20 +54,20 @@ void Cvijet::drawCvijet(float radius, float position1, float position2, int fill
 	mainFlower.setOutlineThickness(outline);
 	mainFlower.setOutlineColor(Color(outR, outG, outB));
 	
-	Time elapsed2 = clock.getElapsedTime();
+	//Time elapsed2 = clock.getElapsedTime();
 
-	if (clock.getElapsedTime().asMilliseconds() > 3000)
-	{
-		mainFlower.setRadius(radius - 5.f * ((clock.getElapsedTime().asMilliseconds() - 1500) / 1500.f));
-		/*if (clock.getElapsedTime().asMilliseconds() >= 3000)
-		{
-			clock.restart();
-		}*/
-	}
-	else
-	{
-		mainFlower.setRadius(radius + 5.f * (clock.getElapsedTime().asMilliseconds() / 1500.f));
-	}
+	//if (clock.getElapsedTime().asMilliseconds() > 3000)
+	//{
+	//	mainFlower.setRadius(radius - 5.f * ((clock.getElapsedTime().asMilliseconds() - 1500) / 1500.f));
+	//	/*if (clock.getElapsedTime().asMilliseconds() >= 3000)
+	//	{
+	//		clock.restart();
+	//	}*/
+	//}
+	//else
+	//{
+	//	mainFlower.setRadius(radius + 5.f * (clock.getElapsedTime().asMilliseconds() / 1500.f));
+	//}
 	adresa->draw(mainFlower);
 
 }
@@ -118,13 +118,41 @@ void Cvijet::drawOblak()
 
 void Cvijet::drawLivada()
 {
-	ConvexShape livada(4);
-	livada.setPoint(0, Vector2f(0.f, 400.f));
-	livada.setPoint(1, Vector2f(1200.f, 400.f));
-	livada.setPoint(2, Vector2f(1200.f, 720.f));
-	livada.setPoint(3, Vector2f(0.f, 720.f));
-	livada.setFillColor(Color(0, 153, 2));
-	adresa->draw(livada);
+	double t1 = 0.f;
+	double t2 = 720.f;
+	double t3 = 2.f;
+	double t4 = 200.f;
+	double t5 = 5.f;
+	double t6 = 720.f;
+	int count = 0;
+
+
+	for (int i = 0; i < 300; i++) {
+		ConvexShape livada(4);
+		livada.setPoint(0, Vector2f(t1, t2));
+		livada.setPoint(1, Vector2f(t3, t4));
+		livada.setPoint(2, Vector2f(t5, t6));
+		livada.setPoint(3, Vector2f(t1, t2));
+		livada.setFillColor(Color(25, rand() % 250 + 1 , 11));
+		adresa->draw(livada);
+		t1 += 4;
+		t3 += 4;
+		t5 += 4;
+		if (count < 5) {
+		
+			t4 += 15;
+			
+			count++;
+		}
+		else if (count == 5)  {
+			
+			t4 = 200.f;
+			
+			count= 0;
+		}
+
+	}
+
 
 
 
@@ -140,7 +168,7 @@ void Cvijet::draw()
 	drawOblak();
 
 
-	sf::ConvexShape stabljika(8);
+	/*sf::ConvexShape stabljika(8);
 	stabljika.setPoint(0, Vector2f(420.f, 360.f));
 	stabljika.setPoint(1, Vector2f(440.f, 360.f));
 	stabljika.setPoint(2, Vector2f(440.f, 370.f));
@@ -150,13 +178,13 @@ void Cvijet::draw()
 	stabljika.setPoint(6, Vector2f(415.f, 420.f));
 	stabljika.setPoint(7, Vector2f(420.f, 370.f));
 	stabljika.setFillColor(Color(0, 209, 3));
-	adresa->draw(stabljika);
+	adresa->draw(stabljika);*/
 
 	//LISTOVI
-	sf::ConvexShape d_list(4);
-	d_list.setPoint(0, sf::Vector2f(430.f, 390.f));
-	d_list.setPoint(1, sf::Vector2f(455.f, 410.f));
-	d_list.setPoint(2, sf::Vector2f(495.f, 360.f));
+	/*sf::ConvexShape d_list(4);
+	d_list.setPoint(0, Vector2f(430.f, 390.f));
+	d_list.setPoint(1, Vector2f(455.f, 410.f));
+	d_list.setPoint(2, Vector2f(495.f, 360.f));
 	d_list.setPoint(3, sf::Vector2f(465.f, 425.f));
 	d_list.setFillColor(sf::Color(0, 209, 3));
 	adresa->draw(d_list);
@@ -167,7 +195,7 @@ void Cvijet::draw()
 	l_list.setPoint(2, sf::Vector2f(425.f, 390.f));
 	l_list.setPoint(3, sf::Vector2f(390.f, 425.f));
 	l_list.setFillColor(sf::Color(0, 209, 3));
-	adresa->draw(l_list);
+	adresa->draw(l_list);*/
 
 
 	//Cvijet1
