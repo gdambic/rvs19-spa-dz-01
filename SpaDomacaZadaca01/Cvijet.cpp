@@ -126,12 +126,7 @@ void Cvijet::drawLivada()
 	livada.setFillColor(Color(0, 153, 2));
 	adresa->draw(livada);
 
-	/*sf::RectangleShape line(sf::Vector2f(5.f, 400.f));
-	line.setPosition(0.f, 420.f);
 
-	
-	line.setFillColor(sf::Color(0, 153, 76));
-	adresa->draw(line);*/
 
 
 }
@@ -146,15 +141,15 @@ void Cvijet::draw()
 
 
 	sf::ConvexShape stabljika(8);
-	stabljika.setPoint(0, sf::Vector2f(420.f, 360.f));
-	stabljika.setPoint(1, sf::Vector2f(440.f, 360.f));
-	stabljika.setPoint(2, sf::Vector2f(440.f, 370.f));
-	stabljika.setPoint(3, sf::Vector2f(435.f, 420.f));
-	stabljika.setPoint(4, sf::Vector2f(440.f, 470.f));
-	stabljika.setPoint(5, sf::Vector2f(420.f, 470.f));
-	stabljika.setPoint(6, sf::Vector2f(415.f, 420.f));
-	stabljika.setPoint(7, sf::Vector2f(420.f, 370.f));
-	stabljika.setFillColor(sf::Color(0, 209, 3));
+	stabljika.setPoint(0, Vector2f(420.f, 360.f));
+	stabljika.setPoint(1, Vector2f(440.f, 360.f));
+	stabljika.setPoint(2, Vector2f(440.f, 370.f));
+	stabljika.setPoint(3, Vector2f(435.f, 420.f));
+	stabljika.setPoint(4, Vector2f(440.f, 470.f));
+	stabljika.setPoint(5, Vector2f(420.f, 470.f));
+	stabljika.setPoint(6, Vector2f(415.f, 420.f));
+	stabljika.setPoint(7, Vector2f(420.f, 370.f));
+	stabljika.setFillColor(Color(0, 209, 3));
 	adresa->draw(stabljika);
 
 	//LISTOVI
