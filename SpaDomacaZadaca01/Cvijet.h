@@ -16,7 +16,7 @@ private:
 	double x = 50;
 	double y = 0;
 	double dy = 0;
-	double gravity=0.1;
+	double gravity=0.021;
 	double elasticity = 0.5;
 	bool unistiti = false;
 };

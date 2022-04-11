@@ -12,7 +12,7 @@ int gen_rnd(int min,int max) {
 	return rand() % (max - min + 1) + min;
 }
 int main(){
-	bool klik = 1;
+	int br = 0;
 	srand(time(nullptr));
 	sf::RenderWindow window(sf::VideoMode(1600, 600), "Hello, SFML world!");
 	window.setFramerateLimit(120);
@@ -32,12 +32,12 @@ int main(){
 			k.push_back(c);
 		}*/
 
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && klik == true)
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && br>=20)
 		{
 			sf::Vector2i position = sf::Mouse::getPosition(window);
 
 			k.emplace_back(window, position.x, position.y, (double)gen_rnd(10, 20) / 30);
-			klik = false;
+			br = 0;
 		}
 
 		window.clear();
@@ -63,7 +63,7 @@ int main(){
 
 		}
 		window.display();
-		klik = true;
+		br++;
 
 	}
 
