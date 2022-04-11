@@ -36,19 +36,31 @@ int main(){
 		{
 			sf::Vector2i position = sf::Mouse::getPosition(window);
 
-			Cvijet c(window, position.x, position.y, (double)gen_rnd(10, 20) / 30);
-			k.push_back(c);
+			k.emplace_back(window, position.x, position.y, (double)gen_rnd(10, 20) / 30);
 			klik = false;
 		}
 
 		window.clear();
-		for (int i=0;i<k.size();i++)
+		/*for (int i=0;i<k.size();i++)
 		{
 			k[i].update();
 			k[i].draw();
 			if (k[i].trebaUnistiti()) {
 				k.erase(k.begin() + i);
 			}
+		}*/
+
+		for (auto it = k.begin(); it != k.end();) {
+
+			(* it).update();
+			(* it).draw();
+			if ((*it).trebaUnistiti()) {
+				it = k.erase(it);
+			}
+			else {
+				++it;
+			}
+
 		}
 		window.display();
 		klik = true;
