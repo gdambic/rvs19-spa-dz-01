@@ -10,13 +10,23 @@ void Cvijet::set_window(RenderWindow* window)
 	this->window = window;
 }
 
+float xAxisIncrement = 0;
 void Cvijet::draw()
 {
 	Clock clock;
 
 	CircleShape sun(30);
 	sun.setFillColor(Color(255, 255, 0));
-	sun.setPosition(0, 0);
+	if (sun.getPosition().x > 800)
+	{
+		sun.setPosition(0, 0);
+		xAxisIncrement = 0;
+	}
+	else
+	{
+		sun.setPosition(sun.getPosition().x + xAxisIncrement, 0);
+		xAxisIncrement++;
+	}
 	window->draw(sun);
 
 	CircleShape head(50);

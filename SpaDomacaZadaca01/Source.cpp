@@ -12,11 +12,6 @@ int main()
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
-	/*CircleShape sun(30);
-	sun.setFillColor(Color(255, 255, 0));
-	sun.setPosition(0, 0);
-	float xVelocity = 3;*/
-
 	while (window.isOpen())
 	{
 		Event event;
@@ -27,22 +22,8 @@ int main()
 		}
 
 		window.clear();
-
-		/*if (sun.getPosition().x <= window.getSize().x)
-		{
-			float sunPos = sun.getPosition().x + xVelocity;
-			sun.setPosition(sunPos, 0);
-			window.draw(sun);
-		}
-		else
-		{
-			sun.setPosition(0, 0);
-		}*/
-
 		cvijet.draw();
 		window.display();
-
-
 	}
 
 	return 0;
