@@ -2,7 +2,7 @@
 
 int main()
 {
-	RenderWindow window(VideoMode(800, 600), "TEST");
+	RenderWindow window(VideoMode(800, 600), "MyWindow");
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
