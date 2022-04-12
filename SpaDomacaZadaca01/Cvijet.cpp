@@ -3,6 +3,7 @@
 Cvijet::Cvijet(RenderWindow* window)
 {
 	set_window(window);
+	set_xAxisIncrement(xAxisIncrement);
 }
 
 void Cvijet::set_window(RenderWindow* window)
@@ -10,23 +11,32 @@ void Cvijet::set_window(RenderWindow* window)
 	this->window = window;
 }
 
-float xAxisIncrement = 0;
+void Cvijet::set_xAxisIncrement(float xAxisIncrement)
+{
+	this->xAxisIncrement = xAxisIncrement;
+}
+
 void Cvijet::draw()
 {
-	Clock clock;
-
 	CircleShape sun(30);
 	sun.setFillColor(Color(255, 255, 0));
-	if (sun.getPosition().x > 800)
+	
+	sun.setPosition(sun.getPosition().x + xAxisIncrement, 0);
+	xAxisIncrement++;
+
+	bool ResetSun = false;
+	if (sun.getPosition().x >= window->getSize().x && !ResetSun)
+	{
+		ResetSun = true;
+	}
+	
+	if (ResetSun)
 	{
 		sun.setPosition(0, 0);
+		ResetSun = false;
 		xAxisIncrement = 0;
 	}
-	else
-	{
-		sun.setPosition(sun.getPosition().x + xAxisIncrement, 0);
-		xAxisIncrement++;
-	}
+
 	window->draw(sun);
 
 	CircleShape head(50);
@@ -55,4 +65,6 @@ void Cvijet::draw()
 	ground.setFillColor(Color(102, 51 ,0));
 	ground.setPosition(0, pedicel.getPosition().y + pedicel.getSize().x);
 	window->draw(ground);
+
+
 }
