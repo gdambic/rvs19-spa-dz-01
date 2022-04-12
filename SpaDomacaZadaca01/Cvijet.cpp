@@ -25,9 +25,9 @@ void Cvijet::draw_leaf()
 {
 	ConvexShape leaf;
 	leaf.setPointCount(4);
-	leaf.setPoint(0, Vector2f(187, 400));
+	leaf.setPoint(0, Vector2f(190, 400));
 	leaf.setPoint(1, Vector2f(250, 350));
-	leaf.setPoint(2, Vector2f(500, 250));
+	leaf.setPoint(2, Vector2f(550, 250));
 	leaf.setPoint(3, Vector2f(250, 450));
 	leaf.setFillColor(Color(0, 255, 0));
 	window->draw(leaf);
@@ -42,12 +42,12 @@ void Cvijet::draw()
 	draw_leaf();
 	CircleShape sun(30.f);
 	sun.setFillColor(Color(255, 255, 0));
-	if (sec >= 34.f)
+	if (sec >= 30.f)
 		clock.restart();
 	else
 	{
 		int speed = 25;
-		float move_x = -55.f + (sec * speed);
+		float move_x = -60.f + (sec * speed);
 		sun.setPosition(move_x, 10);
 		window->draw(sun);
 	}
