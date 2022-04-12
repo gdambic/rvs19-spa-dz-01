@@ -68,6 +68,10 @@ Cvijet::Cvijet(sf::RenderWindow& window)
 	lijevi_list.setPoint(2, Vector2f(160, 470));
 	lijevi_list.setPoint(3, Vector2f(350, 500));
 	lijevi_list.setFillColor(Color(0, 255, 0));
+	//crtanje sunca
+	sunce.setFillColor(Color(255, 255, 0));
+	sunce.setPosition(10, 10);
+	sunce.setRadius(5);
 }
 
 void Cvijet::draw(sf::RenderWindow& window)
@@ -84,13 +88,19 @@ void Cvijet::draw(sf::RenderWindow& window)
 	window.draw(tijelo);
 	window.draw(desni_list);
 	window.draw(lijevi_list);
+	window.draw(sunce);
 	for (auto i = 0; i < 6; i++) window.draw(linije_zubiju[i]);
 
 }
 
 void Cvijet::anim(sf::Clock& clock)
 {
-	std::cout << clock.getElapsedTime().asSeconds() << std::endl;
+	auto vrijeme_sekunde = clock.getElapsedTime().asSeconds();
+	std::cout << vrijeme_sekunde << std::endl;
 
-
+	if (clock.getElapsedTime().asSeconds() >= 1)
+		sunce.setRadius(5 + 12 * vrijeme_sekunde);
+ 
+	if (clock.getElapsedTime().asSeconds() >= 6)
+		clock.restart();
 }

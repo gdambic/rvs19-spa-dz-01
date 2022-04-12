@@ -9,7 +9,7 @@ public:
 	void draw(RenderWindow& window);
 	void anim(sf::Clock& clock);
 private:
-	CircleShape glava, lijevo_oko, desno_oko, lijeva_zjenica, desna_zjenica, lijevi_odsjaj, desni_odsjaj;
+	CircleShape glava, lijevo_oko, desno_oko, lijeva_zjenica, desna_zjenica, lijevi_odsjaj, desni_odsjaj, sunce;
 	RectangleShape nos, usta, linije_zubiju[6], tijelo;
 	ConvexShape lijevi_list, desni_list;
 };
