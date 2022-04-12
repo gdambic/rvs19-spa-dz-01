@@ -1,22 +1,28 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
+
+using namespace sf;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	// dodan antialiasing level da ljepse izgleda
+	ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	RenderWindow window(VideoMode(800, 600), "Hello, SFML world!", Style::Default , settings);
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
-		sf::Event event;
+		Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == Event::Closed)
 				window.close();
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
 		window.display();
 	}
 
