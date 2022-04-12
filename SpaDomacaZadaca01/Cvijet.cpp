@@ -34,9 +34,9 @@ void Cvijet::drawLeaf() {
 void Cvijet::draw() {
 	time = frameClock.getElapsedTime();
 	float sec = time.asSeconds();
-	draw_flower();
-	draw_stem();
-	draw_leaf();
+	drawFlower();
+	drawStem();
+	drawLeaf();
 	sf::CircleShape sun(30.f);
 	sun.setFillColor(sf::Color(255, 255, 0));
 	if (sec >= 34.f)
