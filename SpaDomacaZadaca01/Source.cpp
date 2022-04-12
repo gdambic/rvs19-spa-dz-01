@@ -4,6 +4,7 @@
 #include <ctime>
 #include <chrono>
 #include <iostream>
+#include <string>
 
 using namespace std;
 using namespace std::chrono;
@@ -11,11 +12,12 @@ using namespace std::chrono;
 int gen_rnd(int min,int max) {
 	return rand() % (max - min + 1) + min;
 }
+
 int main(){
 	int br = 0;
 	srand(time(nullptr));
-	sf::RenderWindow window(sf::VideoMode(1600, 600), "Hello, SFML world!");
-	window.setFramerateLimit(120);
+	sf::RenderWindow window(sf::VideoMode(1600, 600),"Kuglice");
+	window.setFramerateLimit(60);
 	vector<Cvijet> k;
 	while (window.isOpen())
 	{
