@@ -7,18 +7,19 @@ class Cvijet
 {
 	private: 
 		RenderWindow *window;
-		Clock frameClock;
+		Clock flowerClock;
 		CircleShape flower;
+		Clock sunClock;
 		CircleShape sun;
 		RectangleShape stem;
 		ConvexShape leaf;
 
 		void set_param();
 		void anim_sun();
+		void anim_flower();
 
 	public:
 		Cvijet(RenderWindow *window);
 		void draw();
-		void anim();
 };
 
