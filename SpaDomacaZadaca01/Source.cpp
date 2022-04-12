@@ -2,7 +2,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "TEST");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Sunflower");
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
