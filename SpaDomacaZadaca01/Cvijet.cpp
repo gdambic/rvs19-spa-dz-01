@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <ctime>
 #include "Cvijet.h"
 
 using namespace std;
@@ -25,15 +26,12 @@ void Cvijet::drawSunce(float radius, float position1, float position2, int fillR
 	sunce.setOutlineThickness(outline);
 	sunce.setOutlineColor(Color(outR, outG, outB));
 
-	//Time elapsed = clock.getElapsedTime();
+	
 
 	if (clock.getElapsedTime().asMilliseconds() > 6000)
 	{
 		sunce.setRadius(radius - 5.f * ((clock.getElapsedTime().asMilliseconds() - 3000) / 3000.f));
-	/*	if (clock.getElapsedTime().asMilliseconds() >= 40000)
-		{
-			clock.restart();
-		}*/
+
 	}
 	else
 	{
@@ -111,7 +109,7 @@ void Cvijet::drawLivada()
 	double t5 = 5.f;
 	double t6 = 720.f;
 	int count = 0;
-
+	srand(time(nullptr));
 
 	for (int i = 0; i < 300; i++) {
 		ConvexShape livada(4);
@@ -144,23 +142,25 @@ void Cvijet::drawLivada()
 
 void Cvijet::dugaHide()
 {
-	RectangleShape kocka(sf::Vector2f(3000.f, 720.f));
-	//kocka.setPosition(0.f, 0.f);
-	kocka.setFillColor(sf::Color(10, 143, 245));
-	if (clock.getElapsedTime().asMilliseconds() > 7000)
-	{
-		kocka.setPosition(2140.f - 150.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 100.f);
 	
-		
-	}
-	else
-	{
-		kocka.setPosition(140.f + 150.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 100.f);
+	CircleShape krug(600.f);
+	//krug.setPosition(0.f, 0.f);
+	krug.setFillColor(Color(10, 143, 245));
+	// ako želimo da se pojavi i nestane ukljuèiti
+	//if (clock.getElapsedTime().asMilliseconds() > 7000)
+	//{
+	//	krug.setPosition(2140.f - 150.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 100.f);
+	//
+	//	
+	//}
+	//else
+	//{
+		krug.setPosition(140.f + 150.f * (clock.getElapsedTime().asMilliseconds() / 1000.f), 100.f);
 
 
-	}
+	//}
 
-	adresa->draw(kocka);
+	adresa->draw(krug);
 }
 
 void Cvijet::draw()

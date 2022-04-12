@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+
 #include "Cvijet.h"
 
 int main()
@@ -7,10 +7,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1200, 720), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
-	//sf::SoundBuffer buffer;
-	//if (!buffer.loadFromFile("ES_Birds.wav")) {
-	//	return -1; // error
-	//}
+
 
 	Cvijet cvijet(&window);
 	
