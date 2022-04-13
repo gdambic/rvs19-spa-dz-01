@@ -1,11 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
-	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	// smoothed edges(Antialiased shapes)
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 11;
 
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!", sf::Style::Default, settings);
+	window.setFramerateLimit(60);
+	Cvijet cvijet(&window);
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -16,7 +21,7 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
 		window.display();
 	}
 
