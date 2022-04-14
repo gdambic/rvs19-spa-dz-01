@@ -1,11 +1,15 @@
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
+#include "Flower.h"
+#include "Weather.h"
+#include "Colors.h"
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800,600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
-
+	colors c;
+	Weather weather(&window, &c);
+	Flower flower(&window, &c, &weather);
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -16,7 +20,11 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		weather.drawBackGround();
+		weather.updateStars();
+		weather.updateSun();
+		weather.updateRain();
+		flower.draw();
 		window.display();
 	}
 
