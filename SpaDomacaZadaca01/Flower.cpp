@@ -78,11 +78,10 @@ void Flower::ConfigureLeaf(sf::ConvexShape* shape, int xPosition, int yPosition)
 void Flower::draw()
 {
 	sf::Time t1 = clock.getElapsedTime();
-	std::cout << t1.asMilliseconds() << std::endl;
 	float scale;
 	if (t1.asMilliseconds() > sf::milliseconds(1020).asMilliseconds() )
 	{
-		std::cout << "TOUT" << std::endl;
+		
 		scale = 0;
 		clock.restart();
 	}
@@ -91,7 +90,6 @@ void Flower::draw()
 		scale = t1.asMilliseconds() / 1020.f;
 	}
 
-	std::cout << scale << std::endl;
 	
 	
 	
