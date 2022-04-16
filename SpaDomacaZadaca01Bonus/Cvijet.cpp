@@ -1,8 +1,7 @@
 #include "Cvijet.h"
 #include <iostream>
-#include <exception>
 
-Cvijet::Cvijet(sf::RenderWindow* window)
+Cvijet::Cvijet(sf::RenderWindow* window, int screen_width, int screen_height)
 {
 	this->window = window;
 	sf::Clock clock = this->clock;
@@ -37,41 +36,15 @@ Cvijet::Cvijet(sf::RenderWindow* window)
 	// character initial position and frame
 	character_sprite.setPosition(X, Y);
 	character_sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+	// screen resolution
+	X_WIDTH = screen_width;
+	Y_HEIGHT = screen_height;
 }
 
 void Cvijet::draw()
 {
 	scene_animation();
 	draw_environment();
-	//draw_flower(545.f, 365.f);
-}
-
-void Cvijet::draw_flower(float x, float y)
-{
-	// the root position "rt"
-	sf::Vector2f rt(x, y);	
-	// peduncle
-	sf::RectangleShape peduncle(sf::Vector2f(200.f, 10.f));
-	peduncle.setFillColor(sf::Color(123, 130, 53));
-	peduncle.setOutlineThickness(2.f);
-	peduncle.setOutlineColor(sf::Color(27, 27, 27));
-	peduncle.setPosition(rt.x, rt.y);
-	peduncle.rotate(90.f);
-	// blossom
-	sf::CircleShape petal(90.f, 10);
-	petal.setFillColor(sf::Color(251, 169, 20));
-	petal.setOutlineThickness(2.f);
-	petal.setOutlineColor(sf::Color(27, 27, 27));
-	petal.setPosition(rt.x - 95.f, rt.y - 170.f); //position relative to the root
-	sf::CircleShape stamen(40.f);
-	stamen.setFillColor(sf::Color(50, 36, 19));
-	stamen.setOutlineThickness(10.f);
-	stamen.setOutlineColor(sf::Color(223, 109, 38));
-	stamen.setPosition(rt.x - 45.f, rt.y - 120.f); //position relative to the root
-	// drawing all flower parts
-	window->draw(peduncle);
-	window->draw(petal);
-	window->draw(stamen);
 }
 
 void Cvijet::draw_wall(sf::Vector2f w)
@@ -119,27 +92,28 @@ void Cvijet::move_character(char direction)
 	character_animation();
 	switch (direction)
 	{
-	case 'W': // move up
-		Y -= TILE*2;
-		character_sprite.setPosition(X, Y);
+	case 'W': // JUMP
+		if (JUMP)
+		{
+			Y -= TILE * 2;
+			character_sprite.setPosition(X, Y);
+		}
 		break;
 	case 'A': // move left
-		X -= TILE;
-		character_sprite.setPosition(X, Y);
-		if (collision())
+		X -= SPEED;
+		if (collision('n'))
 		{
-			X += TILE;
-			character_sprite.setPosition(X, Y);
+			X += SPEED;
 		}
+		character_sprite.setPosition(X, Y);
 		break;
 	case 'D': // move right
-		X += TILE;
-		character_sprite.setPosition(X, Y);
-		if (collision())
+		X += SPEED;
+		if (collision('n'))
 		{
-			X -= TILE;
-			character_sprite.setPosition(X, Y);
+			X -= SPEED;
 		}
+		character_sprite.setPosition(X, Y);
 		break;
 	}
 }
@@ -198,7 +172,7 @@ void Cvijet::character_animation()
 
 void Cvijet::draw_row(std::vector<int> row, sf::Vector2f w)
 {
-	for (int i = 0; i < ROW; i++)
+	for (int i = 0; i < COLUMN; i++)
 	{
 		if (row[i] == 0)
 		{
@@ -228,7 +202,7 @@ void Cvijet::draw_environment()
 	// initial position of a wall
 	sf::Vector2f w;
 	w.x = 0.f;
-	w.y = 536.f;
+	w.y = Y_HEIGHT - TILE;
 
 	// draw row by row
 	for (int i = 0; i < rows.size(); i++)
@@ -247,8 +221,8 @@ void Cvijet::scene_animation()
 	sf::ConvexShape back;
 	back.setPointCount(8);
 	back.setPoint(0, sf::Vector2f(0.f, 0.f));
-	back.setPoint(1, sf::Vector2f(800.f, 0.f));
-	back.setPoint(2, sf::Vector2f(800.f, 600.f));
+	back.setPoint(1, sf::Vector2f(X_WIDTH, 0.f));
+	back.setPoint(2, sf::Vector2f(X_WIDTH, Y_HEIGHT));
 	back.setPoint(3, sf::Vector2f(0.f, 600.f));
 
 	//create the Sun
@@ -286,47 +260,71 @@ void Cvijet::scene_animation()
 	}
 }
 
-bool Cvijet::collision()
-{
-	// collision detection
-	for (int i = 0; i < rows.size(); i++)
+bool Cvijet::collision(char direction)
+{	
+	// Character collision coordinates
+	float col_x = X;
+	float col_y = Y;	
+	switch (direction)
 	{
-		for (int j = 0; j < ROW; j++)
+	case 'n':
+		//do (n)othing
+		break;
+	case 'S':
+		col_y += TILE - SPEED;
+		break;
+	}
+	// world speed index
+	int q = TILE / SPEED;
+	// TILES collision detection
+	for (int i = 0; i < rows.size() * q; i++)
+	{
+		for (int j = 0; j < COLUMN * q; j++)
 		{
-			float world_x = 0.f + TILE * j;
-			float world_y = 536.f - TILE * i;
-			if (world_x == X && world_y == Y)
+			// world collision coordinates
+			float world_x = (-TILE / 2) + (SPEED * j);
+			float world_y = (Y_HEIGHT - SPEED) - (SPEED * i);
+			if (world_x == col_x && world_y == col_y)
 			{
-				if (rows[i][j] == 1 || rows[i][j] == 2)
+				if (rows[i / q][j / q] == 1 || rows[i / q][j / q] == 2)
 				{
 					return true;
 				}
 			}
 		}
 	}
+	// screen collision detection
+	if (X < 0.f)
+	{	//left end of the screen
+		X = 0.f;
+	}
+	if (X > X_WIDTH)
+	{	//right end of the screen
+		X = X_WIDTH - TILE;
+	}
+	if (Y > Y_HEIGHT)
+	{	// Game Over, i.e. player position is restarted
+		X = 0.f;
+		Y = 344.f;
+	}
 	return false;	
 }
 
 void Cvijet::gravity()
 {	
-	try
+	if (!collision('S'))
 	{
-		while (!collision())
+		Y += SPEED * 2;
+		// jumping not possieble in the air
+		JUMP = false;
+		character_sprite.setPosition(X, Y);
+		if (collision('S'))
 		{
-			Y += TILE;
+			Y -= SPEED * 2;
 			character_sprite.setPosition(X, Y);
-			if (collision())
-			{
-				Y -= TILE;
-				character_sprite.setPosition(X, Y);
-				break;
-			}
+			// jumping allowed when character is on the ground
+			JUMP = true; 
 		}
-		throw 505;
-	}
-	catch (...)
-	{
-		std::cout << "\"gravity()\" method have some issues!" << std::endl;
 	}
 }
 
