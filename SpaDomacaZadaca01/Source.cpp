@@ -1,24 +1,35 @@
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 
-int main()
-{
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
-	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+int main() {
+    sf::RenderWindow renderWindow(sf::VideoMode(800, 600), "Sprite");
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+    sf::Event event;
+    sf::Texture texture;
+    texture.loadFromFile("chardons.png");
 
-		window.clear();
-		//cvijet.draw();
-		window.display();
-	}
+    sf::IntRect okvir(200, 0, 70, 50);
+    sf::Sprite predlozak(texture, okvir);
+    sf::Clock clock;
 
-	return 0;
+    while (renderWindow.isOpen()) {
+        while (renderWindow.pollEvent(event)) {
+            if (event.type == sf::Event::EventType::Closed)
+                renderWindow.close();
+        }
+
+        if (clock.getElapsedTime().asSeconds() > 1.0f) {
+            if (okvir.left == 600)
+                okvir.left = 0;
+            else
+                okvir.left += 50;
+
+            predlozak.setTextureRect(okvir);
+            clock.restart();
+        }
+
+
+        renderWindow.clear();
+        renderWindow.draw(predlozak);
+        renderWindow.display();
+    }
 }
