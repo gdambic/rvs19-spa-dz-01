@@ -1,22 +1,25 @@
 #include <SFML/Graphics.hpp>
+#include "Flower.h"
 
-int main()
+using namespace sf;
+
+int main() 
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	RenderWindow window(VideoMode(800, 600), "Flower");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
 
-	while (window.isOpen())
+	Flower flower(&window);
+
+	while (window.isOpen()) 
 	{
-		sf::Event event;
+		Event event;
+
 		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == Event::Closed)
 				window.close();
-		}
 
 		window.clear();
-		//cvijet.draw();
+		flower.draw();
 		window.display();
 	}
 
