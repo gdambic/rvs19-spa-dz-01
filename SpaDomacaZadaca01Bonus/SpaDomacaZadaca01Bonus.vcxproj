@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{27E5E2CC-0412-4F77-917C-6285F9D6F224}</ProjectGuid>
+    <ProjectGuid>{68269A02-1B32-4B86-99EF-C4A7F3B4260B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SpaDomacaZadaca01</RootNamespace>
+    <RootNamespace>SpaDomacaZadaca01Bonus</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -160,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cvijet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="character_sheet.png" />
+    <Image Include="Coin.gif" />
+    <Image Include="stone_floor.png" />
+    <Image Include="stone_wall.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

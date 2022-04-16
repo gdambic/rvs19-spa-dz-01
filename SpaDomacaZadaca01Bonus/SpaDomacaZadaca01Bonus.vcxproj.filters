@@ -27,4 +27,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="stone_wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="stone_floor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Coin.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="character_sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
