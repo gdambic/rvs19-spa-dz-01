@@ -13,7 +13,7 @@ private:
 
     //Flower
     sf::CircleShape head;
-    sf::CircleShape stem;
+    sf::RectangleShape stem;
     sf::ConvexShape leaf1;
     sf::ConvexShape leaf2;
 
