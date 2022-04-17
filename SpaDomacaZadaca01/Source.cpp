@@ -8,9 +8,6 @@ int main()
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
-	sf::Clock clock;
-	float lastTime = 0;
-
 	sf::CircleShape shape(50.f);
 	shape.setFillColor(sf::Color(100, 250, 50));
 	while (window.isOpen())
@@ -24,16 +21,7 @@ int main()
 
 		window.clear();
 		cvijet.draw();
-		window.display();
-
-		float currentTime = clock.restart().asSeconds();
-		float fps = 1.f / (currentTime);
-		lastTime = currentTime;
-
-		std::stringstream ss;
-		ss << fps;
-		window.setTitle(ss.str());		
-
+		window.display();	
 	}
 	return 0;
 }
