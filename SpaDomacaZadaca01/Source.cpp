@@ -25,7 +25,7 @@ int main() {
 	}
 	window.setFramerateLimit(60);
 	vector<Cvijet> k;
-	Cvijet cvijeto(window,lopta);
+	Cvijet cvijeto(window);
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -39,7 +39,7 @@ int main() {
 		{
 			sf::Vector2i position = sf::Mouse::getPosition(window);
 
-			k.emplace_back(position.x, position.y, (double)gen_rnd(10, 14) / 30,lopta);
+			k.emplace_back(position.x, position.y, (double)gen_rnd(10, 14) / 30);
 			br = 0;
 		}
 
@@ -49,7 +49,7 @@ int main() {
 		for (auto it = k.begin(); it != k.end();) {
 
 			(* it).update();
-			(* it).drawKrug(window);
+			(* it).drawKrug(window,lopta);
 			if ((*it).trebaUnistiti()) {
 				it = k.erase(it);
 			}

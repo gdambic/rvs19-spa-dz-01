@@ -4,10 +4,10 @@
 class Cvijet
 {
 public:
-	Cvijet(int x,int y,double e,sf::Texture &lopta);
-	Cvijet(sf::RenderWindow& window,sf::Texture& lopta);
+	Cvijet(int x,int y,double e);
+	Cvijet(sf::RenderWindow& window);
 	Cvijet& operator=(const Cvijet& source);
-	void drawKrug(sf::RenderWindow& window);
+	void drawKrug(sf::RenderWindow& window,const sf::Texture& lopta);
 	void draw(sf::RenderWindow& window);
 	void drawSunce(sf::Clock &cukica, sf::RenderWindow& window);
 	void update();
@@ -15,7 +15,6 @@ public:
 	void setElasticity(double e);
 	bool trebaUnistiti();
 private:
-	sf::Texture& texture;
 	double x = 50;
 	double y = 50;
 	double dy = 0;

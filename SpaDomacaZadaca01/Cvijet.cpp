@@ -5,13 +5,13 @@
 
 using namespace std;
 
-Cvijet::Cvijet(int x,int y,double e,sf::Texture &lopta) : texture(lopta) //za crtanje loptica
+Cvijet::Cvijet(int x,int y,double e)
 {
 	setPos(x, y);
 	setElasticity(e);
 }
 
-Cvijet::Cvijet(sf::RenderWindow& window,sf::Texture& lopta) : texture(lopta)	//za crtanje cvijeta
+Cvijet::Cvijet(sf::RenderWindow& window)	//za crtanje cvijeta
 {
 	draw(window);
 }
@@ -30,11 +30,11 @@ Cvijet& Cvijet::operator=(const Cvijet& source) { //"copy construktor" - sluzi k
 
 }
 
-void Cvijet::drawKrug(sf::RenderWindow& window)
+void Cvijet::drawKrug(sf::RenderWindow& window,const sf::Texture &lopta)
 {
 	sf::CircleShape shape(25);
 	//shape.setFillColor(sf::Color(25, 226, 112));
-	shape.setTexture(&texture);
+	shape.setTexture(&lopta);
 	shape.setPointCount(100);
 	shape.setPosition(x,y);
 	window.draw(shape);
