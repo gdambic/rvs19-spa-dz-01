@@ -23,30 +23,41 @@ void Cvijet::draw() {
 	sunce.setRadius(sunceRadius);
 	sunce.setFillColor(sf::Color::Yellow);
 
-	//Animacija sunca
+	// 16.66 ms je 60fps
+	//Povecavanje pa smanjivanje sunca
+	if (clock.getElapsedTime() >= sf::milliseconds(16.66f) && !radiusCheck) {
+		sunceRadius += 0.10f;
+		if (sunceRadius > 15) {
+			radiusCheck = 1;
+		}
+	}
+	else {
+		sunceRadius -= 0.10f;
+		if (sunceRadius < 10) {
+			radiusCheck = 0;
+		}
+	}
+
+	//Micanje sunca desno pa lijevo
 	if (clock.getElapsedTime() >= sf::milliseconds(16.66f) && !animacijaCheck) {
 		window->draw(sunce);
-		sunceX += 2.f;
-		sunceRadius += 0.03f;
+		++++sunceX; //zasto ovo radi
 		sunce.move(sunceX, 10.f);
-		if (sunceX == 180.f) {
+		if (sunceX > 260.f) {
 			animacijaCheck = 1;
 		}
 		clock.restart();
 	}
-	if (clock.getElapsedTime() >= sf::milliseconds(16.66f) && animacijaCheck) {
+	else {
 		window->draw(sunce);
-		sunceX -= 2.f;
-		sunceRadius -= 0.03f;
+		----sunceX;
 		sunce.move(sunceX, 10.f);
-		if (sunceX == 10.f) {
+		if (sunceX < 10.f) {
 			animacijaCheck = 0;
 		}
 		clock.restart();
 	}
 }
-
-Cvijet::Cvijet() {}
 
 void Cvijet::unutarnji_setup() {
 	unutarnji.setFillColor(sf::Color::Yellow);

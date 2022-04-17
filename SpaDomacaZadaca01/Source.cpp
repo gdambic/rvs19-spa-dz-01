@@ -10,13 +10,17 @@ int main()
 	while (window.isOpen())
 	{
 		sf::Event event;
+
+		window.clear(sf::Color::Color(50,50,50));
+
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			if(event.type == sf::Event::MouseMoved)
+				window.clear(sf::Color::Magenta);
 		}
 
-		window.clear(sf::Color::Color(50,50,50));
 		cvijet.draw();
 		window.display();
 	}
