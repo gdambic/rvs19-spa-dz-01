@@ -10,6 +10,7 @@ void Cvijet::sunce()
 		if (clock.getElapsedTime().asMilliseconds()>8000)
 		{
 			sunce.setRadius(30 - 5 * ((clock.getElapsedTime().asMilliseconds() - 3000) / 3000));
+			clock.restart();
 		}
 		else
 		{
