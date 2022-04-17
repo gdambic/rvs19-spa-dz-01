@@ -162,7 +162,7 @@
     <ClInclude Include="Cvijet.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Matej_is_cute.png" />
+    <Image Include="cute-flower.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

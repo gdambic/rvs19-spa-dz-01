@@ -5,9 +5,10 @@
 int main()
 {
 	const int WIDTH = 800;
-	 int HEIGHT = 800;
+	int HEIGHT = 800;
 	const int FPS_LIMIT = 60;
-	int move = 0.1f;
+	float move = 0.1f;
+	int state = 0;
 	sf::Color BG_COLOR = sf::Color::Color(211, 208, 192);
 	sf::ContextSettings settings;
 
@@ -26,8 +27,22 @@ int main()
 		}
 
 		window.clear(BG_COLOR);
-		cvijet.draw();
+		cvijet.draw(move);
 		window.display();
+
+		if (state % 2 == 0)
+		{
+			move += 0.4;
+
+			if (move >= 40.0) state = 1;
+		}
+
+		else
+		{
+			move -= 0.4;
+
+			if (move <= 0.0) state = 0;
+		}
 	}
 
 	return 0;

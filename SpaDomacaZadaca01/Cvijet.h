@@ -12,6 +12,6 @@ class Cvijet
 
 	public:
 		Cvijet(sf::RenderWindow *window, int WIDTH, int HEIGHT);
-		void draw();
+		void draw(int move);
 };
 

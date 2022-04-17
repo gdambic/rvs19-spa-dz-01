@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Matej_is_cute.png">
+    <Image Include="cute-flower.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
