@@ -8,8 +8,6 @@ int main()
 	window.setFramerateLimit(60);
 	Cvijet cvijet(&window);
 
-	sf::CircleShape shape(50.f);
-	shape.setFillColor(sf::Color(100, 250, 50));
 	while (window.isOpen())
 	{
 		sf::Event event;
