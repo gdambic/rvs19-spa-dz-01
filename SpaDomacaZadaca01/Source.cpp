@@ -1,10 +1,20 @@
-#include <SFML/Graphics.hpp>
+#include"Cvijet.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "TELETABIJI");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Cvijet cvijet(&window);
+
+	//sf::Music music;
+
+	//if (!music.openFromFile("res/INeedADolar.ogg"))
+	//{
+	//	std::cout << "MANE ZIKE" << std::endl;
+	//}
+	//music.play();
+
+
 
 	while (window.isOpen())
 	{
@@ -16,8 +26,10 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
 		window.display();
+		
+	
 	}
 
 	return 0;
