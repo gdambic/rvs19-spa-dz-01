@@ -3,13 +3,13 @@
 class Flower
 {
 public:
-    Flower(sf::RenderWindow &window);
+    Flower(sf::RenderWindow *window);
 
     void draw();
 
 private:
 
-    sf::RenderWindow &window;
+    sf::RenderWindow *window;
 
     //Flower
     sf::CircleShape head;
@@ -21,4 +21,4 @@ private:
     sf::CircleShape sun;
     sf::Clock frameClock;
 
-}
+};

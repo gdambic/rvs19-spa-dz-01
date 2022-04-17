@@ -1,6 +1,6 @@
 #include "Flower.h"
 
-Flower::Flower(sf::RenderWindow &window) 
+Flower::Flower(sf::RenderWindow *window) 
 {
 
     this->window = window;
@@ -42,9 +42,9 @@ Flower::Flower(sf::RenderWindow &window)
     Flower::leaf2.setFillColor(sf::Color(0,0,255));
 }
 
-Flower::Draw() {
-    window.draw(stem);
-    window.draw(flower);
-    window.draw(leaf1);
-    window.draw(leaf2);
+Flower::draw() {
+    window->draw(stem);
+    window->draw(head);
+    window->draw(leaf1);
+    window->draw(leaf2);
 }
