@@ -17,8 +17,9 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			//da ne bude pre dosadno
 			if(event.type == sf::Event::MouseMoved)
-				window.clear(sf::Color::Magenta);
+				window.clear(sf::Color::Color(50,50,100));
 		}
 
 		cvijet.draw();

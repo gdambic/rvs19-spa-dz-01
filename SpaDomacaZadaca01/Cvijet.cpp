@@ -12,51 +12,21 @@ void Cvijet::draw() {
 	unutarnji_setup();
 	list_setup();
 
-	//Nacrta dijelove cvijeta
+	// Pozove animaciju sunca : 16.66ms je 60fps
+	if (clock.getElapsedTime() >= sf::milliseconds(16.66f)) {
+		sunce_setup();
+		sunce_move_animacija();
+		sunce_size_animacija();
+	}
+
+	//Nacrta sve
 	window->draw(stabljika);
 	window->draw(vanjski);
 	window->draw(unutarnji);
-	window->draw(list);	
+	window->draw(list);
+	window->draw(sunce);
 
-	//Postavi sunce
-	sunce.setPosition(sf::Vector2f(sunceX, 10.f));
-	sunce.setRadius(sunceRadius);
-	sunce.setFillColor(sf::Color::Yellow);
-
-	// 16.66 ms je 60fps
-	//Povecavanje pa smanjivanje sunca
-	if (clock.getElapsedTime() >= sf::milliseconds(16.66f) && !radiusCheck) {
-		sunceRadius += 0.10f;
-		if (sunceRadius > 15) {
-			radiusCheck = 1;
-		}
-	}
-	else {
-		sunceRadius -= 0.10f;
-		if (sunceRadius < 10) {
-			radiusCheck = 0;
-		}
-	}
-
-	//Micanje sunca desno pa lijevo
-	if (clock.getElapsedTime() >= sf::milliseconds(16.66f) && !animacijaCheck) {
-		window->draw(sunce);
-		++++sunceX; //zasto ovo radi
-		sunce.move(sunceX, 10.f);
-		if (sunceX > 260.f) {
-			animacijaCheck = 1;
-		}
-		clock.restart();
-	}
-	else {
-		window->draw(sunce);
-		----sunceX;
-		sunce.move(sunceX, 10.f);
-		if (sunceX < 10.f) {
-			animacijaCheck = 0;
-		}
-		clock.restart();
-	}
+	clock.restart();
 }
 
 void Cvijet::unutarnji_setup() {
@@ -64,6 +34,7 @@ void Cvijet::unutarnji_setup() {
 	unutarnji.setRadius(40.f);
 	unutarnji.setPosition(120.f, 120.f);
 }
+
 void Cvijet::vanjski_setup() {
 	vanjski.setFillColor(sf::Color::Red);
 	vanjski.setRadius(60.f);
@@ -84,4 +55,42 @@ void Cvijet::list_setup() {
 	list.setPoint(1, sf::Vector2f(50.f, 20.f));
 	list.setPoint(2, sf::Vector2f(90.f, 0.f));
 	list.setPoint(3, sf::Vector2f(30.f, -5.f));
+}
+
+void Cvijet::sunce_setup() {
+	sunce.setPosition(sf::Vector2f(sunceX, 10.f));
+	sunce.setRadius(sunceRadius);
+	sunce.setFillColor(sf::Color::Yellow);
+}
+
+void Cvijet::sunce_size_animacija() {
+	if (!radiusCheck) {
+		sunceRadius += 0.10f;
+		if (sunceRadius > 15) {
+			radiusCheck = 1;
+		}
+	}
+	else{
+		sunceRadius -= 0.10f;
+		if (sunceRadius < 10) {
+			radiusCheck = 0;
+		}
+	}
+}
+
+void Cvijet::sunce_move_animacija() {
+	if (!moveCheck) {
+		++sunceX;
+		sunce.move(sunceX, 10.f);
+		if (sunceX > 130.f) {
+			moveCheck = 1;
+		}
+	}
+	else{
+		--sunceX;
+		sunce.move(sunceX, 10.f);
+		if (sunceX < 10.f) {
+			moveCheck = 0;
+		}
+	}
 }

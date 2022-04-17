@@ -13,7 +13,7 @@ private:
 	sf::Clock clock;
 	float sunceX = 10;
 	float sunceRadius = 10;
-	bool animacijaCheck = 0;
+	bool moveCheck = 0;
 	bool radiusCheck = 0;
 public:
 	Cvijet(sf::RenderWindow* window);
@@ -21,6 +21,9 @@ public:
 	void unutarnji_setup();
 	void vanjski_setup();
 	void list_setup();
+	void sunce_setup();
+	void sunce_size_animacija();
+	void sunce_move_animacija();
 	void draw();
 };
 
