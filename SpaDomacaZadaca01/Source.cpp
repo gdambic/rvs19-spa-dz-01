@@ -1,15 +1,27 @@
 #include <SFML/Graphics.hpp>
 #include "Cvijet.h"
-#include "Character.h"
+#include "Bee.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	Cvijet cvijet(&window);
 	
+	Cvijet cvijet(&window);
+	Bee bee(&window);
 
-	//Character person(window.getSize().x / 2, window.getSize().y / 2);
+	sf::Text text;
+	sf::Font font;
+	if (!font.loadFromFile("Presley.ttf")) {
+		throw std::exception("Greska kod ucitavanja fonta!");
+	}
+
+	text.setString("USE ARROW KEYS!");
+	text.setFont(font);
+	text.setCharacterSize(50);
+	text.setPosition(300, 200);
+	text.setFillColor(sf::Color::Blue);
+
 
 	bool grow = true;
 	float radius = 40;
@@ -23,11 +35,11 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			/*if (event.type == sf::Event::KeyPressed)
-				person.processEvents(event.key.code, true);
+			if (event.type == sf::Event::KeyPressed)
+				bee.processEvents(event.key.code, true);
 
 			if (event.type == sf::Event::KeyReleased)
-				person.processEvents(event.key.code, false);*/
+				bee.processEvents(event.key.code, false);
 
 		}
 
@@ -44,8 +56,9 @@ int main()
 
 		window.clear(sf::Color::Cyan);
 		cvijet.draw(radius);
-		//person.update();
-		//person.drawTo(window);
+		bee.update();
+		bee.draw();
+		window.draw(text);
 		window.display();
 	}
 
