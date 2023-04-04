@@ -1,10 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
+#include "Unos.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	Unos widthHeight; // ne idu zagrade ovdje!!!!
+	int width = widthHeight.getWidth();
+	int height = widthHeight.getHeight();
+
+	sf::RenderWindow window(sf::VideoMode(width, height), "Cvijet");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+
+	Cvijet cvijet(&window); // inicjalizira cvijet. input je adresa windowa. 
+	cvijet.setAnimation(&window); // inicijalizira animaciju sunca
 
 	while (window.isOpen())
 	{
@@ -16,7 +24,9 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.updateFlower(&window); // updejta cvijet
+		cvijet.draw(&window); // animira sunce
+
 		window.display();
 	}
 
