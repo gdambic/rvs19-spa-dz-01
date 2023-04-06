@@ -1,10 +1,17 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
+#include "Sunce.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 	//Cvijet cvijet(&window);
+
+	Cvijet cvijet(&window);
+	Sunce sunce(&window);
+
+	sf::Clock clock;
 
 	while (window.isOpen())
 	{
@@ -16,7 +23,8 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
+		sunce.draw();
 		window.display();
 	}
 
