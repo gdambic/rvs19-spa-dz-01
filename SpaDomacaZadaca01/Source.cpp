@@ -1,10 +1,15 @@
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include <cmath>
+#include "Flower.h"
+
+using namespace std; 
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Flower flower(&window);
 
 	while (window.isOpen())
 	{
@@ -16,7 +21,7 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		flower.draw();
 		window.display();
 	}
 
