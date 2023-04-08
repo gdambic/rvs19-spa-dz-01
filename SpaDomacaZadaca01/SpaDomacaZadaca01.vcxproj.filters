@@ -18,5 +18,33 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cvijet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cvijet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="stem_texture_file.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="gynoecium_texture_file.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="petal_disk_texture_file.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="leaf_texture_file.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="grass_texture_file.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sky_texture_file.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
