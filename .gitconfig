@@ -1,0 +1,10 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = M-Pat
+	email = markpatacic@gmail.com
+[gui]
+	recentrepo = C:/Users/Maki/source/repos/rvs19-spa-dz-01
