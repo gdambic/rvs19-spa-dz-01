@@ -30,24 +30,4 @@ void Cvijet::nacrtajcvijet()
     list.setPosition(460, 400); 
     list.rotate(90.f); 
     w->draw(list); 
-
-    sf::Texture slika; 
-    slika.loadFromFile("Slike/Pcela.png"); 
-    sf::IntRect datoteka(300, 0, 300, 400); 
-    sf::Sprite fotografija(slika, datoteka); 
-    sf::Clock vrijeme; 
-    if (vrijeme.getElapsedTime().asSeconds() > 1.0f) 
-    { 
-        if (datoteka.left == 600) 
-        { 
-            datoteka.left = 0; 
-        } 
-        else
-        {
-            datoteka.left += 300; 
-        } 
-        fotografija.setTextureRect(datoteka); 
-        vrijeme.restart(); 
-    } 
-    
 } 

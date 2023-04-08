@@ -8,8 +8,6 @@ class Cvijet
 { 
 private: 
 	sf::RenderWindow* w; 
-	sf::Clock frameClock_;
-	sf::CircleShape sunce; 
 public: 
 	Cvijet(sf::RenderWindow* window); 
 	void nacrtajcvijet(); 
