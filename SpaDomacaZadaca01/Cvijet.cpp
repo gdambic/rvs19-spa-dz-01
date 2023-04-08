@@ -32,7 +32,6 @@ void Cvijet::animacija()
 {
 	sf::Clock clock;
 	sf::Time elapsed1 = clock.getElapsedTime();
-	cout << elapsed1;
 	sf::CircleShape trokut(50.f, 3);
 	trokut.move(150.f, 85.f);
 	window->draw(trokut);
