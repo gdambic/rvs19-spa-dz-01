@@ -1,24 +1,25 @@
-#include <SFML/Graphics.hpp>
+#include "Cvijet.h"
+#include <iostream>
 
-int main()
-{
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
-	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+int main() {
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+    window.setFramerateLimit(60);
 
-		window.clear();
-		//cvijet.draw();
-		window.display();
-	}
+    Cvijet cvijet(&window);
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
 
-	return 0;
+        cvijet.draw_screen();
+        cvijet.animate_the_sun();
+        window.display();
+    }
+
+    return 0;
 }
