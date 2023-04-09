@@ -1,0 +1,3 @@
+﻿  Cvijet.cpp
+sfml-window-s-d.lib(JoystickImpl.cpp.obj) : warning LNK4099: PDB 'sfml-window-s-d.pdb' was not found with 'sfml-window-s-d.lib(JoystickImpl.cpp.obj)' or at 'C:\Users\Tin\OneDrive\Desktop\SPA\rvs19-spa-dz-01\x64\Debug\sfml-window-s-d.pdb'; linking object as if no debug info
+  SpaDomacaZadaca01.vcxproj -> C:\Users\Tin\OneDrive\Desktop\SPA\rvs19-spa-dz-01\x64\Debug\SpaDomacaZadaca01.exe
