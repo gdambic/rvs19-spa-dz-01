@@ -76,22 +76,6 @@ void Flower::setCloud() {
 	this->cloud = cloud;
 }
 
-void Flower::light() {
-	if (darkness > 0) {
-		darkness -= 5;
-	}
-	shade.setFillColor(sf::Color(0, 0, 0, darkness));
-	window->draw(shade);
-}
-
-void Flower::dark() {
-	if (darkness < 130) {
-		darkness += 5;
-	}
-	shade.setFillColor(sf::Color(0, 0, 0, darkness));
-	window->draw(shade);
-}
-
 void Flower::draw()
 {
 	int petalRotation = 0;
@@ -108,45 +92,45 @@ void Flower::draw()
 				window->close();
 		}
 		
-			window->clear(sf::Color(135, 206, 235));
-			window->draw(sun);
-			window->draw(cloud);
-			window->draw(stem);
-			window->draw(mound);
+		window->clear(sf::Color(135, 206, 235));
+		window->draw(sun);
+		window->draw(cloud);
+		window->draw(stem);
+		window->draw(mound);
 
 
-			do {
-				//zbrajamo sa x pozicijom oblaka da bi dobili efekt okretanja latica
-				petal.setRotation(petalRotation + cloudPositionX);
-				petalRotation += 10;
-				cloud.setPosition({ cloudPositionX, cloudPositionY});
-				window->draw(petal);
-			} while (petalRotation <= 360);
-			petalRotation = 0;
+		do {
+			//zbrajamo sa x pozicijom oblaka da bi dobili efekt okretanja latica
+			petal.setRotation(petalRotation + cloudPositionX);
+			petalRotation += 10;
+			cloud.setPosition({ cloudPositionX, cloudPositionY});
+			window->draw(petal);
+		} while (petalRotation <= 360);
+		petalRotation = 0;
 
-			//resetira oblak kad izade sa ekrana, a ako je jos na ekranu pomicemo ga u desno
-			if (cloudPositionX >= window->getSize().x)
-			{
-				cloudPositionX = -(cloud.getRadius() * cloud.getScale().x) * 2;
-			}
-			else{
-				cloudPositionX += 1;
-			}
+		//resetira oblak kad izade sa ekrana, a ako je jos na ekranu pomicemo ga u desno
+		if (cloudPositionX >= window->getSize().x)
+		{
+			cloudPositionX = -(cloud.getRadius() * cloud.getScale().x) * 2;
+		}
+		else{
+			cloudPositionX += 1;
+		}
 
-			window->draw(flower);
+		window->draw(flower);
 			
-			//ako oblak prekriva sunce onda se "zatamnjuje" window  
-			if (cloud.getGlobalBounds().left + cloud.getGlobalBounds().width >= sun.getGlobalBounds().left + sun.getGlobalBounds().width && cloud.getGlobalBounds().left < sun.getGlobalBounds().left && darkness < 130) {
-				//mjenjanje transparentnosti 
-				darkness += 5;
-			}
-			else if (cloud.getGlobalBounds().left >= sun.getGlobalBounds().left && darkness > 0)
-			{
-				darkness -= 5;
-			}
+		//ako oblak prekriva sunce onda se "zatamnjuje" window  
+		if (cloud.getGlobalBounds().left + cloud.getGlobalBounds().width >= sun.getGlobalBounds().left + sun.getGlobalBounds().width && cloud.getGlobalBounds().left < sun.getGlobalBounds().left && darkness < 130) {
+			//mjenjanje transparentnosti 
+			darkness += 5;
+		}
+		else if (cloud.getGlobalBounds().left >= sun.getGlobalBounds().left && darkness > 0)
+		{
+			darkness -= 5;
+		}
 
-			shade.setFillColor(sf::Color(0, 0, 0, darkness));
-			window->draw(shade);
-			window->display();
+		shade.setFillColor(sf::Color(0, 0, 0, darkness));
+		window->draw(shade);
+		window->display();
 	}
 }
