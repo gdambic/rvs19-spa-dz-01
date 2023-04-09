@@ -5,7 +5,7 @@
 
 #include <vector>
 #include <random>
-#include <math.h>
+#include <cmath>
 
 #include <iostream>;
 
@@ -19,14 +19,22 @@ Flowie::Flowie(sf::Color _petal_color, sf::RenderWindow& window)
 
 	generate_frames();
 	generate_background(window);
+	if (!enemy_texture.loadFromFile("yellow-jacket.png")) {
+		std::cout << "ERROR: enemy texture not located." << std::endl;
+		exit(1);
+	}
 
+	//We use these sprites to switch between frames since they're very lightweight.
+	//They also allow us to scale the flowerhead, giving us a "rotating upwards" effect.
 	head.setTexture(frames[current_frame]);
 	head.setOrigin(head.getTexture()->getSize().x / 2.f, head.getTexture()->getSize().y / 2.f);
 	head.setPosition(window.getSize().x / 2.f, window.getSize().y / 1.5);
+	orig_x = head.getPosition().x;
+	orig_y = head.getPosition().y;
 
 	other.setTexture(background);
-	//We use sprites to switch between frames since they're very lightweight.
-	//They also allow us to scale the flowerhead, giving us a rotating upwards effect.
+	enemy.setTexture(enemy_texture);
+	enemy.setOrigin(enemy_texture.getSize().x / 2.f, enemy_texture.getSize().y / 2.f);
 }
 
 //generates a frame for every degree we'll need 
@@ -160,69 +168,205 @@ void Flowie::generate_background(sf::RenderWindow& window)
 		render_target.draw(cloud);
 	}
 
-	//Now things closer to the front
-	circle.setFillColor(foreground_green);
-	circle.setRadius(size.x);
-	circle.setScale(1, 0.3);
-	circle.setOrigin(circle.getOrigin().x, circle.getRadius());
-	circle.setPosition(-size.x / 5, size.y);
-	render_target.draw(circle);
+	//Now draw things closer to the front
+	{
+		circle.setFillColor(foreground_green);
+		circle.setRadius(size.x);
+		circle.setScale(1, 0.3);
+		circle.setOrigin(circle.getOrigin().x, circle.getRadius());
+		circle.setPosition(-size.x / 5, size.y);
+		render_target.draw(circle);
 
-	circle.setFillColor(background_green);
-	circle.move(-size.x / 2, size.y / 6);
-	render_target.draw(circle);
+		circle.setFillColor(background_green);
+		circle.move(-size.x / 2, size.y / 6);
+		render_target.draw(circle);
 
-	rectangle.setSize(size);
-	rectangle.setFillColor(sf::Color::Green);
-	rectangle.setOrigin(0, -size.y / 2 - size.y / 6);
-	rectangle.setPosition(head.getPosition().x, head.getPosition().y);
-	rectangle.move(size.x / 2.05, 0);
-	rectangle.setScale(0.02, 1);
-	render_target.draw(rectangle);
+		rectangle.setSize(size);
+		rectangle.setFillColor(sf::Color::Green);
+		rectangle.setOrigin(0, -size.y / 2 - size.y / 6);
+		rectangle.setPosition(head.getPosition().x, head.getPosition().y);
+		rectangle.move(size.x / 2.05, 0);
+		rectangle.setScale(0.02, 1);
+		render_target.draw(rectangle);
+	}
 
 	render_target.display();
 	background = render_target.getTexture();
 }
 
+//I should really segment this one but I have no time
 //Ideally we would pass time difference and be frame-independent
 //but that would be overcomplicating it more than it already is
-void Flowie::process()
+///This is basically a monster function that does all the work
+void Flowie::process(sf::RenderWindow& window)
 {
-	if (degrees_per_frame > 0) {
-		++curr_frames;
-		while (curr_frames >= 1 / degrees_per_frame) {
-			current_frame++;
-			if (current_frame + 1 > frames.size()) {
-				current_frame = 0;
-			}
-			curr_frames -= 1 / degrees_per_frame;
+	++frames_animate_tracker;
+	while (frames_animate_tracker >= 1 / degrees_per_frame) {
+		current_frame++;
+		if (current_frame + 1 > frames.size()) {
+			current_frame = 0;
 		}
-		head.setTexture(frames[current_frame]);
-
-		float scale_y = 1 - (log(degrees_per_frame + 1) / 2.5);
-		if (scale_y < 0.15) {
-			scale_y = 0.15;
-		}
-		head.setScale(1, scale_y);
+		frames_animate_tracker -= 1 / degrees_per_frame;
 	}
-	degrees_per_frame += 0.01;
+	head.setTexture(frames[current_frame]);
+
+	float scale_y = 1 - (log(degrees_per_frame + 1) / 2.5);
+	if (scale_y < 0.15) {
+		scale_y = 0.15;
+	}
+	head.setScale(1, scale_y);
+	
 	std::cout << degrees_per_frame << std::endl;
 
-	if (degrees_per_frame > 9.8) {
-		float move = degrees_per_frame - 9.8;
-		head.setPosition(head.getPosition().x + 1 / (degrees_per_frame / 3), head.getPosition().y - move);
+	if (!ready) {
+		if (degrees_per_frame < 9.8) {
+			return;
+		}
+		ready = true;
 	}
+
+	//gradual difficulty increase
+	enemies_per_frame += enemy_spawn_difficulty;
+	//Spawn the hostiles
+	++frames_enemy_tracker;
+	while (frames_enemy_tracker >= 1 / enemies_per_frame) {
+		frames_enemy_tracker -= 1 / enemies_per_frame;
+
+		Enemy hostile;
+		hostile.direction = random_gen() % 2;
+		if (hostile.direction == false) {
+			hostile.x = window.getSize().x;
+		}
+		std::uniform_int_distribution<int> dist{ 0, int(window.getSize().y)};
+		hostile.y = dist(random_gen);
+		hostile.speed -= dist(random_gen) % 2;
+		enemy_list.push_back(hostile);
+	}
+
+	//Process the hostiles
+	if(!enemy_list.empty()){
+		for (auto it = enemy_list.begin(); it != enemy_list.end();)
+		{
+			std::uniform_int_distribution<int> dist{ -2, 2 };
+			it->y += dist(random_gen);
+			if (it->direction) {
+				it->x += it->speed;
+			}
+			else {
+				it->x -= it->speed;
+			}
+
+			if (sqrt(pow(abs(it->x - head.getPosition().x), 2) + (pow(abs(it->y - head.getPosition().y), 2)))
+				<= enemy_collision_dist) {
+
+				std::cout << "X" << it->x << std::endl;
+				std::cout << "Y" << it->y << std::endl;
+				reset(window);
+				//I used to be an adventurer like you, but then I took an
+				//[ERROR:cannot dereference value-initialized list iterator]
+				//to the knee.
+				break;
+			}
+
+			if (it->x > window.getSize().x + enemy_texture.getSize().x * enemy_default_scale ||
+				it->x < 0 - enemy_texture.getSize().x * enemy_default_scale ||
+				it->y > window.getSize().y + enemy_texture.getSize().y * enemy_default_scale ||
+				it->y < 0 - enemy_texture.getSize().y * enemy_default_scale) {
+
+				it = enemy_list.erase(it);
+			}
+			else {
+				++it;
+			}
+		}
+	}
+
+	float rotation = head.getRotation() + 90;
+	float move = degrees_per_frame;
+	//Expects radians
+	velocity_x += - move * cos(rotation / 180 * 3.14159);
+	velocity_y += -move * sin(rotation / 180 * 3.14159) + 9.8;
+	velocity_x *= air_resistance_factor;
+	velocity_y *= air_resistance_factor;
+
+	if (head.getPosition().x < 0 && velocity_x < 0) {
+		velocity_x *= -1;
+	}
+	if (head.getPosition().x > window.getSize().x && velocity_x > 0) {
+		velocity_x *= -1;
+	}
+	if (head.getPosition().y < 0 && velocity_y < 0) {
+		velocity_y *= -1;
+	}
+	if (head.getPosition().y > window.getSize().y - 20 && velocity_y > 0) {
+		velocity_y = 0;
+	}
+	if (head.getPosition().y > orig_y && head.getPosition().y < orig_y + 10 &&
+		head.getPosition().x > orig_x - 10 && head.getPosition().x < orig_x + 10 && velocity_y > 0) {
+		velocity_y = 0;
+		velocity_x = 0;
+	}
+
+	head.move(velocity_x, velocity_y);
 }
 
 void Flowie::draw(sf::RenderWindow& window)
 {
 	window.draw(other);
 	window.draw(head);
+
+
+	if (!enemy_list.empty()) {
+		for (auto it = enemy_list.begin(); it != enemy_list.end(); it++) {
+			enemy_default_scale;
+			enemy.setPosition(it->x, it->y);
+			if (it->direction) {
+				enemy.setScale(enemy_default_scale, enemy_default_scale);
+			}
+			else {
+				enemy.setScale(-enemy_default_scale, enemy_default_scale);
+			}
+			window.draw(enemy);
+		}
+	}
 }
 
 void Flowie::reset(sf::RenderWindow& window)
 {
+	ready = false;
 	head.setPosition(window.getSize().x / 2.f, window.getSize().y / 1.5);
 	degrees_per_frame = 0;
+	enemies_per_frame = 0;
+	head.setRotation(0);
 	current_frame = 0;
+	enemy_list.clear();
+	velocity_x = 0;
+	velocity_y = 0;
+}
+
+void Flowie::rotate_left()
+{
+	if (!ready)
+		return;
+	head.rotate(-rotation_speed);
+}
+
+void Flowie::rotate_right()
+{
+	if (!ready)
+		return;
+	head.rotate(rotation_speed);
+}
+
+void Flowie::RPM_UP()
+{
+	degrees_per_frame += RPM_change;
+}
+
+void Flowie::RPM_DOWN()
+{
+	degrees_per_frame -= RPM_change;
+	if (degrees_per_frame < 0) {
+		degrees_per_frame *= -1;
+	}
 }
