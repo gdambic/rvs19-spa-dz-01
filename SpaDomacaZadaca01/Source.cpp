@@ -1,4 +1,5 @@
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 #include "Cvijet.h"
 int main()
 {
