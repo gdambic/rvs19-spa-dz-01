@@ -31,11 +31,14 @@ public:
     void draw();
     void set_background(sf::Sprite& spriteBackground);
     void set_krug(sf::CircleShape &krug);
+    void set_krug2(sf::CircleShape &krug2);
     void set_sunce(sf::CircleShape &sunce);
     void set_stapka(sf::RectangleShape &stapka);
     void set_list(sf::ConvexShape &list);
     sf::CircleShape get_krug();
+    sf::CircleShape get_krug2();
     sf::CircleShape get_sunce();
     sf::RectangleShape get_stapka();
     sf::ConvexShape get_list();
+    sf::Sprite get_spriteBackground();
 };

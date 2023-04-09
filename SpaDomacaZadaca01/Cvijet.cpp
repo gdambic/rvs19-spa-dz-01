@@ -10,15 +10,7 @@ Cvijet::Cvijet(sf::RenderWindow* window)
 	set_stapka(stapka);
 	set_list(list);
 	set_background(spriteBackground);
-
-	krug2.setRadius(70);
-	krug2.setPointCount(6);
-	if (!texturep.loadFromFile("Leaves.png"))
-	{
-		cout << "404" << endl;
-	}
-	krug2.setTexture(&texturep);
-	krug2.setPosition(100.f, 100.f);
+	set_krug2(krug2);
 }
 void Cvijet::set_background(sf::Sprite& spriteBackground)
 {
@@ -37,6 +29,18 @@ void Cvijet::set_krug(sf::CircleShape &krug)
 	}
 	krug.setTexture(&texture);
 	krug.setPosition(100.f, 100.f);
+}
+
+void Cvijet::set_krug2(sf::CircleShape& krug2)
+{
+	krug2.setRadius(70);
+	krug2.setPointCount(6);
+	if (!texturep.loadFromFile("Leaves.png"))
+	{
+		cout << "404" << endl;
+	}
+	krug2.setTexture(&texturep);
+	krug2.setPosition(100.f, 100.f);
 }
 
 void Cvijet::set_sunce(sf::CircleShape& sunce)
@@ -85,6 +89,11 @@ sf::CircleShape Cvijet::get_krug()
 	return krug;
 }
 
+sf::CircleShape Cvijet::get_krug2()
+{
+	return krug2;
+}
+
 sf::CircleShape Cvijet::get_sunce()
 {
 	return sunce;
@@ -100,13 +109,19 @@ sf::ConvexShape Cvijet::get_list()
 	return list;
 }
 
+sf::Sprite Cvijet::get_spriteBackground()
+{
+	return spriteBackground;
+}
+
 void Cvijet::draw()
 {
-	window->draw(spriteBackground);
-	window->draw(krug2);
+	window->draw(get_spriteBackground());
+	window->draw(get_krug2());
 	window->draw(get_krug());
 	window->draw(get_stapka());
 	window->draw(get_list());
+
 	if (sunce.getRadius() == 15.0f)
 	{
 		sunce_malo = true;
