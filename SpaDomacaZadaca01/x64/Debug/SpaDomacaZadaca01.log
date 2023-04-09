@@ -1,0 +1,4 @@
+﻿  Cvijet.cpp
+C:\Users\Korisnik\OneDrive\Desktop\Spa dz01x\rvs19-spa-dz-01\SpaDomacaZadaca01\Cvijet.cpp(26,30): warning C4244: 'argument': conversion from 'float' to 'size_t', possible loss of data
+C:\Users\Korisnik\OneDrive\Desktop\Spa dz01x\rvs19-spa-dz-01\SpaDomacaZadaca01\Cvijet.cpp(30,31): warning C4244: 'argument': conversion from 'float' to 'size_t', possible loss of data
+  SpaDomacaZadaca01.vcxproj -> C:\Users\Korisnik\OneDrive\Desktop\Spa dz01x\rvs19-spa-dz-01\x64\Debug\SpaDomacaZadaca01.exe
