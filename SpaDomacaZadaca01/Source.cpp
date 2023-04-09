@@ -1,10 +1,14 @@
 #include <SFML/Graphics.hpp>
-
+#include "Cvijet.h"
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	// Anti-Aliasing optional
+	//	sf::ContextSettings settings;
+	//settings.antialiasingLevel = 8;
+	//sf::RenderWindow window(sf::VideoMode(800, 600), "Happy flower and clouds", sf::Style::Default, settings);
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Happy flower and clouds");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
@@ -16,7 +20,7 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
 		window.display();
 	}
 
