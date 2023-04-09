@@ -186,29 +186,30 @@ void Cvijet::draw()
 
         //flower swing animation
             //it's inside of a loop so there's no need to make it a function other than to look good
+            //*second commit* added float indicators in these values to prevent possible data loss during the conversion process
         if (wind4.getPosition().x > 0 &&wind4.getPosition().x<500 && f_center.getRotation() < 3.9) {
-            f_center.rotate(0.1);
-            f_center.setPosition(f_center.getPosition().x + 0.5, f_center.getPosition().y);
-            stem.rotate(0.1);
-            stem.setPosition(stem.getPosition().x + 0.5, stem.getPosition().y);
-            f_crown.rotate(0.1);
-            f_crown.setPosition(f_crown.getPosition().x + 0.5, f_crown.getPosition().y);
-            leaf1.rotate(0.1);
-            leaf1.setPosition(leaf1.getPosition().x + 0.5, leaf1.getPosition().y);
-            leaf2.rotate(0.1);
-            leaf2.setPosition(leaf2.getPosition().x + 0.5, leaf2.getPosition().y);
+            f_center.rotate(0.1f);
+            f_center.setPosition(f_center.getPosition().x + 0.5f, f_center.getPosition().y);
+            stem.rotate(0.1f);
+            stem.setPosition(stem.getPosition().x + 0.5f, stem.getPosition().y);
+            f_crown.rotate(0.1f);
+            f_crown.setPosition(f_crown.getPosition().x + 0.5f, f_crown.getPosition().y);
+            leaf1.rotate(0.1f);
+            leaf1.setPosition(leaf1.getPosition().x + 0.5f, leaf1.getPosition().y);
+            leaf2.rotate(0.1f);
+            leaf2.setPosition(leaf2.getPosition().x + 0.5f, leaf2.getPosition().y);
         }
         else if (wind4.getPosition().x > 500 && f_center.getRotation() > 0.1) {
-            f_center.rotate(-0.1);
-            f_center.setPosition(f_center.getPosition().x - 0.5, f_center.getPosition().y);
-            stem.rotate(-0.1);
-            stem.setPosition(stem.getPosition().x - 0.5, stem.getPosition().y);
-            f_crown.rotate(-0.1);
-            f_crown.setPosition(f_crown.getPosition().x - 0.5, f_crown.getPosition().y);
-            leaf1.rotate(-0.1);
-            leaf1.setPosition(leaf1.getPosition().x - 0.5, leaf1.getPosition().y);
-            leaf2.rotate(-0.1);
-            leaf2.setPosition(leaf2.getPosition().x - 0.5, leaf2.getPosition().y);
+            f_center.rotate(-0.1f);
+            f_center.setPosition(f_center.getPosition().x - 0.5f, f_center.getPosition().y);
+            stem.rotate(-0.1f);
+            stem.setPosition(stem.getPosition().x - 0.5f, stem.getPosition().y);
+            f_crown.rotate(-0.1f);
+            f_crown.setPosition(f_crown.getPosition().x - 0.5f, f_crown.getPosition().y);
+            leaf1.rotate(-0.1f);
+            leaf1.setPosition(leaf1.getPosition().x - 0.5f, leaf1.getPosition().y);
+            leaf2.rotate(-0.1f);
+            leaf2.setPosition(leaf2.getPosition().x - 0.5f, leaf2.getPosition().y);
         }
 
         //drawing(loading) all the models
