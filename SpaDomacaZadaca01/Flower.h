@@ -13,6 +13,9 @@ private:
 	float snow_intensity;	//intensity of snow
 	float wind_intensity;	//intensity of wind
 	int flower_num;			//number of flowers
+	int bee_num;			//number of bees
+	float bee_size;			//size of bees
+	float bee_spd;			//speed of bees
 
 public:
 
@@ -20,7 +23,13 @@ public:
 
 
 /*
-add colors, figure out how to implement seasons.
+add colors, 
+add seasons,
+add randomize button 
+
 current idea for seasons: assign seasons to numbers: 0 for sunny, 1 for snowing, 2 for snow
+
+standard values should all be 10 and represent a normal sunflower
+
 
 */
