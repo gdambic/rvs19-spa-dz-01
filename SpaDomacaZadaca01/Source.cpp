@@ -10,6 +10,9 @@ int main(){
 	Flower flower (&window);
 	//Flower flower = Flower(&window);
 	
+	int x = 30; //x coordinate for sun animation
+	int direction = 1;
+	int angle = 0; //for rotating petals
 	while (window.isOpen()){
 
 		Event event;
@@ -19,8 +22,17 @@ int main(){
 				window.close();
 		}
 
+		if (x == 800) {
+			direction = -1;
+		}
+		else if (x == 30) {
+			direction = 1;
+		}
+		x = x + direction;
+		angle = angle + 1;
+
 		window.clear();
-		flower.draw();
+		flower.draw(x,angle);
 		window.display();
 
 	}
