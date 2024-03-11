@@ -33,13 +33,14 @@ public:
 	
 	//put getters, setter and constructors
 
+	//default flower constructor
 	Flower(
-		int petalNum = 0, 
-		float petalSize = 0.f,
-		float stemSize = 0.f,
-		float centerSize = 10.f,
-		int leavesNum = 0,
-		float leafSize = 0.f,
+		int		petalNum = 0, 
+		float	petalSize = 0.f,
+		float	stemSize = 0.f,
+		float	centerSize = 50.f,
+		int		leavesNum = 0,
+		float	leafSize = 0.f,
 		sf::Color petalColor = sf::Color::Red, 
 		sf::Color centerColor = sf::Color::Yellow,
 		sf::Color stemColor = sf::Color::Green, 
@@ -60,7 +61,7 @@ wind only has one direction.
 
 summer intensity will add a warm yellow filter over the image and introduce bees as small round particles flying around.
 
-winter will add a cold blue filter over the image and introduce slow falling round snow particles
+winter will add a cold blue filter over the image and introduce falling round snow particles
 
 spring will add fast falling droplet particles.
 
