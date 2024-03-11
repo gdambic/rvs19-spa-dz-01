@@ -33,7 +33,7 @@ public:
 	
 	//put getters, setter and constructors
 
-	//default flower constructor
+	//default flower constructor 
 	Flower(
 		int		petalNum = 0, 
 		float	petalSize = 0.f,
