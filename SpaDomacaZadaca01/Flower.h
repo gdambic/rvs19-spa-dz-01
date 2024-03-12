@@ -4,7 +4,7 @@ class Flower
 {
 private:
 
-	//flower:
+	//flower instance:
 	int petal_num;			//num of petals
 	float petal_size;		//size of petals
 	float stem_size;		//size of stem
@@ -22,6 +22,9 @@ private:
 	//universal modifier:
 	float wind_intensity;		//intensity of wind
 
+	//flower position:
+	float x;			//x position of the flower
+	float y;			//y position of the flower
 
 	//colors:
 	sf::Color petal_color;
@@ -31,22 +34,18 @@ private:
 
 public:
 	
-	//put getters, setter and constructors
+	//put getters, setter and constructors 
 
 	//default flower constructor 
-	Flower(
-		int		petalNum = 0, 
-		float	petalSize = 0.f,
-		float	stemSize = 0.f,
-		float	centerSize = 50.f,
-		int		leavesNum = 0,
-		float	leafSize = 0.f,
-		sf::Color petalColor = sf::Color::Red, 
-		sf::Color centerColor = sf::Color::Yellow,
-		sf::Color stemColor = sf::Color::Green, 
-		sf::Color leafColor = sf::Color::Green);
+	Flower();
 
+	//set the position of the flower
+	void setPosition(float x, float y);
+
+	//draw the flower
 	void draw(sf::RenderWindow& window);
+
+
 
 };
 
@@ -68,3 +67,5 @@ spring will add fast falling droplet particles.
 wind will set the intenisty of the waving animation for the flower and the particeles (bees will be slower)
 
 */
+
+//note: make the functions here
