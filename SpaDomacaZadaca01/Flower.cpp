@@ -1,13 +1,42 @@
 #include "Flower.h"
+#include <iostream>
+using namespace std;
 
+
+void Flower::menu()
+{
+    cout << "If you wish to change a specific setting, enter the number corresponding to the setting." << endl;
+    cout << "After selecting a setting, you will be prompted to enter a new value." << endl;
+    cout << "Once you are satisfied, type 10 to generate the flower, or 11 to exit without generating." << endl;
+    cout << "Use 0 at any prompt to return to these options with default values applied." << endl << endl;
+    cout << "1. Center Size" << endl;
+    cout << "2. Stem Length" << endl;
+    cout << "3. Stem Width" << endl;
+    cout << "4. Petal Count" << endl;
+    cout << "5. Petal Size" << endl;
+    cout << "6. Leaves Size" << endl;
+    cout << "7. Leaves Amount" << endl;
+    cout << "8. Set Season" << endl;
+    cout << "10. Generate Flower" << endl;
+    cout << "11. Exit" << endl << endl;
+}
+
+
+//read the user input
+float Flower::readinput()
+{
+    float input;
+	cin >> input;
+	return input;
+}
 
 //flower class constructor
 Flower::Flower() {
 	// Set default values
-	//flower instance:
     petal_num = 5;                   // Default number of petals
     petal_size = 30.f;               // Default petal size
-    stem_size = 10.f;                // Default stem size
+    stem_width = 10.f;                // Default stem size
+    stem_lenght = 200.f;                // Default stem size
     center_size = 30.f;              // Default center size
     leaves_num = 2;                  // Default number of leaves
     leaf_size = 15.f;                // Default leaf size
@@ -48,13 +77,14 @@ void Flower::draw(sf::RenderWindow& window) {
     }
 
     //draw stem
-    sf::RectangleShape stem(sf::Vector2f(stem_size, 200)); // 200 is an example length; adjust as needed
-    stem.setOrigin(stem_size / 2, 0); // Set origin to the middle of the top side for rotation
+    sf::RectangleShape stem(sf::Vector2f(stem_width, stem_lenght)); // 200 is an example length; adjust as needed
+    stem.setOrigin(stem_width / 2, 0); // Set origin to the middle of the top side for rotation
     stem.setPosition(400, 300 + center_size); // Positioning at the bottom of the center
     stem.setFillColor(stem_color);
     window.draw(stem);
 
 }
+
 
 
 
@@ -69,9 +99,14 @@ void Flower::setPetalSize(float size)
     	this->petal_size = size;
 }
 
-void Flower::setStemSize(float size)
+void Flower::setStemWidth(float size)
 {
-    this->stem_size = size;
+    this->stem_width = size;
+}
+
+void Flower::setStemLenght(float lenght)
+{
+	this->stem_lenght = lenght;
 }
 
 void Flower::setCenterSize(float size)

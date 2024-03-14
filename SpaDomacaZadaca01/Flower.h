@@ -4,10 +4,13 @@ class Flower
 {
 private:
 
+
+
 	//flower instance:
 	int petal_num;			//num of petals
 	float petal_size;		//size of petals
-	float stem_size;		//size of stem
+	float stem_width;		//width of stem
+	float stem_lenght;		//lenght of stem
 	float center_size;		//size of center
 	int leaves_num;			//number of leaves
 	float leaf_size;		//size of leaves
@@ -33,11 +36,17 @@ private:
 	sf::Color leaf_color;
 
 public:
-	
-	//put getters, setter and constructors 
+
+
 
 	//default flower constructor 
 	Flower();
+
+	//menu 
+	void menu();
+
+	float readinput();
+
 
 	//set the position of the flower
 	void setPosition(float x, float y);
@@ -45,7 +54,8 @@ public:
 	//setters
 	void setPetalNum(int num);
 	void setPetalSize(float size);
-	void setStemSize(float size);
+	void setStemWidth(float width);
+	void setStemLenght(float lenght);
 	void setCenterSize(float size);
 	void setLeavesNum(int num);
 	void setLeafSize(float size);
