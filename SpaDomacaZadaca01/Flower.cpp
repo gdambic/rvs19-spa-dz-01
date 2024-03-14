@@ -17,7 +17,7 @@ float Flower::readinput()
 Flower::Flower() {
 	// Set default values
     petal_num = 6;                   // Default number of petals
-    petal_size = 30.f;               // Default petal size
+    petal_size = 25.f;               // Default petal size
     stem_width = 10.f;               // Default stem size
     stem_lenght = 200.f;             // Default stem size
     center_size = 30.f;              // Default center size
@@ -29,11 +29,10 @@ Flower::Flower() {
     summer_intensity = 0.5f;         // Default summer intensity
     winter_intensity = 0.5f;         // Default winter intensity
     wind_intensity = 0.5f;           // Default wind intensity
-    petal_color = sf::Color::Yellow;    // Default petal color
-    center_color = sf::Color::Red;// Default center color
+    petal_color = sf::Color::Yellow; // Default petal color
+    center_color = sf::Color::Red;   // Default center color
     stem_color = sf::Color::Green;   // Default stem color
     leaf_color = sf::Color::Green;   // Default leaf colocr
-
 }
 
 
@@ -46,7 +45,7 @@ void Flower::draw(sf::RenderWindow& window) {
     center.setFillColor(center_color);
     window.draw(center);
 
-    // Draw petals
+    // Draw petals  CHANGE CODE SO THAT IT DRAWS PETALS CONNECTED TO THE CIRCLE
     for (int i = 0; i < petal_num; ++i) {
         sf::CircleShape petal(petal_size);
         petal.setPosition(400 + cos(i * 2 * 3.14159 / petal_num) * 60 - petal_size, 300 + sin(i * 2 * 3.14159 / petal_num) * 60 - petal_size);
@@ -54,7 +53,7 @@ void Flower::draw(sf::RenderWindow& window) {
         window.draw(petal);
     }
 
-    // Draw stem
+    // Draw stemS
     sf::RectangleShape stem(sf::Vector2f(stem_width, stem_lenght));
     stem.setOrigin(stem_width / 2, 0);
     stem.setPosition(400, 300 + center_size);
@@ -185,7 +184,14 @@ void Flower::setFlowerNum(int num)
 
 void Flower::setSeason(int season)
 {
-	this->season = season;
+    if (season > 3 || season < 0)
+    {
+        cout << "Use 0 for summer, 1 for winter, 2 for spring" << endl;
+    }
+    else
+    {
+        this->season = season;
+    }
 }
 
 void Flower::setSpringIntensity(float intensity)

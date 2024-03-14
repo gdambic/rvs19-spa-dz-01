@@ -21,7 +21,7 @@ private:
 	float winter_intensity;	//intensity of winter
 	
 	//universal modifier:
-	float wind_intensity;		//intensity of wind
+	float wind_intensity;	//intensity of wind
 
 
 	//colors:
