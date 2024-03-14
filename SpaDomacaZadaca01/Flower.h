@@ -4,8 +4,6 @@ class Flower
 {
 private:
 
-
-
 	//flower instance:
 	int petal_num;			//num of petals
 	float petal_size;		//size of petals
@@ -25,9 +23,6 @@ private:
 	//universal modifier:
 	float wind_intensity;		//intensity of wind
 
-	//flower position:
-	float x;			//x position of the flower
-	float y;			//y position of the flower
 
 	//colors:
 	sf::Color petal_color;
@@ -42,14 +37,8 @@ public:
 	//default flower constructor 
 	Flower();
 
-	//menu 
-	void menu();
-
+	//input reader
 	float readinput();
-
-
-	//set the position of the flower
-	void setPosition(float x, float y);
 
 	//setters
 	void setPetalNum(int num);
@@ -70,6 +59,24 @@ public:
 	void setStemColor(sf::Color color);
 	void setLeafColor(sf::Color color);
 
+	//getters
+	int getPetalNum();
+	float getPetalSize();
+	float getStemWidth();
+	float getStemLenght();
+	float getCenterSize();
+	int getLeavesNum();
+	float getLeafSize();
+	int getFlowerNum();
+	int getSeason();
+	float getSpringIntensity();
+	float getSummerIntensity();
+	float getWinterIntensity();
+	float getWindIntensity();
+	sf::Color getPetalColor();
+	sf::Color getCenterColor();
+	sf::Color getStemColor();
+	sf::Color getLeafColor();
 
 
 	//draw the flower
@@ -98,4 +105,3 @@ wind will set the intenisty of the waving animation for the flower and the parti
 
 */
 
-//note: make the functions here
