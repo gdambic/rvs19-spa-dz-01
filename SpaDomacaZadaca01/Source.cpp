@@ -24,10 +24,10 @@ int main()
 	cout << "11. Exit" << endl << endl;
 
 
-
+	//menu for changing the settings
 	while (true)
 	{
-		int userin = 11; //dynamic user input
+		int userin = 10; //dynamic user input
 		cin >> userin;
 		if (userin == 1)
 		{

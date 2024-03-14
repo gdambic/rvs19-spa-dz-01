@@ -61,11 +61,16 @@ void Flower::draw(sf::RenderWindow& window) {
     stem.setFillColor(stem_color);
     window.draw(stem);
 
-    // Draw leaves
+   //leaf base
    sf::ConvexShape leaf;
    leaf.setPointCount(3);
-   leaf.setPoint(0, sf::Vector2f(0, 0));
-   leaf.setPoint(1, sf::Vector2f(40, 20));
+   leaf.setPoint(0, sf::Vector2f(400, 420));
+   leaf.setPoint(1, sf::Vector2f(450, 400));
+   leaf.setPoint(2, sf::Vector2f(430, 400));
+   leaf.setFillColor(leaf_color);
+   window.draw(leaf);
+
+
 }
 
 
