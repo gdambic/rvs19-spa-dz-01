@@ -42,6 +42,26 @@ public:
 	//set the position of the flower
 	void setPosition(float x, float y);
 
+	//setters
+	void setPetalNum(int num);
+	void setPetalSize(float size);
+	void setStemSize(float size);
+	void setCenterSize(float size);
+	void setLeavesNum(int num);
+	void setLeafSize(float size);
+	void setFlowerNum(int num);
+	void setSeason(int season);
+	void setSpringIntensity(float intensity);
+	void setSummerIntensity(float intensity);
+	void setWinterIntensity(float intensity);
+	void setWindIntensity(float intensity);
+	void setPetalColor(sf::Color color);
+	void setCenterColor(sf::Color color);
+	void setStemColor(sf::Color color);
+	void setLeafColor(sf::Color color);
+
+
+
 	//draw the flower
 	void draw(sf::RenderWindow& window);
 

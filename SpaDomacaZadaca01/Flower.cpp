@@ -1,10 +1,12 @@
 #include "Flower.h"
 
+
+//flower class constructor
 Flower::Flower() {
 	// Set default values
 	//flower instance:
     petal_num = 5;                   // Default number of petals
-    petal_size = 20.f;               // Default petal size
+    petal_size = 30.f;               // Default petal size
     stem_size = 10.f;                // Default stem size
     center_size = 30.f;              // Default center size
     leaves_num = 2;                  // Default number of leaves
@@ -20,10 +22,12 @@ Flower::Flower() {
     petal_color = sf::Color::Red;    // Default petal color
     center_color = sf::Color::Yellow;// Default center color
     stem_color = sf::Color::Green;   // Default stem color
-    leaf_color = sf::Color::Green;   // Default leaf color
+    leaf_color = sf::Color::Green;   // Default leaf colocr
 
 }
 
+
+//draw the flower on the window
 void Flower::draw(sf::RenderWindow& window) {
 
     // Draw center
@@ -50,4 +54,87 @@ void Flower::draw(sf::RenderWindow& window) {
     stem.setFillColor(stem_color);
     window.draw(stem);
 
+}
+
+
+
+//setters   
+void Flower::setPetalNum(int num)
+{
+    this->petal_num = num;
+}
+
+void Flower::setPetalSize(float size)
+{
+    	this->petal_size = size;
+}
+
+void Flower::setStemSize(float size)
+{
+    this->stem_size = size;
+}
+
+void Flower::setCenterSize(float size)
+{
+    	this->center_size = size;
+}
+
+void Flower::setLeavesNum(int num)
+{
+    	this->leaves_num = num;
+}
+
+void Flower::setLeafSize(float size)
+{
+    	this->leaf_size = size;
+}
+
+void Flower::setFlowerNum(int num)
+{
+    	this->flower_num = num;
+}
+
+void Flower::setSeason(int season)
+{
+		this->season = season;
+}
+
+void Flower::setSpringIntensity(float intensity)
+{
+		this->spring_intensity = intensity;
+}
+
+void Flower::setSummerIntensity(float intensity)
+{
+		this->summer_intensity = intensity;
+}
+
+void Flower::setWinterIntensity(float intensity)
+{
+		this->winter_intensity = intensity;
+}
+
+void Flower::setWindIntensity(float intensity)
+{
+    this->wind_intensity = intensity;
+}
+
+void Flower::setPetalColor(sf::Color color)
+{
+	this->petal_color = color;
+}
+
+void Flower::setCenterColor(sf::Color color)
+{
+	this->center_color = color;
+}
+
+void Flower::setStemColor(sf::Color color)
+{
+	this->stem_color = color;
+}
+
+void Flower::setLeafColor(sf::Color color)
+{
+	this->leaf_color = color;
 }
