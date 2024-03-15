@@ -53,7 +53,7 @@ void Flower::draw(sf::RenderWindow& window) {
         window.draw(petal);
     }
 
-    // Draw stemS
+    // Draw stem
     sf::RectangleShape stem(sf::Vector2f(stem_width, stem_lenght));
     stem.setOrigin(stem_width / 2, 0);
     stem.setPosition(400, 300 + center_size);
@@ -61,13 +61,27 @@ void Flower::draw(sf::RenderWindow& window) {
     window.draw(stem);
 
    //leaf base
-   sf::ConvexShape leaf;
-   leaf.setPointCount(3);
-   leaf.setPoint(0, sf::Vector2f(400, 420));
-   leaf.setPoint(1, sf::Vector2f(450, 400));
-   leaf.setPoint(2, sf::Vector2f(430, 400));
-   leaf.setFillColor(leaf_color);
-   window.draw(leaf);
+    int starting_y = 420; // Y position of the first leaf
+    int x_center = 400; // X position of the stem center
+    int offset_x = 50; // Horizontal distance from the stem to the leaf tip
+    int offset_y = 20; // Vertical distance between each leaf
+
+    for (int i = 0; i < leaves_num; ++i) {
+        // Determine the side for the current leaf: right (1) for even i, left (-1) for odd i
+        int side = i % 2 == 0 ? 1 : -1;
+        // Calculate y position for the current leaf
+        int y_position = starting_y + (i * offset_y);
+
+        sf::ConvexShape leaf;
+        leaf.setPointCount(3);
+        leaf.setPoint(0, sf::Vector2f(x_center, y_position));
+        leaf.setPoint(1, sf::Vector2f(x_center + side * offset_x, y_position));
+        leaf.setPoint(2, sf::Vector2f(x_center + side * (offset_x / 2), y_position + offset_y / 2));
+        leaf.setFillColor(leaf_color);
+        window.draw(leaf);
+    }
+
+
 
 
 }
