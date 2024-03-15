@@ -16,9 +16,6 @@ private:
 	
 	//seasons:
 	int season;				// 0 for summer, 1 for winter, 2 for spring
-	float spring_intensity;	//intensity of spring
-	float summer_intensity;	//intensity of summer
-	float winter_intensity;	//intensity of winter
 	
 	//universal modifier:
 	float wind_intensity;	//intensity of wind
@@ -50,9 +47,6 @@ public:
 	void setLeafSize(float size);
 	void setFlowerNum(int num);
 	void setSeason(int season);
-	void setSpringIntensity(float intensity);
-	void setSummerIntensity(float intensity);
-	void setWinterIntensity(float intensity);
 	void setWindIntensity(float intensity);
 	void setPetalColor(sf::Color color);
 	void setCenterColor(sf::Color color);
@@ -69,9 +63,6 @@ public:
 	float getLeafSize();
 	int getFlowerNum();
 	int getSeason();
-	float getSpringIntensity();
-	float getSummerIntensity();
-	float getWinterIntensity();
 	float getWindIntensity();
 	sf::Color getPetalColor();
 	sf::Color getCenterColor();

@@ -2,9 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
-
-
 //read the user input
 float Flower::readinput()
 {
@@ -15,7 +12,6 @@ float Flower::readinput()
 
 //flower class constructor
 Flower::Flower() {
-	// Set default values
     petal_num = 6;                   // Default number of petals
     petal_size = 25.f;               // Default petal size
     stem_width = 10.f;               // Default stem size
@@ -25,9 +21,6 @@ Flower::Flower() {
     leaf_size = 30.f;                // Default leaf size
     flower_num = 1;                  // Number of flowers
     season = 0;                      // Default to summer (0 stand for summer)
-    spring_intensity = 0.5f;         // Default spring intensity
-    summer_intensity = 0.5f;         // Default summer intensity
-    winter_intensity = 0.5f;         // Default winter intensity
     wind_intensity = 0.5f;           // Default wind intensity
     petal_color = sf::Color::Yellow; // Default petal color
     center_color = sf::Color::Red;   // Default center color
@@ -45,13 +38,15 @@ void Flower::draw(sf::RenderWindow& window) {
     center.setFillColor(center_color);
     window.draw(center);
 
-    // Draw petals  CHANGE CODE SO THAT IT DRAWS PETALS CONNECTED TO THE CIRCLE
+
+    // Draw petals 
     for (int i = 0; i < petal_num; ++i) {
         sf::CircleShape petal(petal_size);
         petal.setPosition(400 + cos(i * 2 * 3.14159 / petal_num) * 60 - petal_size, 300 + sin(i * 2 * 3.14159 / petal_num) * 60 - petal_size);
         petal.setFillColor(petal_color);
         window.draw(petal);
     }
+
 
     // Draw stem
     sf::RectangleShape stem(sf::Vector2f(stem_width, stem_lenght));
@@ -60,7 +55,8 @@ void Flower::draw(sf::RenderWindow& window) {
     stem.setFillColor(stem_color);
     window.draw(stem);
 
-   //leaf base
+
+    //draw leaves
     int starting_y = 420; // Y position of the first leaf
     int x_center = 400; // X position of the stem center
     int offset_x = 50; // Horizontal distance from the stem to the leaf tip
@@ -81,9 +77,6 @@ void Flower::draw(sf::RenderWindow& window) {
         window.draw(leaf);
     }
 
-
-
-
 }
 
 
@@ -96,7 +89,7 @@ void Flower::setPetalNum(int num)
     {
         cout << "flower cant have negative petals" << endl;
     }
-    else if (num > 100)
+    else if (num > 30)
     {
         cout << "flower cant have that many petals" << endl;
     }
@@ -112,7 +105,7 @@ void Flower::setPetalSize(float size)
     {
         cout << "Petals cant be negatively sized" << endl;
     }
-    else if (size > 300)
+    else if (size > 50)
     {
         cout << "Petals cant be that large" << endl;
     }
@@ -208,21 +201,6 @@ void Flower::setSeason(int season)
     }
 }
 
-void Flower::setSpringIntensity(float intensity)
-{
-	this->spring_intensity = intensity;
-}
-
-void Flower::setSummerIntensity(float intensity)
-{
-	this->summer_intensity = intensity;
-}
-
-void Flower::setWinterIntensity(float intensity)
-{
-	this->winter_intensity = intensity;
-}
-
 void Flower::setWindIntensity(float intensity)
 {
     this->wind_intensity = intensity;
@@ -294,21 +272,6 @@ int Flower::getFlowerNum()
 int Flower::getSeason()
 {
     return season;
-}
-
-float Flower::getSpringIntensity()
-{
-    return spring_intensity;
-}
-
-float Flower::getSummerIntensity()
-{
-    return summer_intensity;
-}
-
-float Flower::getWinterIntensity()
-{
-    return winter_intensity;
 }
 
 float Flower::getWindIntensity()
