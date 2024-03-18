@@ -3,22 +3,23 @@ using namespace sf;
 
 
 CircleShape Flower::drawSun(int radius, int x, int y) {
-	// Set up the small yellow circle (sun) in the top left corner
+	
 	CircleShape sun(radius);
 	sun.setFillColor(Color::Yellow);
-	sun.setPosition(x, y); // Positioned in the top left corner of the window
+	sun.setPosition(x, y); 
 	return sun;
 }
 
 CircleShape Flower::flowerCenter() {
 
-	CircleShape center(50);
+	CircleShape center(40);
 	center.setFillColor(Color(17, 165, 57));
 	center.setOrigin(50, 50);
 	center.setPosition(250, 180);
+	
 	return center;
 }
-CircleShape Flower::drawPetals(int angle) {
+/*CircleShape Flower::drawPetalsold(int angle) {
 
 	CircleShape petals(100,12);
 	petals.setFillColor(Color(158, 72, 98));
@@ -26,13 +27,25 @@ CircleShape Flower::drawPetals(int angle) {
 	petals.setPosition(250, 180);
 	petals.rotate(angle);
 	return petals;
+}*/
+
+CircleShape Flower::drawPetals (int a, int b) {
+
+
+	CircleShape petals(50);
+	petals.setFillColor(Color(158, 72, 98));
+	petals.setOrigin(50,50);
+
+	petals.setPosition(a,b);
+	
+	return petals;
 }
 
 RectangleShape Flower::drawStem() {
 
-	RectangleShape stem(Vector2f(12,320)); //width,height
+	RectangleShape stem(Vector2f(12,330)); //width,height
 	stem.setFillColor(Color(149, 240, 103));
-	stem.setPosition(240, 280);
+	stem.setPosition(240, 270);
 	
 	return stem;
 }
@@ -59,14 +72,17 @@ ConvexShape Flower::drawLeafs() {
 
 
 
-void Flower::draw(int x,int angle) {
+void Flower::draw(int x ) {
 
 	window_local->draw(drawSun(30, x, 30));
-	window_local->draw(drawPetals(angle));
+	
+	window_local->draw(drawPetals(250 , 120));
+	window_local->draw(drawPetals(290, 170));
+	window_local->draw(drawPetals(250, 220));
+	window_local->draw(drawPetals(200, 170));
+
 	window_local->draw(flowerCenter());
 	window_local->draw(drawStem());
 	window_local->draw(drawLeafs());
-
-
 
 }

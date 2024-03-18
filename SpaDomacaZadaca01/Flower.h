@@ -8,14 +8,14 @@ private:
 
 	RenderWindow *window_local;
 	CircleShape drawSun(int, int, int);
-	CircleShape drawPetals(int);
+	CircleShape drawPetals(int, int);
 	CircleShape flowerCenter();
 	RectangleShape drawStem();
 	ConvexShape drawLeafs();
 
 public:
 	Flower(RenderWindow *window);
-	void draw(int,int);
+	void draw(int);
 
 };
 
