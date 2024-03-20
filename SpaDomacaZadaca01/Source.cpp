@@ -1,14 +1,17 @@
 #include <SFML/Graphics.hpp>
+#include "Cvijet.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Cvijet cvijet(&window);
+	sf::Clock clock;
 
 	while (window.isOpen())
 	{
 		sf::Event event;
+		sf::Time elapsed = clock.restart();
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
@@ -16,7 +19,7 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		cvijet.draw();
 		window.display();
 	}
 
