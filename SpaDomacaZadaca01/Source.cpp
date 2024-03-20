@@ -19,7 +19,6 @@ int main()
 	cout << "5. Petal Size" << endl;
 	cout << "6. Leaves Size" << endl;
 	cout << "7. Leaves Amount" << endl;
-	cout << "8. Set Season" << endl;
 	cout << "10. Generate Flower" << endl;
 	cout << "11. Exit" << endl << endl;
 
@@ -70,12 +69,6 @@ int main()
 			cout << "you selected Leaves Amount: ";
 			f.setLeavesNum(f.readinput());
 			cout << "the new value is: " << f.getLeavesNum() << endl;
-		}
-		else if (userin == 8)
-		{
-			cout << "you selected Set Season: ";
-			f.setSeason(f.readinput());
-			cout << "the new value is: " << f.getSeason() << endl;
 		}
 		else if (userin == 10)
 		{

@@ -20,8 +20,6 @@ Flower::Flower() {
     leaves_num = 5;                  // Default number of leaves
     leaf_size = 30.f;                // Default leaf size
     flower_num = 1;                  // Number of flowers
-    season = 0;                      // Default to summer (0 stand for summer)
-    wind_intensity = 0.5f;           // Default wind intensity
     petal_color = sf::Color::Yellow; // Default petal color
     center_color = sf::Color::Red;   // Default center color
     stem_color = sf::Color::Green;   // Default stem color
@@ -189,22 +187,7 @@ void Flower::setFlowerNum(int num)
    	this->flower_num = num;
 }
 
-void Flower::setSeason(int season)
-{
-    if (season > 3 || season < 0)
-    {
-        cout << "Use 0 for summer, 1 for winter, 2 for spring" << endl;
-    }
-    else
-    {
-        this->season = season;
-    }
-}
 
-void Flower::setWindIntensity(float intensity)
-{
-    this->wind_intensity = intensity;
-}
 
 void Flower::setPetalColor(sf::Color color)
 {
@@ -269,15 +252,6 @@ int Flower::getFlowerNum()
     return flower_num;
 }
 
-int Flower::getSeason()
-{
-    return season;
-}
-
-float Flower::getWindIntensity()
-{
-    return wind_intensity;
-}
 
 sf::Color Flower::getPetalColor()
 {
