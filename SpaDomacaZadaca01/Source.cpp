@@ -93,7 +93,6 @@ int main()
 	
 	}
 
-
 	//create the window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Procedural Flower Generator");
 	window.setFramerateLimit(60);

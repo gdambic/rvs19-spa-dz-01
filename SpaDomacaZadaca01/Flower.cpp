@@ -25,7 +25,7 @@ Flower::Flower() {
     petal_color = sf::Color::Yellow; // Default petal color
     center_color = sf::Color::Red;   // Default center color
     stem_color = sf::Color::Green;   // Default stem color
-    leaf_color = sf::Color::Green;   // Default leaf colocr
+    leaf_color = sf::Color::Green;   // Default leaf color
 }
 
 
@@ -42,7 +42,7 @@ void Flower::draw(sf::RenderWindow& window) {
     // Draw petals 
     for (int i = 0; i < petal_num; ++i) {
         sf::CircleShape petal(petal_size);
-        petal.setPosition(400 + cos(i * 2 * 3.14159 / petal_num) * 60 - petal_size, 300 + sin(i * 2 * 3.14159 / petal_num) * 60 - petal_size);
+        petal.setPosition(400 + cos(i * 2 * 3.14 / petal_num) * 60 - petal_size, 300 + sin(i * 2 * 3.14 / petal_num) * 60 - petal_size);
         petal.setFillColor(petal_color);
         window.draw(petal);
     }
