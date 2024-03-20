@@ -1,23 +1,39 @@
 #include <SFML/Graphics.hpp>
+#include "Flower.h"
+using namespace sf;
 
-int main()
-{
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+int main(){
+
+
+	RenderWindow window(VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Flower flower (&window);
+	
+	int x = 30; //x coordinate for sun animation
+	int direction = 1;
+	
+	while (window.isOpen()){
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
+		Event event;
+		while (window.pollEvent(event)){
+
+			if (event.type == Event::Closed)
 				window.close();
 		}
 
+		if (x == 800) {
+			direction = -1;
+		}
+		else if (x == 30) {
+			direction = 1;
+		}
+		x = x + direction;
+	
+
 		window.clear();
-		//cvijet.draw();
+		flower.draw(x);
 		window.display();
+
 	}
 
 	return 0;
