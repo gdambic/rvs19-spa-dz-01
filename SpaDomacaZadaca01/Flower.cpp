@@ -19,15 +19,7 @@ CircleShape Flower::flowerCenter() {
 	
 	return center;
 }
-/*CircleShape Flower::drawPetalsold(int angle) {
 
-	CircleShape petals(100,12);
-	petals.setFillColor(Color(158, 72, 98));
-	petals.setOrigin(100, 100);
-	petals.setPosition(250, 180);
-	petals.rotate(angle);
-	return petals;
-}*/
 
 CircleShape Flower::drawPetals (int a, int b) {
 
@@ -50,12 +42,6 @@ RectangleShape Flower::drawStem() {
 	return stem;
 }
 
-
-Flower::Flower(RenderWindow  *window) {
-	window_local = window;
-
-}
-
 ConvexShape Flower::drawLeafs() {
 
 	ConvexShape leaf;
@@ -69,6 +55,10 @@ ConvexShape Flower::drawLeafs() {
 	return leaf;
 }
 
+Flower::Flower(RenderWindow  *window) {
+	window_local = window;
+
+}
 
 
 
