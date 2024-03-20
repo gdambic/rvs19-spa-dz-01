@@ -7,6 +7,7 @@ Flower::Flower(sf::RenderWindow* window) {
 	this->m_circle_radius = 50.f;
 	this->m_clock = sf::Clock();
 	this->m_isExpanding = true;
+	this->m_animation_speed_ms = 15;
 }
 
 void Flower::draw() {
@@ -21,7 +22,7 @@ void Flower::draw() {
 	
 	//Grass
 	sf::RectangleShape rectangle(sf::Vector2f(800.f, 100.f));
-	rectangle.setFillColor(sf::Color(100, 200, 0));
+	rectangle.setFillColor(sf::Color(100, 200, 100));
 	rectangle.setPosition(0, 500);
 
 	//Stem
@@ -73,22 +74,23 @@ void Flower::draw() {
 
 	sf::Time time = m_clock.getElapsedTime();
 
-	if (time.asMilliseconds() > 100) {
+	if (time.asMilliseconds() > m_animation_speed_ms) {
 		m_clock.restart();
 
 		if (m_isExpanding)
 		{
-			m_circle_radius += 1;
+			m_circle_radius += 0.2;
 		}
 		else {
-			m_circle_radius -= 1;
+			m_circle_radius -= 0.2;
 		}
 	}
 
-	if (m_circle_radius >= 60 && m_isExpanding) {
+	if (m_circle_radius >= 65 && m_isExpanding) {
 		m_isExpanding = false;
 	}
 	else if (m_circle_radius <= 50 && !m_isExpanding) {
 		m_isExpanding = true;
 	}
+
 }
