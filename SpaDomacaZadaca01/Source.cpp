@@ -1,10 +1,13 @@
 #include <SFML/Graphics.hpp>
+#include "Scene.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(Scene::WINDOW_WIDTH, Scene::WINDOW_HEIGHT), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Scene scene(&window);
+
+	sf::Clock clock;
 
 	while (window.isOpen())
 	{
@@ -15,9 +18,9 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		//cvijet.draw();
-		window.display();
+		sf::Time deltaTime = clock.restart();
+		scene.update(deltaTime);
+		scene.draw();
 	}
 
 	return 0;
