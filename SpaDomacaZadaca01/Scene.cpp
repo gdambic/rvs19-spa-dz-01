@@ -3,6 +3,7 @@
 #include "Moon.h"
 #include "Rectangle.h"
 #include "Flower.h"
+#include "Rain.h"
 #include "util.h"
 
 const int Scene::WINDOW_WIDTH = 800;
@@ -43,7 +44,7 @@ Scene::Scene(sf::RenderWindow* window) {
 	animatedElements.push_back(new Flower(
 		sf::Vector2f(150.f, 333.f),
 		sf::Vector2f(0, 0.2f),
-		sf::Color::Magenta,
+		sf::Color::White,
 		180.f
 	));
 	animatedElements.push_back(new Flower(
@@ -55,9 +56,11 @@ Scene::Scene(sf::RenderWindow* window) {
 	animatedElements.push_back(new Flower(
 		sf::Vector2f(600.f, 320.f),
 		sf::Vector2f(0, 0.3f),
-		sf::Color::Cyan,
+		sf::Color::Yellow,
 		201.f
 	));
+
+	animatedElements.push_back(new Rain());
 }
 
 Scene::~Scene() {

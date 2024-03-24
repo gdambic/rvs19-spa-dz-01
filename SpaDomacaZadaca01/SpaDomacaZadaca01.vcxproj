@@ -156,9 +156,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CelestialBody.cpp" />
+    <ClCompile Include="Droplet.cpp" />
     <ClCompile Include="Flower.cpp" />
     <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="Moon.cpp" />
+    <ClCompile Include="Rain.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -168,9 +170,11 @@
   <ItemGroup>
     <ClInclude Include="AnimatedElement.h" />
     <ClInclude Include="CelestialBody.h" />
+    <ClInclude Include="Droplet.h" />
     <ClInclude Include="Flower.h" />
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="Moon.h" />
+    <ClInclude Include="Rain.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sun.h" />
