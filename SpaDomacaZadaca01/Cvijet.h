@@ -9,8 +9,8 @@ private:
 	RenderWindow* window;
 
 	RectangleShape drawBg(Color color, Vector2f size);
-
 	CircleShape drawPetal(Color color, float size, Vector2f position, Vector2f scale);
+	CircleShape drawCloud(Color color, Vector2f position, Vector2f scale);
 
 public:
 	Cvijet(RenderWindow* window);
