@@ -2,9 +2,14 @@
 
 #include "CelestialBody.h"
 
-class Sun : public CelestialBody {
+class Moon : public CelestialBody {
+private:
+	sf::CircleShape crescentCover;
+	sf::Color crescentCoverColor;
+
 public:
-	Sun(
+	Moon(
+		const sf::Color& crescentCoverColor,
 		const sf::Vector2f& orbitCenter,
 		float radius,
 		float orbitRadius,
@@ -12,5 +17,5 @@ public:
 		float angularVelocity
 	);
 	virtual void draw(sf::RenderWindow& window) override;
-	float getAngle() const;
+	void setCrescentCoverColor(const sf::Color& color);
 };
