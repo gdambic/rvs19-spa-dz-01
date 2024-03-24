@@ -2,12 +2,12 @@
 #include <vector>
 #include <ctime>
 #include <random>
+#include <iostream>
 
 RectangleShape Cvijet::drawBg(Color color, Vector2f size)
 {
 	RectangleShape bg(size);
 	bg.setFillColor(color);
-
 	return bg;
 }
 
@@ -43,12 +43,23 @@ Cvijet::Cvijet(RenderWindow* window)
 
 void Cvijet::draw()
 {
+	//time initiation
+	Time time = clock.getElapsedTime();
+	std::cout << time.asSeconds() << std::endl;
+
+	//time restart
+	if (time.asSeconds() > 10)
+	{
+		clock.restart();
+	}
+
+
 
 	//draw field
 	window->draw(drawBg({ 17,124,19 }, { 1000.f, 1000.f }));
 
 	//draw sky
-	window->draw(drawBg({ 135, 206, 235 }, { 1000.f, 200.f }));
+	window->draw(drawBg({ 135, 206, 235 }, { 1000.f, 250.f }));
 
 	//draw first cloud
 	for (size_t i = 0; i < 30; i++)
@@ -59,6 +70,14 @@ void Cvijet::draw()
 			{(float)(rand() % 8), (float)(rand() % 8)}
 			));
 	}
+
+	//draw stem
+	RectangleShape stem(Vector2f(330.f, 12.f));
+	stem.setFillColor(Color(50, 205, 50));
+	stem.setPosition(Vector2f(200.f, 200.f));
+	stem.rotate(91.f);
+	stem.move({ 5.f,0.f });
+	window->draw(stem);
 
 	//draw petals
 	for (size_t i = 0; i < 30; i++)
@@ -80,5 +99,5 @@ void Cvijet::draw()
 	pistil.move(Vector2f(120.f, 90.f));
 	pistil.setFillColor(Color(46, 41, 17));
 	window->draw(pistil);
-
 }
+

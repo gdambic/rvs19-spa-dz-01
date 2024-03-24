@@ -7,6 +7,8 @@ class Cvijet
 {
 private:
 	RenderWindow* window;
+	Clock clock;
+	Time time;
 
 	RectangleShape drawBg(Color color, Vector2f size);
 	CircleShape drawPetal(Color color, float size, Vector2f position, Vector2f scale);
