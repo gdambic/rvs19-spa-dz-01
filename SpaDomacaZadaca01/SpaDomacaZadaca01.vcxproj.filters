@@ -24,7 +24,22 @@
     <ClCompile Include="Sun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AnimatedElement.cpp">
+    <ClCompile Include="Moon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CelestialBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Flower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Leaf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,6 +51,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CelestialBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Flower.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Leaf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

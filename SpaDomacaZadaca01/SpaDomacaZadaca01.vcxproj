@@ -155,15 +155,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnimatedElement.cpp" />
+    <ClCompile Include="CelestialBody.cpp" />
+    <ClCompile Include="Flower.cpp" />
+    <ClCompile Include="Leaf.cpp" />
+    <ClCompile Include="Moon.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Sun.cpp" />
+    <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedElement.h" />
+    <ClInclude Include="CelestialBody.h" />
+    <ClInclude Include="Flower.h" />
+    <ClInclude Include="Leaf.h" />
+    <ClInclude Include="Moon.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sun.h" />
+    <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
