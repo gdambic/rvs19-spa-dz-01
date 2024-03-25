@@ -44,19 +44,19 @@ Scene::Scene(sf::RenderWindow* window) {
 	animatedElements.push_back(new Flower(
 		sf::Vector2f(150.f, 333.f),
 		sf::Vector2f(0, 0.2f),
-		sf::Color::White,
+		sf::Color::Magenta,
 		180.f
 	));
 	animatedElements.push_back(new Flower(
 		celestialOrbitCenter,
 		sf::Vector2f(0, 0.1f),
-		sf::Color::Red,
+		sf::Color::Yellow,
 		234.f
 	));
 	animatedElements.push_back(new Flower(
 		sf::Vector2f(600.f, 320.f),
 		sf::Vector2f(0, 0.3f),
-		sf::Color::Yellow,
+		sf::Color::Red,
 		201.f
 	));
 
