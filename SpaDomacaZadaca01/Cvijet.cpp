@@ -129,9 +129,19 @@ void Cvijet::draw()
 		);
 		// define rotaion in every iteration
 		ray.rotate(3 * (10 * i));
+		// define rotation animation per second
 		ray.rotate(21 * time.asSeconds());
 
 		window->draw(ray);
 	}
+
+	//draw pond
+	CircleShape pond(40.f);
+	pond.setScale(Vector2f(5.f, 1.f));
+	pond.setPosition(Vector2f(320.f, 340.f));
+	pond.setFillColor(Color(0, 0, 139));
+	pond.setOutlineThickness(7.f);
+	pond.setOutlineColor(Color(128, 70, 27));
+	window->draw(pond);
 }
 
