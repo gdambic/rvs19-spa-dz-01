@@ -23,18 +23,6 @@ CircleShape Cvijet::drawPetal(Color color, float size, Vector2f position, Vector
 	return petal;
 }
 
-CircleShape Cvijet::drawCloud(Color color, Vector2f position, Vector2f scale)
-{
-	srand(9);
-	CircleShape cloud(10.f);
-	cloud.setFillColor(color);
-	cloud.setPosition(position);
-	cloud.setScale(scale);
-
-
-	return cloud;
-}
-
 CircleShape Cvijet::drawSunRay(Color color, float size, Vector2f position, Vector2f scale, float rotation)
 {
 	CircleShape ray(size, 3);
@@ -71,16 +59,6 @@ void Cvijet::draw()
 	//draw sky
 	window->draw(drawBg({ 135, 206, 235 }, { 1000.f, 250.f }));
 
-	//draw first cloud
-	//for (size_t i = 0; i < 30; i++)
-	//{
-	//	window->draw(drawCloud(
-	//		{ 150,150,150 },
-	//		{ 500.f, 50.f },
-	//		{(float)(rand() % 8), (float)(rand() % 8)}
-	//		));
-	//}
-
 	//draw stem
 	RectangleShape stem(Vector2f(330.f, 12.f));
 	stem.setFillColor(Color(50, 205, 50));
@@ -89,26 +67,6 @@ void Cvijet::draw()
 	stem.move({ 5.f,0.f });
 	window->draw(stem);
 
-	//draw petals
-	for (size_t i = 0; i < 30; i++)
-	{
-		CircleShape petal = drawPetal(
-			{ 250, 224, 5 },
-			10.f,
-			{ 200.f, 170.f },
-			{ 1.f, 8.f }
-		);
-		// define rotaion in every iteration
-		petal.rotate(3 * (4 * i));
-
-		window->draw(petal);
-	}
-
-	//draw pistil
-	CircleShape pistil(80.f);
-	pistil.move(Vector2f(120.f, 90.f));
-	pistil.setFillColor(Color(46, 41, 17));
-	window->draw(pistil);
 
 	//draw sun
 	CircleShape sun(40.f);
@@ -135,6 +93,47 @@ void Cvijet::draw()
 		window->draw(ray);
 	}
 
+	//draw cloud
+	Vector2f cloudPositions[7] = {
+		{-100.f, 16.f},
+		{-110.f, 8.f},
+		{-120.f, 36.f},
+		{-130.f, 13.f},
+		{-140.f, 24.f},
+		{-150.f, 10.f},
+		{-160.f, 31.f}
+	};
+	for (int i = 0; i < 7; i++)
+	{
+		CircleShape cloud(10.f);
+		cloud.setPosition(cloudPositions[i]);
+		cloud.setScale(5.f, 1.f);
+		cloud.setFillColor(Color(169, 169, 169));
+		cloud.move(Vector2f(100.f * time.asSeconds(), 0.f));
+		window->draw(cloud);
+	}
+
+	//draw petals
+	for (size_t i = 0; i < 30; i++)
+	{
+		CircleShape petal = drawPetal(
+			{ 250, 224, 5 },
+			10.f,
+			{ 200.f, 170.f },
+			{ 1.f, 8.f }
+		);
+		// define rotaion in every iteration
+		petal.rotate(3 * (4 * i));
+
+		window->draw(petal);
+	}
+
+	//draw pistil
+	CircleShape pistil(80.f);
+	pistil.move(Vector2f(120.f, 90.f));
+	pistil.setFillColor(Color(46, 41, 17));
+	window->draw(pistil);
+
 	//draw pond
 	CircleShape pond(40.f);
 	pond.setScale(Vector2f(5.f, 1.f));
@@ -143,5 +142,7 @@ void Cvijet::draw()
 	pond.setOutlineThickness(7.f);
 	pond.setOutlineColor(Color(128, 70, 27));
 	window->draw(pond);
+
+
 }
 
