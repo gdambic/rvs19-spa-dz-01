@@ -11,10 +11,6 @@ Color lerpColor(Color* ColorA, Color* ColorB, double t) {
 		lerpNumber(ColorA->b, ColorB->b, t));
 }
 
-int randomNumber(int min, int max) {
-	return rand() % (max - min + 1) + min;
-}
-
 double toRadians(double degrees) {
 	return degrees * (PI / 180);
 }
