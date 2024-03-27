@@ -113,7 +113,7 @@ void Cvijet::draw()
 
 	int petalRadius = 50;
 
-	for (unsigned int i = 0; i < 6; i++)
+	for (unsigned int i = 0; i < numberOfPetals; i++)
 	{
 		double angle = PI / 3 * i;
 
