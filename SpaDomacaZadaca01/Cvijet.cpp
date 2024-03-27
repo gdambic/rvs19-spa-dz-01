@@ -1,8 +1,5 @@
 #include "Cvijet.h"
 #include <vector>
-#include <ctime>
-#include <random>
-#include <iostream>
 
 RectangleShape Cvijet::drawBg(Color color, Vector2f size)
 {
@@ -13,7 +10,6 @@ RectangleShape Cvijet::drawBg(Color color, Vector2f size)
 
 CircleShape Cvijet::drawPetal(Color color, float size, Vector2f position, Vector2f scale)
 {
-
 	CircleShape petal(size);
 	petal.setFillColor(color);
 	petal.scale(scale);
@@ -43,15 +39,12 @@ void Cvijet::draw()
 {
 	//time initiation
 	Time time = clock.getElapsedTime();
-	std::cout << (time.asSeconds()) << std::endl;
 
 	//time restart
 	if (time.asSeconds() > 10)
 	{
 		clock.restart();
 	}
-
-
 
 	//draw field
 	window->draw(drawBg({ 17,124,19 }, { 1000.f, 1000.f }));
@@ -66,7 +59,6 @@ void Cvijet::draw()
 	stem.rotate(91.f);
 	stem.move({ 5.f,0.f });
 	window->draw(stem);
-
 
 	//draw sun
 	CircleShape sun(40.f);
@@ -87,7 +79,7 @@ void Cvijet::draw()
 		);
 		// define rotaion in every iteration
 		ray.rotate(3 * (10 * i));
-		// define rotation animation per second
+		// define rotation speed during animation, expressed in seconds
 		ray.rotate(21 * time.asSeconds());
 
 		window->draw(ray);
@@ -109,7 +101,10 @@ void Cvijet::draw()
 		cloud.setPosition(cloudPositions[i]);
 		cloud.setScale(5.f, 1.f);
 		cloud.setFillColor(Color(169, 169, 169));
+
+		// define animation
 		cloud.move(Vector2f(100.f * time.asSeconds(), 0.f));
+
 		window->draw(cloud);
 	}
 
@@ -142,7 +137,4 @@ void Cvijet::draw()
 	pond.setOutlineThickness(7.f);
 	pond.setOutlineColor(Color(128, 70, 27));
 	window->draw(pond);
-
-
 }
-
