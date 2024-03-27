@@ -56,7 +56,7 @@ void Cvijet::draw()
 
 	// Moon
 
-	int moonRadius = 30;
+	int moonRadius = 20;
 	int moonDistanceToCenter = 330;
 
 	Vector2f moonOffset(moonDistanceToCenter * -cos(moonAngle), moonDistanceToCenter * -sin(moonAngle));
