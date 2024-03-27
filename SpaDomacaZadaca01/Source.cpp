@@ -1,13 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "Flower.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Flower!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+	Flower flower(&window);
+	
 
 	while (window.isOpen())
 	{
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -15,9 +18,12 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		//cvijet.draw();
+		sf::Color backgroundColor = sf::Color(173, 216, 230);
+
+		window.clear(backgroundColor);
+		flower.draw();
 		window.display();
+
 	}
 
 	return 0;
