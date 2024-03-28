@@ -14,7 +14,7 @@ private:
 	//define image elements
 	CircleShape shape, ray;
 
-	//define new functions
+	//define function to draw shape
 	CircleShape drawShape(float size, int points, Vector2f position, float rotation = 0.f, Vector2f scale = {0.f,0.f}, Color colorFill = {255,255,255}, float outline = 0.f, Color colorOutline = {0,0,0});
 
 public:
