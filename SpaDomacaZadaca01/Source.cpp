@@ -4,8 +4,14 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8.0;
+
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Windy", sf::Style::Close, settings);
+
 	window.setFramerateLimit(60);
+	window.setVerticalSyncEnabled(true);
+
 	Cvijet cvijet(window);
 
 	while (window.isOpen())
@@ -18,7 +24,7 @@ int main()
 				window.close();
 				break;
 			case sf::Event::Resized:
-				std::cout << "Resize;";
+				std::cout << "Resize.";
 				break;
 			}
 		}
