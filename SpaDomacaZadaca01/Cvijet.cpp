@@ -78,12 +78,12 @@ void Cvijet::update(float delta)
 	for (size_t i = 0; i < petal_rotations.size(); i++)
 		petal_rotations[i] += sin( (lifetime + petal_rotation_phase[i]) * 15) / 5.0f;
 
-	head_rotation = sin(lifetime * 2.0f) * 25.0f - 15.0f;
+	head_rotation = sin(lifetime * 2.0f) * 20.0f - 30.0f;
 
 	// Can't be done with -= and += because it veers off the original position
 	// Maybe due to floating point inaccuracies? Don't care enough to find out
 	head_pos.x = base_head_pos.x - (int)(sin(lifetime * 3.0f) * 20.0f);
-	head_pos.y = base_head_pos.y + (int)(cos(lifetime * 2.0f) * 10.0f);
+	head_pos.y = base_head_pos.y + (int)(cos(lifetime * 2.0f) * 15.0f);
 }
 
 sf::Vector2f calculateBezierPoint(float t, sf::Vector2f P0, sf::Vector2f P1, sf::Vector2f P2, sf::Vector2f P3) {
