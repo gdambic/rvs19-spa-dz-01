@@ -1,24 +1,31 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+#include "Cvijet.h"
+
+using namespace sf;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
-	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
+    RenderWindow window(VideoMode(800, 600), "Hello, SFML world!", Style::Default);
+    window.setFramerateLimit(60);
+    Cvijet cvijet(&window);
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+    while (window.isOpen())
+    {
+        Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+                window.close();
+        }
 
-		window.clear();
-		//cvijet.draw();
-		window.display();
-	}
+/*        cvijet.update();*/  // Update animation state
 
-	return 0;
+        window.clear(Color::Black);
+        cvijet.draw();  // Draw everything
+        window.display();
+    }
+
+    return 0;
 }
