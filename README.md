@@ -1,4 +1,3 @@
-# rvs19-spa-dz-01
-Domaća zadaća 01 za SPA u 2019.
+# Animated SFML Scene
 
-Koristi SFML verziju Visual C++ 15 (2017) - 64-bit sa https://www.sfml-dev.org/download/sfml/2.5.1/
+![animation-preview](https://github.com/user-attachments/assets/f4f8d7b4-95eb-4943-beb3-66caadf65db9)
