@@ -5,6 +5,7 @@
 class Cvijet
 {
 private :
+
 	//the window 
 	sf::RenderWindow* window;
 
@@ -16,8 +17,13 @@ private :
 	sf::CircleShape center;
 	sf::CircleShape petal;
 
+	//the shapes for the sun
+	sf::CircleShape sun;
+	sf::CircleShape sunCenter;
+
 public:
 
 	Cvijet(sf::RenderWindow* window);
 	void draw();
 };
+
