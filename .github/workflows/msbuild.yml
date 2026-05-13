@@ -1,0 +1,48 @@
+name: MSBuild
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch: 
+
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: SpaDomacaZadaca01.sln
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Release, Debug]
+        platform: [x64]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Add MSBuild to PATH (VS 2017)
+      uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        vs-version: '15.9'
+
+    - name: Restore NuGet packages
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      
+      run: msbuild /m /p:Configuration=${{matrix.build_type}} /p:Platform=${{matrix.platform}} ${{env.SOLUTION_FILE_PATH}}
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with: 
+        name: windows-${{matrix.platform}}-${{matrix.build_type}}-artifact
+        path: '**/${{matrix.platform}}/${{matrix.build_type}}/**'
