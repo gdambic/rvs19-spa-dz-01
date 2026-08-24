@@ -1,4 +1,12 @@
-# rvs19-spa-dz-01
-Domaća zadaća 01 za SPA u 2019.
+# Just a Flower
 
-Koristi SFML verziju Visual C++ 15 (2017) - 64-bit sa https://www.sfml-dev.org/download/sfml/2.5.1/
+College mini project (Data structures and algorithms S2): A C++ app using SFML graphics to animate a flower growing.
+
+![App preview](/preview-images/1.png)
+
+Open `SpaDomacaZadaca01.sln`. Bundled dependency: `SFML-2.5.1/`.
+
+## Specs
+
+- [specs-en.pdf](specs-en.pdf)
+- [specs-hr.pdf](specs-hr.pdf)
